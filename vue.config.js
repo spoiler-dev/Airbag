@@ -55,7 +55,18 @@ module.exports = {
     port: 8080,
     https: false,
     hotOnly: false,
-    proxy: null, // 设置代理
+    // 处理跨域问题
+    proxy: {
+      // 豆瓣接口
+      '/api': {
+        target: 'http://api.douban.com',
+        // webpack 的属性，映射一个host
+        changeOrign: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }, // 设置代理
     before: app => {}
   },
   // 第三方插件配置
