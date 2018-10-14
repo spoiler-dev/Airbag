@@ -20,6 +20,10 @@
           clickMode="push"
         >
         </vue-particles>
+        <div class="intro-heading">
+          <h1 class="intro-title">澈 澈</h1>
+          <span class="intro-meta">因为在奔跑 / 所以耳边有风</span>
+        </div>
       </el-header>
       <el-main>
         <article></article>
@@ -47,9 +51,9 @@ export default {
   beforeMount () {},
 
   mounted() {
-    $(function () {
-      alert("成功");
-    })
+    // $(function () {
+    //   alert("成功");
+    // })
   },
 
   methods: {},
@@ -57,55 +61,42 @@ export default {
   watch: {}
 }
 </script>
-<style lang='' scoped>
+<style lang='scss' scoped>
 
-</style>
-
-<style>
-  body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th, td {
-    padding: 0;
-    margin: 0;
-  }
-
-  body {
-    overflow: auto;
-  }
-
-  #navbar {
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-
-  #navbar a:not(.dropdown-item) {
-    color: #fff;
-    text-decoration: none;
-    -webkit-transition: color 0.25s ease;
-    -moz-transition: color 0.25s ease;
-    -ms-transition: color 0.25s ease;
-    transition: color 0.25s ease;
-  }
-  #particles-js {
-    width: 100%;
-    height: 100%;
-  }
   /*设置粒子动态背景*/
   #intro-wrapper {
     position: relative;
     top: 0;
     left: 0;
     background: gray;
-  }
-
-  #intro-wrapper {
     background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .75));
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     /* 背景是否移动  */
     background-attachment: scroll;
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .intro-heading {
+      padding: 8rem 0;
+      text-align: center;
+      .intro-title {
+        font-size: 3rem;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        line-height: 2;
+      }
+      .intro-meta {
+        color: rgba(255,255,255,0.75);
+      }
+    }
   }
 </style>
+
