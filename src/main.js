@@ -7,7 +7,7 @@ import VueParticles from 'vue-particles'
 import ElementUI from 'element-ui'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
-// import Bootstrap from 'bootstrap'
+import $ from 'jquery'
 
 // axios 请求
 Vue.prototype.$axios = axios

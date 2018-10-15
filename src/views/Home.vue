@@ -1,11 +1,48 @@
 <template>
   <div>
     <el-container>
-      <el-header id="intro-wrapper" height="400px">
+      <!-- 导航栏 -->
+      <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <a class="navbar-brand" href="#">
+          <img src="/img/logo36.png" width="36" height="36" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">个人作品</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">个人简历</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">GitHub</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">SegmentFault</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                联系我
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">微博 @spolier丶</a>
+                <a class="dropdown-item" href="#">微信 @方正</a>
+                <a class="dropdown-item" href="#">企鹅 @678477181</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">留言</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <el-header id="intro-wrapper">
         <vue-particles
           color="#fff"
           :particleOpacity="0.7"
-          :particlesNumber="60"
+          :particlesNumber="70"
           shapeType="circle"
           :particleSize="4"
           linesColor="#dedede"
@@ -28,13 +65,15 @@
       <el-main>
         <article></article>
       </el-main>
-      <el-footer>Footer</el-footer>
+      <el-footer>
+        <embed src="/img/spolier.svg" width="128" height="128" type="image/svg+xml"pluginspage="http://www.adobe.com/svg/viewer/install/" />
+      </el-footer>
     </el-container>
   </div>
 </template>
 
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
 export default {
   name: 'home',
   props: [''],
@@ -50,10 +89,7 @@ export default {
 
   beforeMount () {},
 
-  mounted() {
-    // $(function () {
-    //   alert("成功");
-    // })
+  mounted () {
   },
 
   methods: {},
@@ -61,42 +97,7 @@ export default {
   watch: {}
 }
 </script>
+
 <style lang='scss' scoped>
-
-  /*设置粒子动态背景*/
-  #intro-wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    background: gray;
-    background-image: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .75));
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    /* 背景是否移动  */
-    background-attachment: scroll;
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .intro-heading {
-      padding: 8rem 0;
-      text-align: center;
-      .intro-title {
-        font-size: 3rem;
-        font-weight: 600;
-        color: #fff;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        line-height: 2;
-      }
-      .intro-meta {
-        color: rgba(255,255,255,0.75);
-      }
-    }
-  }
+@import '../views/style.scss';
 </style>
-
