@@ -78,7 +78,6 @@
           <router-view />
         </keep-alive>
       </main>
-      <!-- 分页 -->
       <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
         <embed src="/img/spolier.svg" id="spolierSVG" width="128" height="128" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
@@ -87,7 +86,7 @@
             <p>
               &copy; {{year}} 方正
               <br>
-              <small class="text-muted">Hosted by <a href="https://pages.coding.me">Coding Pages</a></small>
+              <small class="text-muted">京ICP备 18046548号</small>
             </p>
           </div>
           <div class="text-75">

@@ -26,15 +26,7 @@
     -webkit-animation: spin 10s linear infinite;
     -moz-animation: spin 10s linear infinite;
     -ms-animation: spin 10s linear infinite;
-    animation: spin 1
-    
-    
-    
-    
-    
-    
-    
-    0s linear infinite;
+    animation: spin 10s linear infinite;
   }
   .navbar-brand {
     padding: 0;
@@ -126,12 +118,53 @@ main#content {
   .container-index {
     max-width: 750px;
   }
-  article.container {
+  .container {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+  }
+}
+
+#pagination-wrapper {
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+  .pager {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      span.float-left {
+        padding: 1rem 1rem 1rem 0;
+      }
+      span.float-right {
+        padding: 1rem 1rem 1rem 0;
+      }
+      a {
+        display: inline-block;
+        width: 50%;
+        color: #404040;
+        background: transparent;
+        font-size: 1.25rem;
+        line-height: inherit;
+        border: 0;
+        border-radius: 0;
+        &:focus,&:hover {
+          color: #1976d2;
+          background-color: transparent;
+        }
+      }
+    }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   }
 }
 
