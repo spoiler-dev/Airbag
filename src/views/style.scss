@@ -22,6 +22,20 @@
     font-size: .875rem;
     white-space: nowrap;
   }
+  #ace {
+    -webkit-animation: spin 10s linear infinite;
+    -moz-animation: spin 10s linear infinite;
+    -ms-animation: spin 10s linear infinite;
+    animation: spin 1
+    
+    
+    
+    
+    
+    
+    
+    0s linear infinite;
+  }
   .navbar-brand {
     padding: 0;
   }
@@ -69,7 +83,7 @@
     }
   }
 }
-main {
+main#content {
   .post {
     margin: 4rem auto;
     a {
@@ -120,10 +134,12 @@ main {
     margin-left: auto;
   }
 }
+
 #footer-wrapper {
   margin-top: 30px;
   padding-bottom: 30px;
   height: auto;
+  text-align: center;
   .footer-meta {
     line-height: 2;
   }
@@ -142,7 +158,7 @@ main {
       padding: 4rem 0 2rem;
     }
   }
-  main {
+  main#content {
     .post {
       margin: .9375rem auto;
       a {
@@ -154,4 +170,27 @@ main {
   }
 }
 
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg)
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg)
+  }
+}
+
+@-ms-keyframes spin {
+  100% {
+    -ms-transform: rotate(360deg)
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg)
+  }
+}
 

@@ -21,7 +21,8 @@ Vue.use(ElementUI)
 require('bootstrap')
 
 Vue.config.productionTip = false
-
+// 挂载 #app 的 div
+// ES6 中键和值相等，可以简写
 new Vue({
   router,
   store,

@@ -4,24 +4,34 @@
       <!-- 导航栏 -->
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
         <a class="navbar-brand" href="#">
-          <img src="/img/logo36.png" width="36" height="36" class="d-inline-block align-top" alt="">
+          <img src="/img/logo36.png" width="36" height="36" class="d-inline-block align-top" alt="澈澈" id="ace">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <router-link to='/index'>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">主页</a>
+              </li>
+            </router-link>
+            <router-link to='/works'>
             <li class="nav-item active">
               <a class="nav-link" href="#">个人作品</a>
             </li>
+            </router-link>
+            <router-link to='/resume'>
+              <li class="nav-item">
+                <a class="nav-link" href="#">个人简历</a>
+              </li>
+            </router-link>
             <li class="nav-item">
-              <a class="nav-link" href="#">个人简历</a>
+              <a class="nav-link" href="https://github.com/spolier">GitHub</a>
             </li>
+            </router-link>
             <li class="nav-item">
-              <a class="nav-link" href="#">GitHub</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">SegmentFault</a>
+              <a class="nav-link" href="https://segmentfault.com/u/spolier">SegmentFault</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,19 +72,14 @@
           <span class="intro-meta">因为在奔跑 / 所以耳边有风</span>
         </div>
       </header>
-      <main>
-        <article class="container container-index post entry" v-for="(item, index) in article" :key="index">
-          <a href="">
-            <header :style="{backgroundImage: 'url('+item.img+')'}">
-              <h2>{{item.title}}</h2>
-              <span>
-                <time>{{item.date}}</time>
-              </span>
-            </header>
-          </a>
-        </article>
+      <!-- 主页面 -->
+      <main id="content">
+        <keep-alive>
+          <router-view />
+        </keep-alive>
       </main>
-
+      <!-- 分页 -->
+      <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
         <embed src="/img/spolier.svg" id="spolierSVG" width="128" height="128" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
         <div class="footer-meta">
@@ -97,39 +102,19 @@
 </template>
 
 <script>
-// import $ from 'jquery'
+import Home from './home/Home'
 export default {
-  name: 'home',
+  name: 'index',
   props: [''],
   data () {
     return {
-      year: new Date().getFullYear(),
-      article: [
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
-        }
-      ]
+      year: new Date().getFullYear()
     }
   },
 
-  components: {},
+  components: {
+    Home
+  },
 
   computed: {},
 
@@ -144,6 +129,6 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-@import '../views/style.scss';
+<style lang='scss'>
+  @import './style.scss';
 </style>
