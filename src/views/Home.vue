@@ -25,7 +25,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                联系我
+                更多
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">微博 @spolier丶</a>
@@ -38,7 +38,7 @@
           </ul>
         </div>
       </nav>
-      <el-header id="intro-wrapper">
+      <header id="intro-wrapper">
         <vue-particles
           color="#fff"
           :particleOpacity="0.7"
@@ -61,13 +61,37 @@
           <h1 class="intro-title">澈 澈</h1>
           <span class="intro-meta">因为在奔跑 / 所以耳边有风</span>
         </div>
-      </el-header>
-      <el-main>
-        <article></article>
-      </el-main>
-      <el-footer>
-        <embed src="/img/spolier.svg" width="128" height="128" type="image/svg+xml"pluginspage="http://www.adobe.com/svg/viewer/install/" />
-      </el-footer>
+      </header>
+      <main>
+        <article class="container container-index post entry" v-for="(item, index) in article" :key="index">
+          <a href="">
+            <header :style="{backgroundImage: 'url('+item.img+')'}">
+              <h2>{{item.title}}</h2>
+              <span>
+                <time>{{item.date}}</time>
+              </span>
+            </header>
+          </a>
+        </article>
+      </main>
+
+      <footer class="container" id="footer-wrapper">
+        <embed src="/img/spolier.svg" id="spolierSVG" width="128" height="128" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+        <div class="footer-meta">
+          <div>
+            <p>
+              &copy; {{year}} 方正
+              <br>
+              <small class="text-muted">Hosted by <a href="https://pages.coding.me">Coding Pages</a></small>
+            </p>
+          </div>
+          <div class="text-75">
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">
+              <img src="/img/by-nc-nd.svg" width="76" height="16" title="Creative Commons「署名 - 非商业性使用 - 禁止演绎 4.0」许可协议"/>
+            </a>
+          </div>
+        </div>
+      </footer>
     </el-container>
   </div>
 </template>
@@ -79,7 +103,29 @@ export default {
   props: [''],
   data () {
     return {
-
+      year: new Date().getFullYear(),
+      article: [
+        {
+          title: '1',
+          date: '2018',
+          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
+        },
+        {
+          title: '1',
+          date: '2018',
+          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
+        },
+        {
+          title: '1',
+          date: '2018',
+          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
+        },
+        {
+          title: '1',
+          date: '2018',
+          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg'
+        }
+      ]
     }
   },
 
