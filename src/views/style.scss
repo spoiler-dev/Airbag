@@ -101,6 +101,14 @@ main#content {
         background-color: rgba(0, 0, 0, 0.25);
         // 正片叠底
         background-blend-mode:multiply;
+        &:hover {
+          -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+          -webkit-filter: brightness(0.75);
+          -moz-filter: brightness(0.75);
+          -ms-filter: brightness(0.75);
+          filter: brightness(0.75);
+        }
         h2 {
           margin: 0;
           color: #fff;
@@ -113,6 +121,9 @@ main#content {
           line-height: 2;
         }
       }
+    }
+    .entry-content {
+      word-break: break-word;
     }
   }
   .container-index {
@@ -185,7 +196,7 @@ main#content {
   }
 }
 
-@media only screen and (max-width: 47.9em) {
+@media only screen and (max-width: 760px) {
   #intro-wrapper {
     .intro-heading {
       padding: 4rem 0 2rem;

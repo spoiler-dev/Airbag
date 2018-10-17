@@ -1,15 +1,15 @@
 <template>
   <div>
     <!-- 文章 -->
-    <article class="container container-index post entry" v-for="(item, index) in article" :key="index" v-if="item.show">
-      <a href="">
+    <article class="container container-index post" v-for="(item, index) in article" :key="index" v-if="item.show">
+      <router-link to="/article">
         <header :style="{backgroundImage: 'url('+item.img+')'}">
           <h2>{{item.title}}</h2>
           <span>
             <time>{{item.date}}</time>
           </span>
         </header>
-      </a>
+      </router-link>
     </article>
     <!-- 分页 -->
     <nav id="pagination-wrapper" class="container">

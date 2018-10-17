@@ -1,0 +1,22 @@
+#works {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+  max-width: 1170px !important;
+  .work-card {
+    height: 120px;
+    position: relative;
+    border-radius: 8px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    background: brown;
+    margin-bottom: 0.857rem;
+    flex: 0 0 216px;
+  }
+}
