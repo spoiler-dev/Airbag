@@ -202,7 +202,7 @@ export default {
 @import './css/snack-helper.css';
 </style>
 
-<style>
+<style scoped>
   html,
   body {
     background-color: #f5f5f5;

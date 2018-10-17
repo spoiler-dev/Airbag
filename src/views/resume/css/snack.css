@@ -242,15 +242,15 @@ template {
 
 html {
   box-sizing: border-box;
-  font-size: 12px;
+  /* font-size: 12px; */
 }
 
-body {
+/* body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   color: #333;
   line-height: 1.42858;
-}
+} */
 
 a {
   text-decoration: none;

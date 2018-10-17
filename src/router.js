@@ -19,6 +19,12 @@ export default new Router({
           name: 'home',
           component: () => import('@/views/home/Home')
         },
+        // 文章
+        {
+          path: 'article',
+          name: 'article',
+          component: () => import('@/views/article/Article')
+        },
         // 个人作品
         {
           path: 'works',

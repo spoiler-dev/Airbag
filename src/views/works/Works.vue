@@ -1,18 +1,29 @@
 <template>
   <div>
-    
+    <div id="works" class="container post">
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+      <div class="work-card"></div>
+    </div>
   </div>
 </template>
 
 <script>
 
   export default {
-    name:'',
-    props:[''],
+    name: '',
+    props: [''],
     data () {
       return {
 
-      };
+      }
     },
 
     components: {},
@@ -30,6 +41,6 @@
   }
 
 </script>
-<style lang='' scoped>
-
+<style lang='scss' scoped>
+@import './style.scss'
 </style>

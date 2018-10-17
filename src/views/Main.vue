@@ -11,30 +11,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <router-link to='/index'>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">主页</a>
-              </li>
-            </router-link>
-            <router-link to='/works'>
             <li class="nav-item active">
-              <a class="nav-link" href="#">个人作品</a>
+              <router-link to='/index' class="nav-link">
+                主页
+              </router-link>
             </li>
-            </router-link>
-            <router-link to='/resume'>
-              <li class="nav-item">
-                <a class="nav-link" href="#">个人简历</a>
-              </li>
-            </router-link>
+            <li class="nav-item active">
+              <router-link to='/works' class="nav-link">
+                个人作品
+              </router-link>
+            </li>
+            <li class="nav-item active">
+              <router-link to='/resume' class="nav-link">
+                个人简历
+              </router-link>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="https://github.com/spolier">GitHub</a>
             </li>
-            </router-link>
             <li class="nav-item">
               <a class="nav-link" href="https://segmentfault.com/u/spolier">SegmentFault</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 更多
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -78,7 +77,6 @@
           <router-view />
         </keep-alive>
       </main>
-      <!-- 分页 -->
       <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
         <embed src="/img/spolier.svg" id="spolierSVG" width="128" height="128" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
@@ -121,6 +119,7 @@ export default {
   beforeMount () {},
 
   mounted () {
+    $('.dropdown-toggle').dropdown()
   },
 
   methods: {},
