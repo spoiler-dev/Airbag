@@ -57,8 +57,7 @@ export default {
           date: '2018',
           img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
           show: true
-        }
-        ,
+        },
         {
           title: '1',
           date: '2018',
@@ -70,8 +69,7 @@ export default {
           date: '2018',
           img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
           show: true
-        }
-        ,
+        },
         {
           title: '1',
           date: '2018',
@@ -109,25 +107,35 @@ export default {
     // 上一页
     pagerPrev () {
       this.index--
-      (this.index < 1) && (this.index = 1);
+      (this.index < 1) && (this.index = 1)
       this.pager()
     },
     // 下一页
     pagerNext () {
       this.index++
-      (this.index > this.total) && (this.index = this.total);
+      (this.index > this.total) && (this.index = this.total)
       this.pager()
     },
+    // 分页
     pager () {
-      (this.index > 1) && (this.prev = true);
-      (this.index == 1) && (this.prev = false);
-      (this.index == this.total) && (this.next = false);
-      (this.index < this.total) && (this.next = true);
+      if (this.index > 1) {
+        this.prev = true
+      } else if (this.index === 1) {
+        this.prev = false
+      }
+      if (this.index === this.total) {
+        this.next = false
+      } else if (this.index < this.total) {
+        this.next = true
+      }
       this.length = this.article.length
-      this.total = Math.ceil(this.length/this.size)
-      let start = (this.index - 1) * this.size, // 开始条目
-          end = this.index * this.size //结束条目
-      end = (end > this.length) ? this.length : end //最后一页的特殊情况
+      this.total = Math.ceil(this.length / this.size)
+      // 开始条目
+      let start = (this.index - 1) * this.size
+      // 结束条目
+      let end = this.index * this.size
+      // 最后一页的特殊情况
+      end = (end > this.length) ? this.length : end
       for (let i = 0, l = this.length; i < l; i++) {
         if (i >= start && i < end) {
           this.article[i].show = true
