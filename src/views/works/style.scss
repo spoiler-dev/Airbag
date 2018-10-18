@@ -7,7 +7,7 @@
   font-weight: 500;
   max-width: 1170px;
   margin: 0 auto;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 #works {
   display: -webkit-box;
@@ -17,7 +17,7 @@
   transition: all .3s;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1170px !important;
   .work-card {
     position: relative;
@@ -133,6 +133,14 @@
         -webkit-box-orient: vertical;
         height: 44px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  main {
+    #works {
+      justify-content: center;
     }
   }
 }

@@ -100,10 +100,22 @@ export default {
   beforeMount () {},
 
   mounted () {
+    this.axios()
     this.pager()
   },
 
   methods: {
+    axios () {
+      debugger
+      // axios 服务
+      this.$axios(this.HOST + '/index')
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
     // 上一页
     pagerPrev () {
       this.index--

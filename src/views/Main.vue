@@ -101,6 +101,7 @@
 
 <script>
 import Home from './home/Home'
+import $ from 'jquery'
 export default {
   name: 'index',
   props: [''],

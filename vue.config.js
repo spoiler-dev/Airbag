@@ -59,17 +59,18 @@ module.exports = {
     // open: process.platform === 'darwin',
     // 自动打开浏览器
     open: true,
-    host: '0.0.0.0',
+    host: '172.16.72.21',
     port: 8080,
     https: false,
     hotOnly: false,
     // 处理跨域问题
     proxy: {
-      // 豆瓣接口
+      // 接口
       '/api': {
-        target: 'http://api.douban.com',
+        target: 'http://localhost:8081',
         // webpack 的属性，映射一个host
         changeOrign: true,
+        ws: true,
         pathRewrite: {
           '^/api': ''
         }
