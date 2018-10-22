@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div class="container post" v-html="html">
+    <div class="container post container-index">
+      <div class="entry-content" v-html="html" ></div>
     </div>
   </div>
 </template>
 
 <script>
+import 'highlight.js/styles/atom-one-dark.css'
 export default {
   name: '',
   props: [''],
@@ -29,7 +31,19 @@ export default {
   methods: {
     init () {
       let hljs = require('highlight.js')
-      let md = require('markdown-it')()
+      // Actual default values
+      let md = require('markdown-it')({
+        highlight: function (str, lang) {
+          if (lang && hljs.getLanguage(lang)) {
+            try {
+              return '<pre class="hljs"><code>' +
+                    hljs.highlight(lang, str, true).value +
+                    '</code></pre>'
+            } catch (__) {}
+          }
+          return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
+        }
+      })
       let _this = this
       this.$axios(this.HOST + '/markdown', {
         params: {
@@ -51,6 +65,8 @@ export default {
 }
 
 </script>
-<style lang='' scoped>
 
+<style lang="scss" scoped>
+@import './style.scss';
 </style>
+
