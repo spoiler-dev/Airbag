@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="container post" v-html="html">
-      123
     </div>
   </div>
 </template>
@@ -29,7 +28,6 @@ export default {
 
   methods: {
     init () {
-      debugger
       let hljs = require('highlight.js')
       let md = require('markdown-it')()
       let _this = this
@@ -39,7 +37,6 @@ export default {
         }
       })
         .then(res => {
-          debugger
           _this.markdown = res.data[0].markdown
           _this.html = md.render(_this.markdown)
         })
