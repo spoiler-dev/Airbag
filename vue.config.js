@@ -59,7 +59,7 @@ module.exports = {
     // open: process.platform === 'darwin',
     // 自动打开浏览器
     open: true,
-    host: '172.16.72.21',
+    host: '0.0.0.0',
     port: 8080,
     https: false,
     hotOnly: false,

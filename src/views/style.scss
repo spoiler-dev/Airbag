@@ -76,8 +76,32 @@
   }
 }
 main#content {
+  .project-en {
+    text-align: center;
+    font-size: 1.28rem;
+    line-height: 2;
+    color: #222;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-top: 2rem;
+    letter-spacing: 2px;
+  }
+  .project-line {
+    max-width: 84px;
+    background: #634f6a;
+    height: 1px;
+    margin: 0 auto;
+  }
+  .project-cn {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #404040;
+    text-align: center;
+    font-weight: 560;
+    letter-spacing: 1px;
+  }
   .post {
-    margin: 4rem auto;
+    margin: 2rem auto;
     a {
       color: #2196f3;
       text-decoration: none;
@@ -180,7 +204,7 @@ main#content {
 }
 
 #footer-wrapper {
-  margin-top: 30px;
+  margin-top: 7rem;
   padding-bottom: 30px;
   height: auto;
   text-align: center;

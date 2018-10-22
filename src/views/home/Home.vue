@@ -2,8 +2,8 @@
   <div>
     <!-- 文章 -->
     <article class="container container-index post" v-for="(item, index) in article" :key="index" v-if="item.show">
-      <router-link to="/article">
-        <header :style="{backgroundImage: 'url('+item.img+')'}">
+      <router-link :to="{path:'/article', query:{id: item.id}}" class="entry-link">
+        <header :style="{backgroundImage: 'url('+item.path+')'}">
           <h2>{{item.title}}</h2>
           <span>
             <time>{{item.date}}</time>
@@ -33,56 +33,7 @@ export default {
   props: [''],
   data () {
     return {
-      article: [
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        },
-        {
-          title: '1',
-          date: '2018',
-          img: '//ohp0uzlic.qnssl.com/site/intro-images/2017-05-12-zhihu-live-2.jpg',
-          show: true
-        }
-      ],
+      article: [],
       index: 1,
       // 每页显示条数
       size: 6,
@@ -101,15 +52,26 @@ export default {
 
   mounted () {
     this.axios()
-    this.pager()
   },
 
   methods: {
     axios () {
-      debugger
+      let _this = this
+      let arr = []
       // axios 服务
-      this.$axios(this.HOST + '/index')
+      this.$axios(this.HOST + '/list')
         .then(res => {
+          for (let i = 0, l = res.data.length; i < l; i++) {
+            arr.push({
+              id: res.data[i]._id,
+              title: res.data[i].title,
+              date: res.data[i].date,
+              path: res.data[i].path,
+              show: true
+            })
+          }
+          _this.article = arr
+          _this.pager()
           console.log(res.data)
         })
         .catch(error => {
@@ -125,7 +87,9 @@ export default {
     // 下一页
     pagerNext () {
       this.index++
-      (this.index > this.total) && (this.index = this.total)
+      if (this.index > this.total) {
+        return false
+      }
       this.pager()
     },
     // 分页

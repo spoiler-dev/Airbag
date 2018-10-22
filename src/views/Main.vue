@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-container>
+    <div>
       <!-- 导航栏 -->
       <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
-        <a class="navbar-brand" href="#">
+        <router-link to='/login' class="navbar-brand">
           <img src="/img/logo36.png" width="36" height="36" class="d-inline-block align-top" alt="澈澈" id="ace">
-        </a>
+        </router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,7 +41,8 @@
                 <a class="dropdown-item" href="#">微信 @方正</a>
                 <a class="dropdown-item" href="#">企鹅 @678477181</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">留言</a>
+                <router-link to='/martix' class="dropdown-item">工作台</router-link>
+                <a class="dropdown-item" href="#">致谢</a>
               </div>
             </li>
           </ul>
@@ -73,9 +74,7 @@
       </header>
       <!-- 主页面 -->
       <main id="content">
-        <keep-alive>
-          <router-view />
-        </keep-alive>
+        <router-view />
       </main>
       <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
@@ -95,7 +94,7 @@
           </div>
         </div>
       </footer>
-    </el-container>
+    </div>
   </div>
 </template>
 

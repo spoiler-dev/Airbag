@@ -13,6 +13,12 @@ export default new Router({
       // 初始路径
       redirect: 'index',
       children: [
+        // 登录
+        {
+          path: 'login',
+          name: 'login',
+          component: () => import('@/views/login/Login')
+        },
         // 主页
         {
           path: 'index',
@@ -36,6 +42,15 @@ export default new Router({
           path: 'resume',
           name: 'resume',
           component: () => import('@/views/resume/Resume')
+        },
+        // 工作台
+        {
+          path: 'martix',
+          name: 'martix',
+          meta: {
+            requiresAuth: true
+          },
+          component: () => import('@/views/martix/Martix')
         }
       ]
     }

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p id="martix">🛠️ 个人项目平台</p>
+    <p class="project-en">PROJECT</p>
+    <p class="project-line"></p>
+    <P class="project-cn">作品展览</P>
     <div id="works" class="container post">
       <div class="work-card">
         <div class="card-top">
