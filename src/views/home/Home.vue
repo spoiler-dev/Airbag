@@ -66,7 +66,7 @@ export default {
               id: res.data[i]._id,
               title: res.data[i].title,
               date: res.data[i].date,
-              path: res.data[i].path,
+              path: _this.HOST + res.data[i].path,
               show: true
             })
           }

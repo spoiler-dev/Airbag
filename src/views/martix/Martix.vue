@@ -210,6 +210,7 @@ export default {
         })
       console.log(index, row)
     },
+    // 文章新增
     handleSubmit () {
       let _this = this
       // axios 服务
@@ -218,7 +219,7 @@ export default {
           title: this.form.title,
           date: this.form.date,
           markdown: this.form.markdown,
-          path: this.HOST + this.form.path
+          path: this.form.path
         }
       })
         .then(res => {
@@ -227,7 +228,7 @@ export default {
             type: 'success'
           })
           _this.$router.push({
-            name: 'martix'
+            name: 'index'
           })
           console.log(res.data)
         })
@@ -241,6 +242,7 @@ export default {
     handlePreview (file) {
       console.log(file)
     },
+    // 上传图片
     handleUpload (param) {
       let formData = new FormData()
       let file = param.file
@@ -257,6 +259,7 @@ export default {
     success (response, file, fileList) {
       this.form.path = response.path
     },
+    // 编辑文章
     handleUpdate () {
       let _this = this
       this.$axios(this.HOST + '/update', {

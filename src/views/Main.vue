@@ -68,8 +68,8 @@
         >
         </vue-particles>
         <div class="intro-heading">
-          <h1 class="intro-title">澈 澈</h1>
-          <span class="intro-meta">因为在奔跑 / 所以耳边有风</span>
+          <h1 class="intro-title" id="intro-title">澈 澈</h1>
+          <span class="intro-meta" id="intro-meta">因为在奔跑 / 所以耳边有风</span>
         </div>
       </header>
       <!-- 主页面 -->

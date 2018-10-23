@@ -1,0 +1,26 @@
+.reward {
+  margin: 4rem 0;
+  text-align: center;
+  #button-reward {
+    color: #dc3545;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dc3545;
+  }
+}
+
+.meta.meta-copyright {
+  margin-bottom: 2rem;
+  h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    line-height: 2;
+  }
+  .text-muted {
+    color: #6c757d!important;
+  }
+  small {
+    font-size: 80%;
+    font-weight: 400;
+  }
+}
