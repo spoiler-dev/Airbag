@@ -74,7 +74,9 @@
       </header>
       <!-- 主页面 -->
       <main id="content">
-        <router-view />
+        <keep-alive>
+          <router-view />
+        </keep-alive>
       </main>
       <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
@@ -94,12 +96,38 @@
           </div>
         </div>
       </footer>
+      <!-- 移动端底部操作栏 -->
+      <div id="opts">
+        <router-link to='/index'>
+          <div class="opt">
+            <i class="iconfont icon-explorefill"></i>
+            <!-- <span>主页</span> -->
+          </div>
+        </router-link>
+        <router-link to='/works'>
+          <div class="opt">
+            <i class="iconfont icon-creativefill"></i>
+            <!-- <span>仓库</span> -->
+          </div>
+        </router-link>
+        <router-link to='/resume'>
+          <div class="opt">
+            <i class="iconfont icon-selectionfill"></i>
+            <!-- <span>简历</span> -->
+          </div>
+        </router-link>
+        <router-link to='/martix'>
+          <div class="opt">
+            <i class="iconfont icon-profilefill"></i>
+            <!-- <span>工作台</span> -->
+          </div>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Home from './home/Home'
 import $ from 'jquery'
 export default {
   name: 'index',
@@ -111,7 +139,6 @@ export default {
   },
 
   components: {
-    Home
   },
 
   computed: {},

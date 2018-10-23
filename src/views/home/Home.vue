@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: 'home',
   props: [''],
@@ -52,6 +53,11 @@ export default {
 
   mounted () {
     this.axios()
+    debugger
+    this.$nextTick(() => {
+      $('#opts a').eq(0).sublings().children('.opt').removeClass('active')
+      $('#opts a').eq(0).children('.opt').addClass('active')
+    })
   },
 
   methods: {
