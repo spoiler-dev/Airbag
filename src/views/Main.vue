@@ -2,7 +2,7 @@
   <div>
     <div>
       <!-- 导航栏 -->
-      <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
         <router-link to='/login' class="navbar-brand">
           <img src="/img/logo36.png" width="36" height="36" class="d-inline-block align-top" alt="澈澈" id="ace">
         </router-link>
