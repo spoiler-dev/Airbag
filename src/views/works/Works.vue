@@ -5,7 +5,7 @@
     <P class="project-cn">作品展览</P>
     <div id="works" class="container post">
       <div class="work-card">
-        <router-link to="/3DElectricalRoomLayout">
+        <router-link to="/3DElectricalRoom">
         <div class="card-top">
           <div class="banner img-up" style="background: url('/img/works/Data.jpg')">
             <div class="banner-label">

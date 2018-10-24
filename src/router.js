@@ -65,9 +65,9 @@ export default new Router({
     },
     // 个人项目
     {
-      path: '3DElectricalRoomLayout',
-      name: '3DElectricalRoomLayout',
-      component: () => import('@/views/project/3DElectricalRoomLayout/3DElectricalRoomLayout')
+      path: '3DElectricalRoom',
+      name: '3DElectricalRoom',
+      component: () => import('@/views/project/3DElectricalRoom/3DElectricalRoom')
     }]
   }]
 })
