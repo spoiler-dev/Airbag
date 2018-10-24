@@ -1,4 +1,13 @@
 // 导航条
+#navbar.scroll {
+  background-color: rgba(255,255,255,0.95) !important;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+  a {
+    color: #404040 !important;
+  }
+}
+
 #navbar {
   background-color: transparent;
   position: fixed;
@@ -20,17 +29,20 @@
       text-decoration: none;
     }
   }
-
+  .nav-item {
+    font-weight: 520;
+  }
   a.dropdown-item {
     font-size: .875rem;
     white-space: nowrap;
   }
 
   #ace {
-    -webkit-animation: spin 10s linear infinite;
-    -moz-animation: spin 10s linear infinite;
-    -ms-animation: spin 10s linear infinite;
-    animation: spin 10s linear infinite;
+    margin-top: 2px;
+    // -webkit-animation: spin 10s linear infinite;
+    // -moz-animation: spin 10s linear infinite;
+    // -ms-animation: spin 10s linear infinite;
+    // animation: spin 10s linear infinite;
   }
 
   .navbar-brand {
@@ -101,13 +113,13 @@ main#content {
 
   .project-line {
     max-width: 84px;
-    background: #634f6a;
-    height: 1px;
+    background: #0181F3;
+    height: 2px;
     margin: 0 auto;
   }
 
   .project-cn {
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     font-size: 1rem;
     color: #404040;
     text-align: center;
@@ -841,9 +853,10 @@ main#content {
 }
 
 #pagination-wrapper {
+  margin-top: 2rem;
   hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, .1);
   }
@@ -889,7 +902,7 @@ main#content {
 }
 
 #footer-wrapper {
-  margin-top: 7rem;
+  margin-top: 4rem;
   padding-bottom: 30px;
   height: auto;
   text-align: center;
@@ -913,6 +926,9 @@ main#content {
 }
 
 @media only screen and (max-width: 760px) {
+  #navbar {
+    background: rgba(28, 28, 28, 0.8);
+  }
   #intro-wrapper {
     .intro-heading {
       padding: 4rem 0 2rem;

@@ -24,7 +24,6 @@
 
 <script>
 import 'highlight.js/styles/atom-one-dark.css'
-import $ from 'jquery'
 export default {
   name: '',
   props: [''],
@@ -45,6 +44,10 @@ export default {
   mounted () {
     this.init()
     $('[data-toggle="popover"]').popover()
+    this.$nextTick(() => {
+      $('#opts a').eq(0).siblings().children('.opt').removeClass('active')
+      $('#opts a').eq(0).children('.opt').addClass('active')
+    })
   },
 
   methods: {

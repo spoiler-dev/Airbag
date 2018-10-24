@@ -67,7 +67,7 @@
           </div>
         </el-dialog>
         <!-- 工作台 -->
-        <el-tab-pane>
+        <el-tab-pane :lazy="lazy">
           <span slot="label"><i class="el-icon-edit"></i> 发布</span>
           <el-form ref="form" :model="form" label-width="90px">
             <el-form-item label="文章标题：">
@@ -115,6 +115,7 @@ export default {
   data () {
     return {
       dialogFormVisible: false,
+      lazy: true,
       form: {
         title: '',
         markdown: '',
@@ -142,6 +143,10 @@ export default {
 
   mounted () {
     this.init()
+    this.$nextTick(() => {
+      $('#opts a').eq(3).siblings().children('.opt').removeClass('active')
+      $('#opts a').eq(3).children('.opt').addClass('active')
+    })
   },
 
   methods: {
@@ -296,5 +301,11 @@ export default {
   }
   #submit {
     text-align: center;
+  }
+  @media only screen and (max-width: 570px){
+    .el-button+.el-button {
+        margin-left: 0px;
+    }
+
   }
 </style>

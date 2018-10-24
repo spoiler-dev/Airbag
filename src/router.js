@@ -1,17 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/views/Main'
-
+import Spolier from '@/views/Spolier'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'index',
+  routes: [{
+    path: '/',
+    name: 'spolier',
+    component: Spolier,
+    // 初始路径
+    redirect: 'app/index',
+    children: [{
+      path: 'app',
+      name: 'app',
       component: Main,
-      // 初始路径
-      redirect: 'index',
       children: [
         // 登录
         {
@@ -53,6 +56,10 @@ export default new Router({
           component: () => import('@/views/martix/Martix')
         }
       ]
-    }
-  ]
+    }, {
+      path: '3DElectricalRoomLayout',
+      name: '3DElectricalRoomLayout',
+      component: () => import('@/views/project/3DElectricalRoomLayout/3DElectricalRoomLayout')
+    }]
+  }]
 })

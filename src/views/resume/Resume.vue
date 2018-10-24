@@ -7,15 +7,15 @@
       <img style="position: absolute; z-index: 5; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
     </a>
 
-    <main class="page">
+    <main class="page" id="resume">
       <section>
         <h1 class="f-s-18 f-w-900 m-b-20">联系方式</h1>
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest p-t-0 p-b-0">
             <div class="row">
-              <div class="col-4 p-t-10 p-b-10">● 手机：13120180628</div>
-              <div class="col-4 p-t-10 p-b-10 border">● Email：nzb329@163.com</div>
-              <div class="col-4 p-t-10 p-b-10 border">● QQ/微信：123456789</div>
+              <div class="col-4 p-t-10 p-b-10">● 手机：19913140410</div>
+              <div class="col-4 p-t-10 p-b-10 border">● Email：spolier@icloud.com</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 微信：13130010315</div>
             </div>
           </div>
         </div>
@@ -26,22 +26,22 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest p-t-0 p-b-0">
             <div class="row">
-              <div class="col-4 p-t-10 p-b-10">● 叙帝利 | 男 | 1990</div>
-              <div class="col-4 p-t-10 p-b-10 border">● 山东理工 | 工业设计 | 本科</div>
-              <div class="col-4 p-t-10 p-b-10 border">● 应聘前端开发 | 3 年工作经验</div>
+              <div class="col-4 p-t-10 p-b-10">● 方 正 | 男 | 1994</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 大连工业 | 网络工程 | 本科</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 应聘前端开发 | 2 年工作经验</div>
             </div>
           </div>
           <div class="box bg-gray-lightest">
             ● Github：
-            <a href="https://github.com/nzbin" target="_blank">https://github.com/nzbin</a>
+            <a href="https://github.com/spolier" target="_blank">https://github.com/spolier</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● 技术博客：
-            <a href="http://www.cnblogs.com/nzbin" target="_blank">http://www.cnblogs.com/nzbin</a>
+            ● 个人网站：
+            <a href="http://spolier.top" target="_blank">http://spolier.top</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● 豆瓣读书：
-            <a href="https://book.douban.com/people/nzbin/" target="_blank">https://book.douban.com/people/nzbin/</a>
+            ● SegmentFault：
+            <a href="https://segmentfault.com/u/spolier" target="_blank">https://segmentfault.com/u/spolier</a>
           </div>
           <div class="box bg-gray-lightest">
             ● 社区活动：伯乐在线翻译组成员，定期翻译优秀文章
@@ -62,7 +62,7 @@
             ● 插件设计及编写（以 JS / jQuery 业务插件为主）
           </div>
           <div class="box bg-gray-lightest">
-            ● 兴趣广泛，略懂后端，可以写点 PHP 和 Node
+            ● 兴趣广泛，了解后端，可以写 Java 和 Node.js
           </div>
         </div>
       </section>
@@ -187,7 +187,12 @@ export default {
 
   beforeMount () {},
 
-  mounted () {},
+  mounted () {
+    this.$nextTick(() => {
+      $('#opts a').eq(2).siblings().children('.opt').removeClass('active')
+      $('#opts a').eq(2).children('.opt').addClass('active')
+    })
+  },
 
   methods: {},
 
@@ -208,6 +213,13 @@ export default {
     background-color: #f5f5f5;
   }
 
+  @media (max-width: 576px) {
+      #resume {
+      font-size: 0.8rem;
+      word-wrap: break-word;
+    }
+  }
+
   .page {
     max-width: 800px;
     margin: 20px auto;
@@ -219,7 +231,7 @@ export default {
   h1 {
     margin-left: -20px;
     padding-left: 15px;
-    border-left: 5px solid #F8B62D;
+    border-left: 5px solid #0181F3;
   }
 
   .border {

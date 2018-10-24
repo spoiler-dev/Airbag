@@ -3,7 +3,7 @@
     <div>
       <!-- 导航栏 -->
       <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-        <router-link to='/login' class="navbar-brand">
+        <router-link to='/app/login' class="navbar-brand">
           <img src="/img/logo36.png" width="36" height="36" class="d-inline-block align-top" alt="澈澈" id="ace">
         </router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,17 +12,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <router-link to='/index' class="nav-link">
+              <router-link to='/app/index' class="nav-link">
                 主页
               </router-link>
             </li>
             <li class="nav-item active">
-              <router-link to='/works' class="nav-link">
+              <router-link to='/app/works' class="nav-link">
                 个人作品
               </router-link>
             </li>
             <li class="nav-item active">
-              <router-link to='/resume' class="nav-link">
+              <router-link to='/app/resume' class="nav-link">
                 个人简历
               </router-link>
             </li>
@@ -41,7 +41,7 @@
                 <a class="dropdown-item" href="#">微信 @方正</a>
                 <a class="dropdown-item" href="#">企鹅 @678477181</a>
                 <div class="dropdown-divider"></div>
-                <router-link to='/martix' class="dropdown-item">工作台</router-link>
+                <router-link to='/app/martix' class="dropdown-item">工作台</router-link>
                 <a class="dropdown-item" href="#">致谢</a>
               </div>
             </li>
@@ -74,9 +74,7 @@
       </header>
       <!-- 主页面 -->
       <main id="content">
-        <keep-alive>
-          <router-view />
-        </keep-alive>
+        <router-view />
       </main>
       <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
@@ -98,25 +96,25 @@
       </footer>
       <!-- 移动端底部操作栏 -->
       <div id="opts">
-        <router-link to='/index'>
+        <router-link to='/app/index' class="tab">
           <div class="opt">
             <i class="iconfont icon-explorefill"></i>
             <!-- <span>主页</span> -->
           </div>
         </router-link>
-        <router-link to='/works'>
+        <router-link to='/app/works' class="tab">
           <div class="opt">
             <i class="iconfont icon-creativefill"></i>
             <!-- <span>仓库</span> -->
           </div>
         </router-link>
-        <router-link to='/resume'>
+        <router-link to='/app/resume' class="tab">
           <div class="opt">
             <i class="iconfont icon-selectionfill"></i>
             <!-- <span>简历</span> -->
           </div>
         </router-link>
-        <router-link to='/martix'>
+        <router-link to='/app/martix' class="tab">
           <div class="opt">
             <i class="iconfont icon-profilefill"></i>
             <!-- <span>工作台</span> -->
@@ -128,7 +126,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
 export default {
   name: 'index',
   props: [''],
@@ -147,6 +144,16 @@ export default {
 
   mounted () {
     $('.dropdown-toggle').dropdown()
+    window.onscroll = () => {
+      let top = document.body.scrollTop
+      if ($('html').scrollTop() > ($('#navbar').height() + 50) || $('body').scrollTop() > ($('#navbar').height() + 50)) {
+        $('#navbar').addClass('scroll')
+        $('#navbar').removeClass('navbar-dark').addClass('navbar-light')
+      } else {
+        $('#navbar').removeClass('scroll')
+        $('#navbar').removeClass('navbar-light').addClass('navbar-dark')
+      }
+    }
   },
 
   methods: {},

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container post" id="login">
-      <h4 class="login-title">👀 欢迎来到我的博客 </h4>
+      <h4 class="login-title">🎏 欢迎来到我的博客 </h4>
       <el-form ref="form" :model="form" label-width="90px" label-position="top">
         <el-form-item label="用户名：">
           <el-input v-model="form.name">
@@ -38,7 +38,12 @@ export default {
 
   beforeMount () {},
 
-  mounted () {},
+  mounted () {
+    this.$nextTick(() => {
+      $('#opts a').eq(3).siblings().children('.opt').removeClass('active')
+      $('#opts a').eq(3).children('.opt').addClass('active')
+    })
+  },
 
   methods: {
     onSubmit () {
@@ -96,6 +101,7 @@ export default {
     color: #b2b2b2 !important;
     margin: 0 !important;
     padding: 0 !important;
+    line-height: 20px !important;
   }
 
   #login >>> .el-input__inner {

@@ -2,7 +2,7 @@
   <div>
     <!-- 文章 -->
     <article class="container container-index post" v-for="(item, index) in article" :key="index" v-if="item.show">
-      <router-link :to="{path:'/article', query:{id: item.id}}" class="entry-link">
+      <router-link :to="{path:'/app/article', query:{id: item.id}}" class="entry-link">
         <header :style="{backgroundImage: 'url('+item.path+')'}">
           <h2>{{item.title}}</h2>
           <span>
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
 export default {
   name: 'home',
   props: [''],
@@ -53,9 +52,8 @@ export default {
 
   mounted () {
     this.axios()
-    debugger
     this.$nextTick(() => {
-      $('#opts a').eq(0).sublings().children('.opt').removeClass('active')
+      $('#opts a').eq(0).siblings().children('.opt').removeClass('active')
       $('#opts a').eq(0).children('.opt').addClass('active')
     })
   },
