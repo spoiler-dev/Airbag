@@ -46,6 +46,12 @@ export default new Router({
           name: 'resume',
           component: () => import('@/views/resume/Resume')
         },
+        // 致谢
+        {
+          path: 'thanks',
+          name: 'thanks',
+          component: () => import('@/views/Thanks')
+        },
         // 工作台
         {
           path: 'martix',
@@ -56,7 +62,9 @@ export default new Router({
           component: () => import('@/views/martix/Martix')
         }
       ]
-    }, {
+    },
+    // 个人项目
+    {
       path: '3DElectricalRoomLayout',
       name: '3DElectricalRoomLayout',
       component: () => import('@/views/project/3DElectricalRoomLayout/3DElectricalRoomLayout')

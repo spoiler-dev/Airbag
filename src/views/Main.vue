@@ -37,12 +37,12 @@
                 更多
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">微博 @spolier丶</a>
+                <a class="dropdown-item" href="https://weibo.com/spolier">微博 @spolier丶</a>
                 <a class="dropdown-item" href="#">微信 @方正</a>
-                <a class="dropdown-item" href="#">企鹅 @678477181</a>
+                <a class="dropdown-item" href="https://jq.qq.com/?_wv=1027&k=5jscjWd">企鹅 @678477181</a>
                 <div class="dropdown-divider"></div>
                 <router-link to='/app/martix' class="dropdown-item">工作台</router-link>
-                <a class="dropdown-item" href="#">致谢</a>
+                <router-link to='/app/thanks' class="dropdown-item">致谢</router-link>
               </div>
             </li>
           </ul>

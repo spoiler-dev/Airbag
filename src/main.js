@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
     } else {
       next({
         // 登录路由
-        path: '/login'
+        path: '/app/login'
       })
     }
   } else {
