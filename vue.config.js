@@ -17,22 +17,13 @@ module.exports = {
   // webpack配置
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
   chainWebpack: () => {},
-  configureWebpack: config => {
+  configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
         jQuery: "jquery",
         $: "jquery"
       })
     ]
-    config.module.rules.push({
-      // 处理jquery
-      test: require.resolve("three/examples/js/controls/OrbitControls"),
-      use: 'imports-loader?THREE=three'
-    },
-    {
-      test: require.resolve("three/examples/js/controls/OrbitControls"),
-      use: "exports-loader?THREE.OrbitControls"
-    })
   },
   //如果想要引入babel-polyfill可以这样写
   // configureWebpack: (config) => {
