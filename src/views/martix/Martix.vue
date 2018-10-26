@@ -233,7 +233,7 @@ export default {
             type: 'success'
           })
           _this.$router.push({
-            name: 'index'
+            name: 'home'
           })
           console.log(res.data)
         })

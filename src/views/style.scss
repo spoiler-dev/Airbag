@@ -990,6 +990,17 @@ main#content {
       }
     }
   }
+  #stats {
+    position: fixed;
+    bottom: 0;
+    top: initial !important;
+  }
+  .dg.ac {
+    bottom: 102px;
+    top: initial !important;
+    right: 0;
+    left: initial !important;
+  }
 }
 
 @-webkit-keyframes spin {

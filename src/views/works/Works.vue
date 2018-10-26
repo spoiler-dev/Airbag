@@ -30,8 +30,8 @@
           <div class="banner img-up" style="background: url('/img/works/Data.jpg')">
             <div class="banner-label">
               <label>Three.js</label>
+              <label>Javascript</label>
               <label>Vue</label>
-              <label>拖拽</label>
             </div>
           </div>
           <div class="banner img-mid" style="background: url('img/works/Data.jpg')"></div>
