@@ -5,7 +5,7 @@
         <i class="el-icon-d-arrow-left" style="margin-right: 20px"></i>
       </router-link>
       <span>3D 电气室实时监控系统</span>
-      </div>
+    </div>
     <div id="view"></div>
   </div>
 </template>
