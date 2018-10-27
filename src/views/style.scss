@@ -994,12 +994,14 @@ main#content {
     position: fixed;
     bottom: 0;
     top: initial !important;
+    z-index: 1000;
   }
   .dg.ac {
     bottom: 102px;
     top: initial !important;
     right: 0;
     left: initial !important;
+    z-index: 1000;
   }
 }
 

@@ -1,0 +1,153 @@
+{
+  "_id": ObjectId("5bd15df9f20eeb2ca853deb6"),
+  "partSize": "800*600",
+  "describ": [{
+      "ID": "a1",
+      "CABINET_NAME": "斗轮电源柜",
+      "CABINET_COORDINATE": "-275,0,-110",
+      "CABINET_TYPE": "0",
+      "DESCRIB_COORDINATE": "-340,280,-105"
+    },
+    {
+      "ID": "a2",
+      "CABINET_NAME": "俯仰柜",
+      "CABINET_COORDINATE": "5,0,-110",
+      "CABINET_TYPE": "0",
+      "DESCRIB_COORDINATE": "-60,280,-105"
+    },
+    {
+      "ID": "a3",
+      "CABINET_NAME": "旋转柜",
+      "CABINET_COORDINATE": "275,0,-110",
+      "CABINET_TYPE": "0",
+      "DESCRIB_COORDINATE": "210,280,-105"
+    },
+    {
+      "ID": "a4",
+      "CABINET_NAME": "上层PLC柜",
+      "CABINET_COORDINATE": "-275,0,150",
+      "CABINET_TYPE": "0",
+      "DESCRIB_COORDINATE": "-340,280,155"
+    },
+    {
+      "ID": "a5",
+      "CABINET_NAME": "空调",
+      "CABINET_COORDINATE": "275,0,150",
+      "CABINET_TYPE": "1",
+      "DESCRIB_COORDINATE": "210,280,155"
+    }
+  ],
+  "equipInfo": [{
+      "EQ_NAME": "0330100103",
+      "EQ_COORDINATE": "-300,220,-210",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "1",
+      "EQ_TYPE": "03"
+    },
+    {
+      "EQ_NAME": "0330100202",
+      "EQ_COORDINATE": "-240,220,-210",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "1",
+      "ID": "2",
+      "EQ_TYPE": "02"
+    },
+    {
+      "EQ_NAME": "0330100325",
+      "EQ_COORDINATE": "-300,220,-140",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "3",
+      "EQ_TYPE": "25"
+    },
+    {
+      "EQ_NAME": "0330200403",
+      "EQ_COORDINATE": "-20,220,-210",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "",
+      "ID": "4",
+      "EQ_TYPE": "03"
+    },
+    {
+      "EQ_NAME": "0330200502",
+      "EQ_COORDINATE": "40,220,-210",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "5",
+      "EQ_TYPE": "02"
+    },
+    {
+      "EQ_NAME": "0330200625",
+      "EQ_COORDINATE": "-20,220,-141",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "1",
+      "ID": "6",
+      "EQ_TYPE": "25"
+    },
+    {
+      "EQ_NAME": "0330300703",
+      "EQ_COORDINATE": "250,220,-210",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "1",
+      "ID": "7",
+      "EQ_TYPE": "03"
+    },
+    {
+      "EQ_NAME": "0330300802",
+      "EQ_COORDINATE": "310,220,-210",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "8",
+      "EQ_TYPE": "02"
+    },
+    {
+      "EQ_NAME": "0330300925",
+      "EQ_COORDINATE": "250,220,-140",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "9",
+      "EQ_TYPE": "25"
+    },
+    {
+      "EQ_NAME": "0330401003",
+      "EQ_COORDINATE": "-300,220,50",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "10",
+      "EQ_TYPE": "03"
+    },
+    {
+      "EQ_NAME": "0330401102",
+      "EQ_COORDINATE": "-240,220,50",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "11",
+      "EQ_TYPE": "02"
+    },
+    {
+      "EQ_NAME": "0330401225",
+      "EQ_COORDINATE": "-300,220,120",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "12",
+      "EQ_TYPE": "25"
+    },
+    {
+      "EQ_NAME": "0330501303",
+      "EQ_COORDINATE": "250,220,50",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "13",
+      "EQ_TYPE": "03"
+    },
+    {
+      "EQ_NAME": "0330501402",
+      "EQ_COORDINATE": "310,220,50",
+      "Quality": "OPC_QUALITY_GOOD",
+      "State": "0",
+      "ID": "14",
+      "EQ_TYPE": "02"
+    }
+  ]
+}

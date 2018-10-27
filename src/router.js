@@ -73,6 +73,11 @@ export default new Router({
       path: '3DElectricalRoomLayout',
       name: '3DElectricalRoomLayout',
       component: () => import('@/views/project/3DElectricalRoomLayout/3DElectricalRoomLayout')
+    },
+    {
+      path: 'AnswersBook',
+      name: 'AnswersBook',
+      component: () => import('@/views/project/AnswersBook/AnswersBook')
     }]
   }]
 })

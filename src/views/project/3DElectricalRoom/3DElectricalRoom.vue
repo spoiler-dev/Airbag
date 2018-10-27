@@ -96,13 +96,13 @@ export default {
           // 烟感、温感、控制器坐标
           $.each(res.data[0].equipInfo, function (index, val) {
             // 温感
-            if (val.eqType === '02') {
+            if (val.EQ_TYPE === '02') {
               temperaturePositionArr.push(val.EQ_COORDINATE.split(','))
               // 烟感
-            } else if (val.eqType === '03') {
+            } else if (val.EQ_TYPE === '03') {
               smokePositionArr.push(val.EQ_COORDINATE.split(','))
               // 控制器
-            } else if (val.eqType === '25' || '29') {
+            } else if (val.EQ_TYPE === '25' || '29') {
               controllerPositionArr.push(val.EQ_COORDINATE.split(','))
             }
           })
@@ -683,7 +683,7 @@ export default {
           .then(res => {
             $.each(res.data[0].equipInfo, function (index, val) {
               // 温感
-              if (val.eqType === '02') {
+              if (val.EQ_TYPE === '02') {
                 // 连接正常
                 if (val.Quality === 'OPC_QUALITY_GOOD') {
                   if (val.State === '0') {
@@ -697,7 +697,7 @@ export default {
                   alarm.arr1.push('interrupt')
                 }
                 // 烟感
-              } else if (val.eqType === '03') {
+              } else if (val.EQ_TYPE === '03') {
                 if (val.Quality === 'OPC_QUALITY_GOOD') {
                   if (val.State === '0') {
                     alarm.arr2.push('normal')
@@ -710,7 +710,7 @@ export default {
                   alarm.arr2.push('interrupt')
                 }
                 // 控制器
-              } else if (val.eqType === '25' || '29') {
+              } else if (val.EQ_TYPE === '25' || '29') {
                 if (val.Quality === 'OPC_QUALITY_GOOD') {
                   if (val.State === '0') {
                     alarm.arr3.push('normal')
