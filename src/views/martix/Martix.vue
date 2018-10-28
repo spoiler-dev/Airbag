@@ -224,7 +224,7 @@ export default {
           title: this.form.title,
           date: this.form.date,
           markdown: this.form.markdown,
-          path: this.form.path
+          path: this.HOST + this.form.path
         }
       })
         .then(res => {

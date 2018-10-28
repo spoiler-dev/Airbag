@@ -98,7 +98,7 @@ export default {
           _this.markdown = res.data[0].markdown
           $('#intro-title').text(res.data[0].title)
           $('#intro-meta').text(res.data[0].date)
-          let path = _this.HOST + res.data[0].path
+          let path = res.data[0].path
           $('#intro-wrapper').css({ 'background-image': 'url(' + path + ')' })
           _this.html = md.render(_this.markdown)
         })

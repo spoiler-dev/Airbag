@@ -63,11 +63,12 @@ module.exports = {
     port: 8080,
     https: false,
     hotOnly: false,
+    disableHostCheck: true,
     // 处理跨域问题
     proxy: {
       // 接口
       '/api': {
-        target: 'http://localhost:8081',
+        target: 'http://localhost:80',
         // webpack 的属性，映射一个host
         changeOrign: true,
         ws: true,
