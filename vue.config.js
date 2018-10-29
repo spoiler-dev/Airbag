@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+// const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   /** 区分打包环境与开发环境
    * process.env.NODE_ENV==='production'  (打包环境)
@@ -23,6 +24,12 @@ module.exports = {
         jQuery: "jquery",
         $: "jquery"
       })
+      // ,
+      // new CompressionPlugin({
+      //   test: /\.js/,
+      //   threshold: 0,
+      //   deleteOriginalAssets: true
+      // })
     ]
   },
   //如果想要引入babel-polyfill可以这样写
@@ -59,7 +66,7 @@ module.exports = {
     // open: process.platform === 'darwin',
     // 自动打开浏览器
     open: true,
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     port: 8080,
     https: false,
     hotOnly: false,
@@ -68,7 +75,7 @@ module.exports = {
     proxy: {
       // 接口
       '/api': {
-        target: 'http://localhost:80',
+        target: 'http://127.0.0.1:80',
         // webpack 的属性，映射一个host
         changeOrign: true,
         ws: true,
