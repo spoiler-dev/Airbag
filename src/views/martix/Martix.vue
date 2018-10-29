@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <div class="container post">
       <el-tabs type="border-card">
@@ -224,7 +224,7 @@ export default {
           title: this.form.title,
           date: this.form.date,
           markdown: this.form.markdown,
-          path: this.HOST + this.form.path
+          path: this.form.path
         }
       })
         .then(res => {

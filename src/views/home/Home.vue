@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <!-- 文章 -->
     <article class="container container-index post" v-for="(item, index) in article" :key="index" v-if="item.show">

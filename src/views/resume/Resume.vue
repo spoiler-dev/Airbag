@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <!--[if lt IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -13,7 +13,7 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest p-t-0 p-b-0">
             <div class="row">
-              <div class="col-4 p-t-10 p-b-10">● 手机：19913140410</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 手机：19913140410</div>
               <div class="col-4 p-t-10 p-b-10 border">● Email：spolier@icloud.com</div>
               <div class="col-4 p-t-10 p-b-10 border">● 微信：13130010315</div>
             </div>
@@ -26,7 +26,7 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest p-t-0 p-b-0">
             <div class="row">
-              <div class="col-4 p-t-10 p-b-10">● 方 正 | 男 | 1994</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 方 正 | 男 | 1994</div>
               <div class="col-4 p-t-10 p-b-10 border">● 大连工业 | 网络工程 | 本科</div>
               <div class="col-4 p-t-10 p-b-10 border">● 应聘前端开发 | 2 年工作经验</div>
             </div>
@@ -208,15 +208,20 @@ export default {
 </style>
 
 <style scoped>
-  html,
-  body {
-    background-color: #f5f5f5;
-  }
 
   @media (max-width: 576px) {
-      #resume {
+    #resume {
       font-size: 0.8rem;
       word-wrap: break-word;
+    }
+
+    .row {
+      display: block;
+    }
+
+    .border {
+      width: 100%;
+      max-width: 100% !important;
     }
   }
 
@@ -246,7 +251,6 @@ export default {
     width: 2px;
     height: 100%;
     background: #ddd;
-    border-left: 2px solid #ddd !important;
   }
 
   section a {
