@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-﻿const webpack = require('webpack');
-=======
+﻿
 const webpack = require('webpack');
-<<<<<<< HEAD
-=======
->>>>>>> 87aeee723acc79b4c5682ad530f15f16a7b448c6
->>>>>>> server=>local
 // const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   /** 区分打包环境与开发环境

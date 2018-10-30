@@ -3,7 +3,7 @@
     <div id="view">
       <div id="container">
         <header>
-          <i class="el-icon-d-arrow-left" id="back"></i>
+          <i class="el-icon-d-arrow-left" id="back">返回</i>
           <a href="https://github.com/spolier">ANSWERS BOOK 答案之书</a>
         </header>
 

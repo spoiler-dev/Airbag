@@ -58,7 +58,7 @@
             <input type="text" id="grid-length" class="coordinate-input">
             <button id="create-button" class="create-button">创建网格</button>
             <button id="submit-button" class="create-button">提交</button>
-            <button id="cancel-button" class="create-button">取消</button>
+            <button id="cancel-button" class="create-button">返回</button>
           </div>
         </div>
         <div class="right-dashboard-bottom" id="right-dashboard-bottom">

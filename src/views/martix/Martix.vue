@@ -2,7 +2,7 @@
   <div>
     <div class="container post">
       <el-tabs type="border-card">
-        <el-tab-pane>
+        <el-tab-pane :lazy=true>
           <span slot="label"><i class="el-icon-menu"></i> 文章中心</span>
           <!-- 文章中心 -->
           <el-table :data="tableData" style="width: 100%">
@@ -67,7 +67,7 @@
           </div>
         </el-dialog>
         <!-- 工作台 -->
-        <el-tab-pane :lazy="lazy">
+        <el-tab-pane :lazy=true>
           <span slot="label"><i class="el-icon-edit"></i> 发布</span>
           <el-form ref="form" :model="form" label-width="90px">
             <el-form-item label="文章标题：">
@@ -115,7 +115,6 @@ export default {
   data () {
     return {
       dialogFormVisible: false,
-      lazy: true,
       form: {
         title: '',
         markdown: '',
@@ -296,6 +295,9 @@ export default {
 }
 </script>
 <style scoped>
+  .el-upload__input {
+    display: none;
+  }
   #markdown >>> textarea{
     min-height: 300px !important;
   }
@@ -304,7 +306,11 @@ export default {
   }
   @media only screen and (max-width: 570px){
     .el-button+.el-button {
-        margin-left: 0px;
+      margin-left: 0px;
+    }
+
+    .container.post >>> .el-dialog {
+      width: 100% !important;
     }
 
   }

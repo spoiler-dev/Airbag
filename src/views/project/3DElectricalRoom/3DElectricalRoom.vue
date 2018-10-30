@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="banner">
-      <i class="el-icon-d-arrow-left" id="back"></i>
+      <i class="el-icon-d-arrow-left" id="back">返回</i>
       <span>3D 电气室实时监控系统</span>
     </div>
     <div id="view"></div>
