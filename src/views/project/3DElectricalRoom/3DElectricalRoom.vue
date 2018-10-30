@@ -23,6 +23,15 @@ export default {
   beforeMount() {},
 
   mounted() {
+
+    // 点击浏览器返回链接消除拖拽体
+    window.addEventListener('popstate', function (e) {
+      $('.machine-zone').remove()
+      $('.img-zone').remove()
+      $('#stats').remove()
+      $('#datGui').remove()
+    }, false)
+
     let _this = this
     let three = {
       scene: null,

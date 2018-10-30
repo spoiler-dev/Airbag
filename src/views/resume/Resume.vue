@@ -38,19 +38,16 @@
             </div>
           </div>
           <div class="box bg-gray-lightest">
-            ● Github：
-            <a href="https://github.com/spolier" target="_blank">https://github.com/spolier</a>
-          </div>
-          <div class="box bg-gray-lightest">
             ● 个人网站：
             <a href="http://spolier.top" target="_blank">http://spolier.top</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● SegmentFault：
-            <a href="https://segmentfault.com/u/spolier" target="_blank">https://segmentfault.com/u/spolier</a>
+            ● Github：
+            <a href="https://github.com/spolier" target="_blank">https://github.com/spolier</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● 社区活动：伯乐在线翻译组成员，定期翻译优秀文章
+            ● SegmentFault：
+            <a href="https://segmentfault.com/u/spolier" target="_blank">https://segmentfault.com/u/spolier</a>
           </div>
         </div>
       </section>
@@ -59,16 +56,19 @@
         <h1 class="f-s-18 f-w-900 m-b-20">技术优势</h1>
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            ● 编写更加合理的 HTML 以及规范化的 CSS
+            ● 掌握 Javascript，精通 HTML5、CSS3，熟悉页面架构和布局，对 Web 标准和标签语义化有深入理解，对手机页面动态适配有研究
           </div>
           <div class="box bg-gray-lightest">
-            ● UI 框架以及响应式设计的深入理解
+            ● 根据虚拟化项目需求绘制产品原型，熟悉 Echarts、Three.js 数据可视化库，具备在线项目（详见个人网站）
           </div>
           <div class="box bg-gray-lightest">
-            ● 插件设计及编写（以 JS / jQuery 业务插件为主）
+            ● 了解单页面应用（SPA)，熟悉 MVVM（ Vue.js）以及 MVC 架构的开发模式，以及 Git、SVN、Webpack、less、sass 等构建工具
           </div>
           <div class="box bg-gray-lightest">
-            ● 兴趣广泛，了解后端，可以写 Java 和 Node.js
+            ● 具备 Bootstrap、ElementUI、iView 等 UI 框架使用经验，有良好的色彩搭配素养、有独⽴的审美观
+          </div>
+          <div class="box bg-gray-lightest">
+            ● 熟悉 HTTP 协议以及跨域处理，具有使用 Java、Node.js 的独立建站经验，使用 Express 搭建后台服务，熟悉前端各种性能优化手段
           </div>
         </div>
       </section>
@@ -77,25 +77,22 @@
         <h1 class="f-s-18 f-w-900 m-b-20">开源项目</h1>
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            ● magnify（图片查看器插件）：
-            <a href="https://github.com/nzbin/magnify" target="_blank">https://github.com/nzbin/magnify</a>
+            ● 答案之书（帮你选择一款七夕礼物）：
+            <a href="https://github.com/spolier/Answers" target="_blank">https://github.com/spolier/Answers</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● snack（轻量级 CSS 框架）：
-            <a href="https://github.com/nzbin/snack" target="_blank">https://github.com/nzbin/snack</a>
+            ● 3D电气室实时监控系统（Three.js）：
+            <a href="https://github.com/spolier/3D-Electrical-Room" target="_blank">https://github.com/spolier/3D-Electrical-Room</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● snack-helper（通用的 helper class）：
-            <a href="https://github.com/nzbin/snack-helper" target="_blank">https://github.com/nzbin/snack-helper</a>
+            ● 3D电气室自定义规划系统（Three.js+拖拽）：
+            <a href="https://github.com/spolier/3D-Electrical-Room-Layout" target="_blank">https://github.com/spolier/3D-Electrical-Room-Layout</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● CardShow（卡片式抽奖插件）：
-            <a href="https://github.com/nzbin/CardShow" target="_blank">https://github.com/nzbin/CardShow</a>
+            ● 个人网站（Vue+Node.js+MongoDB）：
+            <a href="https://github.com/spolier/Airbag" target="_blank">https://github.com/spolier/Airbag</a>
           </div>
-          <div class="box bg-gray-lightest">
-            ● three-dots（单元素加载动画）：
-            <a href="https://github.com/nzbin/three-dots" target="_blank">https://github.com/nzbin/three-dots</a>
-          </div>
+
         </div>
       </section>
 
@@ -104,71 +101,74 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
             ●
-            <a href="https://www.cnblogs.com/nzbin/p/7073601.html" target="_blank">《如何编写轻量级 CSS 框架》</a>
-          </div>
-          <div class="box bg-gray-lightest">
-            ●
-            <a href="https://www.cnblogs.com/nzbin/p/7746047.html" target="_blank">《如何编写通用的 Helper Class》</a>
-          </div>
-          <div class="box bg-gray-lightest">
-            ●
-            <a href="https://www.cnblogs.com/nzbin/p/7735883.html" target="_blank">《如何使用 Bootstrap 搭建更合理的 HTML 结构》</a>
-          </div>
-          <div class="box bg-gray-lightest">
-            ●
-            <a href="https://www.cnblogs.com/nzbin/p/7811451.html" target="_blank">《使用 SVG 和 JS 创建一个由星形变心形的动画》</a>
-          </div>
-          <div class="box bg-gray-lightest">
-            ●
-            <a href="https://www.cnblogs.com/nzbin/p/7397604.html" target="_blank">《构建具有用户身份认证的 React + Flux 应用程序》</a>
-          </div>
-          <div class="box bg-gray-lightest">
-            ●
-            <a href="https://www.cnblogs.com/nzbin/p/7283460.html" target="_blank">《给单元素艺术添加动画》</a>
-          </div>
-          <div class="box bg-gray-lightest">
-            ●
-            <a href="https://www.cnblogs.com/nzbin/p/6613674.html" target="_blank">《CSS 预处理器中的循环》</a>
+            <a href="https://segmentfault.com/u/spolier/articles" target="_blank">Markdown 文章汇总</a>
           </div>
         </div>
       </section>
 
       <section>
-        <h1 class="f-s-18 f-w-900 m-b-20">工作经历 <a class="f-w-100" href="https://github.com/geekcompany/ResumeSample/blob/master/web.md" target="_blank">ResumeSample
-        </a></h1>
+        <h1 class="f-s-18 f-w-900 m-b-20">工作经历
+          <!-- <a class="f-w-100" href="https://github.com/geekcompany/ResumeSample/blob/master/web.md" target="_blank">ResumeSample
+          </a> -->
+        </h1>
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            ● ABC 公司 （ 2015 年 5 月 ~ 至今 ）
+            ● 北京东方国信科技股份有限公司 （ 2018 年 2 月 ~ 至今 ）
           </div>
           <div class="box bg-gray-lightest">
-            <p class="m-t-0">DEF 项目</p>
-            <p>我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。</p>
+            <p class="m-t-0">青岛港管理平台项目</p>
+            <p>管理系统和实时监控结合，实时监控港口信息，实时提供报警信息。配合 UI 人员使用系统化设计提高开发效率，采用 Three.js 搭建可视化 3D 电气室，并融合到 Vue 项目中。实时刷新反馈报警信息，统计报警信息生成相关 Echarts 图表。同时在管理系统中，电气室具备可动态拖拽编辑的功能，可 3D 预览，可及时生成。更多信息可访问 http://spolier.top/#/3DElectricalRoom。</p>
           </div>
           <div class="box bg-gray-lightest">
-            <p class="m-t-0">GHI 项目</p>
-            <p>我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。</p>
+            <p class="m-t-0">内部新平台建设项目</p>
+            <p>参与事业部内部新平台建设，担任前端技术选型，设计前端⾃动化⼯程构架，协调前后端联合调试，页面模块化，增加可复用性，实现自动生成代码、页面的功能，用于快速构建项目。</p>
           </div>
           <div class="box bg-gray-lightest">
-            <p class="m-t-0">其他项目</p>
-            <p>（每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）</p>
+            <p class="m-t-0">资产云管理项目</p>
+            <p>参与 Cloudiip 工业互联网平台（入选国家工业互联网创新发展工程，国家已投资 6000 万）的资产云平台前端界面的研发。</p>
           </div>
         </div>
 
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            ● JKL 公司 （ 2013 年 9 月 ~ 2015 年 5 月 ）
+            ● 大连华信计算机技术股份有限公司 （ 2017 年 2 月 ~ 2018 年 2 月 ）
           </div>
           <div class="box bg-gray-lightest">
-            <p class="m-t-0">MNO 项目</p>
-            <p>我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。</p>
+            <p class="m-t-0">大连机车-车地传输监控系统项目</p>
+            <p>用于大连地铁生产制造的管理平台，采用 jQuery+Bootstrap 框架。负责独立开发虚拟模块的前端页面和部分后台工作，实地参考企业生产中的流利货架，采用 CSS3 来设计并开发 3D 货架，通过 3D 货架展示车间的物料详情与分配。参与实地开发工作，根据企业实际情况，设计各类物流看板，针对企业完善大屏幕适配。</p>
           </div>
           <div class="box bg-gray-lightest">
-            <p class="m-t-0">PQR 项目</p>
-            <p>我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。</p>
+            <p class="m-t-0">无锡布勒项目</p>
+            <p>负责梳理业务，攻克前端开发工作中的技术难题，开发更符合工业流程化的界面。完成大量看板的设计与制作，设计制作物流节点以及精美的卡片式工艺流程图，页面调试优化。</p>
+          </div>
+        </div>
+
+        <div class="boxes default m-b-20">
+          <div class="box bg-gray-lightest">
+            ● 东软集团（大连）有限公司 （ 2016 年 7 月 ~ 2018 年 12 月 ）
           </div>
           <div class="box bg-gray-lightest">
-            <p class="m-t-0">其他项目</p>
-            <p>（每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）</p>
+            <p class="m-t-0">实习生</p>
+            <p>1. 在东软睿道部门负责活动页面前端开发，页面样式重构，使用 JavaScript (JQuery、Bootstrap等) 开发页面交互。</p>
+            <p>2. 根据 PSD 切图，严格按照 W3C 规范化编写 HTML 结构，配合后端人员完成接口测试。</p>
+            <p>3. 参与前端技术研讨，以及⾼效率开发分享会。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h1 class="f-s-18 f-w-900 m-b-20">个人总结
+          <!-- <a class="f-w-100" href="https://github.com/geekcompany/ResumeSample/blob/master/web.md" target="_blank">ResumeSample
+          </a> -->
+        </h1>
+        <div class="boxes default m-b-20">
+          <div class="box bg-gray-lightest">
+            <p>● 熟悉常用的前端框架，并掌握其原理，有组件化的思想，担当并创新。</p>
+            <p>● 熟悉 PC 端管理系统的开发，专注于 Web 前端界面设计，擅长数据展示类 Web 应用开发、前端动画、用户体验交互研究。</p>
+            <p>● 能多⻆度分析问题，乐于探索、创新以及发现新鲜元素，主动思考设计，洞察设计上的缺陷的能力，喜欢浏览⼀些设计类网站，增强自己的审美观察能力。</p>
+            <p>● 性格上细腻严谨，追求完美，积极乐观，能够细致地完成⼯作任务。</p>
+            <p>● 敢于挑战自我，积极了解前端各个方面的新知识，并实践到项目实战中。</p>
+            <p>● 良好的团队沟通协作力和服务意识，较强的工作执行力和抗压能力。</p>
           </div>
         </div>
       </section>
