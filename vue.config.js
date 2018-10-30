@@ -67,7 +67,7 @@ module.exports = {
     // open: process.platform === 'darwin',
     // 自动打开浏览器
     open: true,
-    host: '127.0.0.1',
+    host: '0.0.0.0',
     port: 8080,
     https: false,
     hotOnly: false,
@@ -76,7 +76,7 @@ module.exports = {
     proxy: {
       // 接口
       '/api': {
-        target: 'http://127.0.0.1:80',
+        target: 'http://0.0.0.0:80',
         // webpack 的属性，映射一个host
         changeOrign: true,
         ws: true,

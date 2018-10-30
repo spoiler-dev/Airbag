@@ -9,14 +9,17 @@
 
     <main class="page" id="resume">
       <section>
-        <img src="/img/ID.JPG" alt="" id="idImage">
       </section>
       <section>
         <h1 class="f-s-18 f-w-900 m-b-20">联系方式</h1>
-        <div class="boxes default m-b-20">
+        <div class="boxes default m-b-20" id="box">
           <div class="box bg-gray-lightest p-t-0 p-b-0">
+            <div class="col-4 p-t-10 p-b-10 border" id="idImage"></div>
             <div class="row">
+              <div class="col-4 p-t-10 p-b-10 border">● 职位：Web 前端开发工程师</div>
               <div class="col-4 p-t-10 p-b-10 border">● 手机：19913140410</div>
+            </div>
+            <div class="row">
               <div class="col-4 p-t-10 p-b-10 border">● Email：spolier@icloud.com</div>
               <div class="col-4 p-t-10 p-b-10 border">● 微信：13130010315</div>
             </div>
@@ -31,7 +34,7 @@
             <div class="row">
               <div class="col-4 p-t-10 p-b-10 border">● 方 正 | 男 | 1994</div>
               <div class="col-4 p-t-10 p-b-10 border">● 大连工业 | 网络工程 | 本科</div>
-              <div class="col-4 p-t-10 p-b-10 border">● 应聘=>Web前端开发工程师 | 2 年工作经验</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 应聘=>前端开发 | 2 年</div>
             </div>
           </div>
           <div class="box bg-gray-lightest">
@@ -212,9 +215,19 @@ export default {
 
 <style scoped>
   #idImage {
-    width: 295px;
-    height: 413px;
     margin: 10px auto 20px auto;
+    height: 100%;
+    width: 33.333333%;
+    right: 0;
+    top: -10px;
+    position: absolute;
+    background: url('/img/ID.JPG') no-repeat center center;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  #box {
+    position: relative;
   }
 
   @media (max-width: 576px) {
