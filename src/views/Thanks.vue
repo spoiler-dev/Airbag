@@ -41,7 +41,7 @@ export default {
   mounted () {
     $('#intro-title').text('致谢')
     $('#intro-meta').text('2018年10月31日')
-    $('#intro-wrapper').css('background-image','url(/img/Music.jpg)')
+    $('#intro-wrapper').css('background-image','url(/img/We.JPG)')
   },
 
   methods: {
