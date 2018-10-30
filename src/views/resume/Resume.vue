@@ -221,7 +221,7 @@ export default {
     right: 0;
     top: -10px;
     position: absolute;
-    background: url('/img/ID.JPG') no-repeat center center;
+    background: url('/img/ID.JPG') no-repeat center -10px ;
     background-size: cover;
     z-index: 1;
   }
@@ -231,6 +231,9 @@ export default {
   }
 
   @media (max-width: 576px) {
+    #idImage {
+      background: url('/img/ID.JPG') no-repeat center -10px ;
+    }
     #resume {
       font-size: 0.8rem;
       word-wrap: break-word;
