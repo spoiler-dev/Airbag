@@ -232,7 +232,8 @@ export default {
 
   @media (max-width: 576px) {
     #idImage {
-      background: url('/img/ID.JPG') no-repeat center -10px ;
+      background: url('/img/ID.JPG') no-repeat center center ;
+      background-size: cover;
     }
     #resume {
       font-size: 0.8rem;
