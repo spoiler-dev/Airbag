@@ -268,7 +268,7 @@ main#content {
       blockquote {
         margin-bottom: 1rem;
         padding-left: 1rem;
-        border-left: 4px solid rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #5a9df2;
       }
 
       blockquote p:last-child {
@@ -399,6 +399,10 @@ main#content {
         background-color: rgba(224, 242, 241, 0.5);
         color: #009688;
         font-size: 87.5%;
+      }
+
+      pre code {
+        background-color: initial !important;
       }
 
       pre,
