@@ -1,5 +1,7 @@
 ﻿
-const webpack = require('webpack');
+const webpack = require('webpack')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const productionGzipExtensions = ['js', 'css', 'svg']
 // const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   /** 区分打包环境与开发环境
@@ -22,8 +24,15 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
-        jQuery: "jquery",
-        $: "jquery"
+        jQuery: 'jquery',
+        $: 'jquery'
+      }),
+      // 配置compression-webpack-plugin压缩
+      new CompressionWebpackPlugin({
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        threshold: 10240,
+        minRatio: 0.8
       })
       // ,
       // new CompressionPlugin({
@@ -33,7 +42,7 @@ module.exports = {
       // })
     ]
   },
-  //如果想要引入babel-polyfill可以这样写
+  // 如果想要引入babel-polyfill可以这样写
   // configureWebpack: (config) => {
   //   config.entry = ["babel-polyfill", "./src/main.js"]
   // },
@@ -41,7 +50,7 @@ module.exports = {
   // https://vue-loader.vuejs.org/en/options.html
   // vueLoader: {},
   // 生产环境是否生成 sourceMap 文件
-  productionSourceMap: true,
+  productionSourceMap: false,
   // css相关配置
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
@@ -76,7 +85,7 @@ module.exports = {
     proxy: {
       // 接口
       '/api': {
-        target: 'http://0.0.0.0:80',
+        target: 'http://0.0.0.0:8081',
         // webpack 的属性，映射一个host
         changeOrign: true,
         ws: true,

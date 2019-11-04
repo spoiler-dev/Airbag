@@ -194,7 +194,6 @@ export default {
 
   computed: {
     workingYears: function () {
-      debugger
       let workStartYear = 2017
       let workEndYear = new Date().getFullYear()
       let workYears = workEndYear - workStartYear + 1

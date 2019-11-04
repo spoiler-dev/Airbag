@@ -114,7 +114,6 @@
 </template>
 
 <script>
-import utils from '../../../../public/three/js/utils.1.js'
 export default {
   name: '',
   props: [''],
