@@ -27,17 +27,17 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/spolier">GitHub</a>
+              <a class="nav-link" href="https://github.com/spoiler-dev">GitHub</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://segmentfault.com/u/spolier">SegmentFault</a>
+              <a class="nav-link" href="https://segmentfault.com/u/founder_ink">SegmentFault</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 更多
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="https://weibo.com/spolier">微博 @spolier丶</a>
+                <a class="dropdown-item" href="https://weibo.com/spoiler">微博 @spoiler丶</a>
                 <a class="dropdown-item" href="#">微信 @方正</a>
                 <a class="dropdown-item" href="https://jq.qq.com/?_wv=1027&k=5jscjWd">企鹅 @678477181</a>
                 <div class="dropdown-divider"></div>
@@ -78,7 +78,7 @@
       </main>
       <!-- 页脚 -->
       <footer class="container" id="footer-wrapper">
-        <embed src="/img/spolier.svg" id="spolierSVG" width="128" height="128" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+        <embed src="/img/spoiler.svg" id="spoilerSVG" width="128" height="128" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
         <div class="footer-meta">
           <div>
             <p>

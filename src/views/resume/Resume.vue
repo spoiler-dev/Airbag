@@ -3,7 +3,7 @@
     <!--[if lt IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <a href="https://github.com/spolier">
+    <a href="https://github.com/spoiler-dev">
       <img style="position: absolute; z-index: 5; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
     </a>
 
@@ -16,12 +16,12 @@
           <div class="box bg-gray-lightest p-t-0 p-b-0">
             <div class="col-4 p-t-10 p-b-10 border" id="idImage"></div>
             <div class="row">
-              <div class="col-4 p-t-10 p-b-10 border">● 职位：Web 前端开发工程师</div>
-              <div class="col-4 p-t-10 p-b-10 border">● 手机：19913140410</div>
+              <div class="col-5 p-t-10 p-b-10 border">● 职位：Web 前端开发工程师</div>
+              <div class="col-3 p-t-10 p-b-10 border">● 手机：19913140410</div>
             </div>
             <div class="row">
-              <div class="col-4 p-t-10 p-b-10 border">● Email：spolier@icloud.com</div>
-              <div class="col-4 p-t-10 p-b-10 border">● 微信：13130010315</div>
+              <div class="col-5 p-t-10 p-b-10 border">● Email：founder.ink@outlook.com</div>
+              <div class="col-3 p-t-10 p-b-10 border">● 微信：13130010315</div>
             </div>
           </div>
         </div>
@@ -34,20 +34,20 @@
             <div class="row">
               <div class="col-4 p-t-10 p-b-10 border">● 方 正 | 男 | 1994</div>
               <div class="col-4 p-t-10 p-b-10 border">● 大连工业 | 网络工程 | 本科</div>
-              <div class="col-4 p-t-10 p-b-10 border">● 应聘=>前端开发 | 2 年</div>
+              <div class="col-4 p-t-10 p-b-10 border">● 应聘=>前端开发 | {{workingYears}} 年</div>
             </div>
           </div>
           <div class="box bg-gray-lightest">
             ● 个人网站：
-            <a href="http://spolier.top" target="_blank">http://spolier.top</a>
+            <a href="http://founder.ink" target="_blank">http://founder.ink</a>
           </div>
           <div class="box bg-gray-lightest">
             ● Github：
-            <a href="https://github.com/spolier" target="_blank">https://github.com/spolier</a>
+            <a href="https://github.com/spoiler-dev" target="_blank">https://github.com/spoiler-dev</a>
           </div>
           <div class="box bg-gray-lightest">
             ● SegmentFault：
-            <a href="https://segmentfault.com/u/spolier" target="_blank">https://segmentfault.com/u/spolier</a>
+            <a href="https://segmentfault.com/u/founder_ink" target="_blank">https://segmentfault.com/u/founder_ink</a>
           </div>
         </div>
       </section>
@@ -78,19 +78,19 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
             ● 答案之书（帮你选择一款七夕礼物）：
-            <a href="https://github.com/spolier/Answers" target="_blank">https://github.com/spolier/Answers</a>
+            <a href="https://github.com/spoiler-dev/Answers" target="_blank">https://github.com/spoiler-dev/Answers</a>
           </div>
           <div class="box bg-gray-lightest">
             ● 3D电气室实时监控系统（Three.js）：
-            <a href="https://github.com/spolier/3D-Electrical-Room" target="_blank">https://github.com/spolier/3D-Electrical-Room</a>
+            <a href="https://github.com/spoiler-dev/3D-Electrical-Room" target="_blank">https://github.com/spoiler-dev/3D-Electrical-Room</a>
           </div>
           <div class="box bg-gray-lightest">
             ● 3D电气室自定义规划系统（Three.js+拖拽）：
-            <a href="https://github.com/spolier/3D-Electrical-Room-Layout" target="_blank">https://github.com/spolier/3D-Electrical-Room-Layout</a>
+            <a href="https://github.com/spoiler-dev/3D-Electrical-Room-Layout" target="_blank">https://github.com/spoiler-dev/3D-Electrical-Room-Layout</a>
           </div>
           <div class="box bg-gray-lightest">
             ● 个人网站（Vue+Node.js+MongoDB）：
-            <a href="https://github.com/spolier/Airbag" target="_blank">https://github.com/spolier/Airbag</a>
+            <a href="https://github.com/spoiler-dev/Airbag" target="_blank">https://github.com/spoiler-dev/Airbag</a>
           </div>
 
         </div>
@@ -101,7 +101,7 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
             ●
-            <a href="https://segmentfault.com/u/spolier/articles" target="_blank">Markdown 文章汇总</a>
+            <a href="https://segmentfault.com/u/founder_ink/articles" target="_blank">Markdown 文章汇总</a>
           </div>
         </div>
       </section>
@@ -118,7 +118,7 @@
           <div class="box bg-gray-lightest">
             <p class="m-t-0">青岛港管理平台项目：通过振动、应力、消防子系统实现设备状态监控，实时提供设备详情以及报警推送。</p>
             <p> ● 技术关键字：Vue + ElementUI + Three.js + Echarts + jQuery</p>
-            <P> ● 负责 消防安全子系统 的研发，配合 UI 人员使用系统化设计提高开发效率，采用 Three.js 搭建 可视化 3D 电气室 ，并结合到 Vue 框架中。实时刷新反馈报警信息 ，统计报警信息生成相关 Echarts 图表。同时在管理系统中，电气室具备 可动态拖拽编辑 的功能，可 3D 预览 ，即时生成，动态更新。更多信息可访问 http://spolier.top/#/3DElectricalRoom</P>
+            <P> ● 负责 消防安全子系统 的研发，配合 UI 人员使用系统化设计提高开发效率，采用 Three.js 搭建 可视化 3D 电气室 ，并结合到 Vue 框架中。实时刷新反馈报警信息 ，统计报警信息生成相关 Echarts 图表。同时在管理系统中，电气室具备 可动态拖拽编辑 的功能，可 3D 预览 ，即时生成，动态更新。更多信息可访问 http://founder.ink/#/3DElectricalRoom</P>
           </div>
           <div class="box bg-gray-lightest">
             <p class="m-t-0">内部新平台建设项目：升级内部生产平台技术栈，动态配置数据库，采取前后端分离开发方式，实现页面模块化。</p>
@@ -187,13 +187,20 @@ export default {
   props: [''],
   data () {
     return {
-
     }
   },
 
   components: {},
 
-  computed: {},
+  computed: {
+    workingYears: function () {
+      debugger
+      let workStartYear = 2017
+      let workEndYear = new Date().getFullYear()
+      let workYears = workEndYear - workStartYear + 1
+      return workYears
+    }
+  },
 
   beforeMount () {},
 

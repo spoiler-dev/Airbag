@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/views/Main'
-import Spolier from '@/views/Spolier'
+import Spoiler from '@/views/Spoiler'
 Vue.use(Router)
 
 export default new Router({
   routes: [{
     path: '/',
-    name: 'spolier',
-    component: Spolier,
+    name: 'spoiler',
+    component: Spoiler,
     // 初始路径
     redirect: 'app/index',
     children: [{

@@ -23,7 +23,7 @@ Vue.prototype.$axios = axios
 Vue.prototype.$qs = qs
 // 解决跨域
 console.log(process.env.NODE_ENV)
-Vue.prototype.HOST = process.env.NODE_ENV==='development'?'/api':''
+Vue.prototype.HOST = process.env.NODE_ENV === 'development' ? '/api' : ''
 // 粒子效果
 Vue.use(VueParticles)
 // 使用 ElementUI

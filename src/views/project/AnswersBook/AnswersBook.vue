@@ -4,7 +4,7 @@
       <div id="container">
         <header>
           <i class="el-icon-d-arrow-left" id="back">返回</i>
-          <a href="https://github.com/spolier">ANSWERS BOOK 答案之书</a>
+          <a href="https://github.com/spoiler-dev">ANSWERS BOOK 答案之书</a>
         </header>
 
         <article id="martix">
@@ -30,8 +30,8 @@
               <div class="arrow"></div>
             </div>
           </div>
-          <a href="https://github.com/spolier">
-            <div class="drink"> © spolier 方正 </div>
+          <a href="https://github.com/spoiler-dev">
+            <div class="drink"> © spoiler 方正 </div>
           </a>
           <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">
             <img src="img/by-nc-nd.svg" width="76" height="16" title="Creative Commons「署名 - 非商业性使用 - 禁止演绎 4.0」许可协议">
