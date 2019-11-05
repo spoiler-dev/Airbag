@@ -37,9 +37,9 @@
                 更多
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="https://weibo.com/spoiler">微博 @spoiler丶</a>
+                <a class="dropdown-item" href="https://weibo.com/u/3308253417">微博 @澈澈kele</a>
                 <a class="dropdown-item" href="#">微信 @方正</a>
-                <a class="dropdown-item" href="https://jq.qq.com/?_wv=1027&k=5jscjWd">企鹅 @678477181</a>
+                <a class="dropdown-item" href="https://ti.qq.com/open_qq/index2.html?url=mqqapi%3a%2f%2fuserprofile%2ffriend_profile_card%3fsrc_type%3dweb%26version%3d1.0%26source%3d2%26uin%3d819937377">企鹅 @819937377</a>
                 <div class="dropdown-divider"></div>
                 <router-link to='/app/martix' class="dropdown-item nav-collapse">工作台</router-link>
                 <router-link to='/app/thanks' class="dropdown-item nav-collapse">致谢</router-link>
@@ -126,6 +126,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: 'index',
   props: [''],
@@ -144,21 +145,21 @@ export default {
 
   mounted () {
     $('.dropdown-toggle').dropdown()
-    //点击导航链接之后，把导航选项折叠起来
-    $(".nav-collapse").click(function () {
-      $("#navbarSupportedContent").collapse('hide')
+    // 点击导航链接之后，把导航选项折叠起来
+    $('.nav-collapse').click(function () {
+      $('#navbarSupportedContent').collapse('hide')
     })
     $(window).scroll(function () {
-      //小屏幕下的导航条折叠
+      // 小屏幕下的导航条折叠
       if ($(window).width() < 768) {
-        //滚动屏幕时，把导航选项折叠起来
+        // 滚动屏幕时，把导航选项折叠起来
         $(window).scroll(function () {
-          $("#navbarSupportedContent").collapse('hide')
+          $('#navbarSupportedContent').collapse('hide')
         })
       }
     })
     window.onscroll = () => {
-      let top = document.body.scrollTop
+      // let top = document.body.scrollTop
       if ($('html').scrollTop() > ($('#navbar').height() + 50) || $('body').scrollTop() > ($('#navbar').height() + 50)) {
         $('#navbar').addClass('scroll')
         $('#navbar').removeClass('navbar-dark').addClass('navbar-light')

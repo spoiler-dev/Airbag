@@ -1,8 +1,8 @@
 ﻿<template>
   <div>
     <div class="container post">
-      <el-tabs type="border-card">
-        <el-tab-pane :lazy=true>
+      <el-tabs v-model="activeName" type="border-card">
+        <el-tab-pane name="first" :lazy=true>
           <span slot="label"><i class="el-icon-menu"></i> 文章中心</span>
           <!-- 文章中心 -->
           <el-table :data="tableData" style="width: 100%">
@@ -67,7 +67,7 @@
           </div>
         </el-dialog>
         <!-- 工作台 -->
-        <el-tab-pane :lazy=true>
+        <el-tab-pane name="second" :lazy=true>
           <span slot="label"><i class="el-icon-edit"></i> 发布</span>
           <el-form ref="form" :model="form" label-width="90px">
             <el-form-item label="文章标题：">
@@ -109,11 +109,13 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: '',
   props: [''],
   data () {
     return {
+      activeName: 'first',
       dialogFormVisible: false,
       form: {
         title: '',

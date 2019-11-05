@@ -76,7 +76,7 @@ export default {
           }
           _this.article = arr
           _this.pager()
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)

@@ -9,6 +9,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: '',
   props: [''],
@@ -120,7 +121,7 @@ export default {
           gridLength = parseInt(partSize[1])
           gridWidth = parseInt(partSize[0])
           workshop()
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)
@@ -758,7 +759,7 @@ export default {
             for (let i = 0, l = alarm.controller.length; i < l; i++) {
               blink(alarm.arr3[i], alarm.controller[i].children[0])
             }
-            console.log(res.data)
+            // console.log(res.data)
           })
           .catch(error => {
             console.log(error)

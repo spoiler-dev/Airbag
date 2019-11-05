@@ -114,6 +114,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: '',
   props: [''],
@@ -345,7 +346,7 @@ export default {
               dragD(oTemp)
             }
           }
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)
@@ -1192,7 +1193,7 @@ export default {
           _this.$router.push({
             name: 'works'
           })
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)

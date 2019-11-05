@@ -22,7 +22,7 @@ Vue.prototype.$axios = axios
 // 解决 axios post请求
 Vue.prototype.$qs = qs
 // 解决跨域
-console.log(process.env.NODE_ENV)
+// console.log(process.env.NODE_ENV)
 Vue.prototype.HOST = process.env.NODE_ENV === 'development' ? '/api' : ''
 // 粒子效果
 Vue.use(VueParticles)
@@ -34,7 +34,7 @@ require('bootstrap')
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     // 判断该路由是否需要登录权限
-    console.log(store)
+    // console.log(store)
     // 通过vuex state获取当前的token是否存在
     if (store.state.access) {
       next()
