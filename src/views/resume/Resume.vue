@@ -85,12 +85,12 @@
             <a href="https://github.com/spoiler-dev/3D-Electrical-Room" target="_blank">https://github.com/spoiler-dev/3D-Electrical-Room</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● 3D电气室自定义规划系统（Three.js+拖拽）：
+            ● 3D电气室自定义规划系统（Three.js + 拖拽）：
             <a href="https://github.com/spoiler-dev/3D-Electrical-Room-Layout" target="_blank">https://github.com/spoiler-dev/3D-Electrical-Room-Layout</a>
           </div>
           <div class="box bg-gray-lightest">
-            ● 个人网站（Vue+Node.js+MongoDB）：
-            <a href="https://github.com/spoiler-dev/Airbag" target="_blank">https://github.com/spoiler-dev/Airbag</a>
+            ● 个人网站（Vue + Node.js + MongoDB + nginx + pm2 + log4js）：
+            <a href="https://github.com/spoiler-dev/Airbag" target="_blank">https://github.com/spoiler-dev/Airbag-app</a>
           </div>
 
         </div>
@@ -100,20 +100,41 @@
         <h1 class="f-s-18 f-w-900 m-b-20">技术文章</h1>
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            ●
-            <a href="https://segmentfault.com/u/founder_ink/articles" target="_blank">Markdown 文章汇总</a>
+            ● Markdown 文章汇总
+            <a href="https://segmentfault.com/u/founder_ink/articles" target="_blank">https://segmentfault.com/u/founder_ink/articles</a>
           </div>
         </div>
       </section>
 
       <section>
-        <h1 class="f-s-18 f-w-900 m-b-20">工作经历
-          <!-- <a class="f-w-100" href="https://github.com/geekcompany/ResumeSample/blob/master/web.md" target="_blank">ResumeSample
-          </a> -->
-        </h1>
+        <h1 class="f-s-18 f-w-900 m-b-20">工作经历</h1>
+
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            1. 北京东方国信科技股份有限公司 （ 2018 年 2 月 ~ 至今 ）
+            1. 东方通信股份有限公司 （ 2018 年 12 月 ~ 至今 ）
+          </div>
+          <div class="box bg-gray-lightest">
+            内蒙古自治区农村信用社联合社自助设备监控管理系统及跨平台软件升级优化项目
+          </div>
+          <div class="box bg-gray-lightest">
+            <p class="m-t-0">第一阶段：现金终端业务（ATM/CRS）上线</p>
+            <p> ● 技术关键字：WOSA/XFS +</p>
+            <p> ● 角色：ATMC 应用开发工程师</p>
+            <p> ● 项目状态：已上线，试运行中，等待批量迁移</p>
+            <P> ● 负责现金终端业务平台的 C 端开发工作,实现远程密钥下发</P>
+          </div>
+          <div class="box bg-gray-lightest">
+            <p class="m-t-0">第二阶段：智能柜台项目（发卡机）上线</p>
+            <p> ● 技术关键字：Vue + iView + iView Admin</p>
+            <p> ● 角色：项目经理、ATMC 应用开发工程师</p>
+            <p> ● 项目状态：已上线，试运行中，等待批量迁移</p>
+            <P> ● 参与前端技术选型，参与构建前端项目，设计前端自动化工程构架，协调前后端联合调试，页面模块化 ，模块组件化 增加可复用性，实现自动生成代码、页面的功能，用于快速构建项目。</P>
+          </div>
+        </div>
+
+        <div class="boxes default m-b-20">
+          <div class="box bg-gray-lightest">
+            1. 北京东方国信科技股份有限公司 （ 2018 年 2 月 ~ 2018 年 12 月 ）
           </div>
           <div class="box bg-gray-lightest">
             <p class="m-t-0">青岛港管理平台项目：通过振动、应力、消防子系统实现设备状态监控，实时提供设备详情以及报警推送。</p>
@@ -149,7 +170,7 @@
 
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
-            3. 东软集团（大连）有限公司 （ 2016 年 7 月 ~ 2018 年 12 月 ）
+            3. 东软集团（大连）有限公司 （ 2016 年 7 月 ~ 2016 年 12 月 ）
           </div>
           <div class="box bg-gray-lightest">
             <p class="m-t-0">前端开发实习生</p>
