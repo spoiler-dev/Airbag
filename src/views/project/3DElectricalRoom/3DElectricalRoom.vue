@@ -13,7 +13,7 @@
 export default {
   name: '',
   props: [''],
-  data() {
+  data () {
     return {}
   },
 
@@ -21,9 +21,9 @@ export default {
 
   computed: {},
 
-  beforeMount() {},
+  beforeMount () {},
 
-  mounted() {
+  mounted () {
 
     // 点击浏览器返回链接消除拖拽体
     window.addEventListener('popstate', function (e) {
@@ -912,7 +912,11 @@ export default {
 
   methods: {},
 
-  watch: {}
+  watch: {},
+
+  destroyed () {
+    this.timer0 = null
+  }
 
 }
 </script>

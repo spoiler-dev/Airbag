@@ -24,8 +24,8 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
-        jQuery: 'jquery',
-        $: 'jquery'
+        // jQuery: 'jquery',
+        // $: 'jquery'
       }),
       // 配置compression-webpack-plugin压缩
       new CompressionWebpackPlugin({
@@ -85,8 +85,9 @@ module.exports = {
     proxy: {
       // 接口
       '/api': {
-        target: 'http://0.0.0.0:8081',
         // webpack 的属性，映射一个host
+        target: 'http://0.0.0.0:8081',
+        // 是否允许跨域
         changeOrign: true,
         ws: true,
         pathRewrite: {

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+/* eslint-disable */
 export default {
   name: '',
   props: [''],

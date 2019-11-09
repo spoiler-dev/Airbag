@@ -44,119 +44,113 @@
 </template>
 
 <script>
-  export default {
-    name: "",
-    props: [""],
-    data() {
-      return {};
-    },
+/* eslint-disable */
+export default {
+  name: '',
+  props: [''],
+  data () {
+    return {};
+  },
 
-    components: {},
+  components: {},
 
-    computed: {},
+  computed: {},
 
-    beforeMount() {},
+  beforeMount() {},
 
-    mounted() {
-      // 返回上一级页面
-      let _this = this
-      document.getElementById('back').addEventListener('click', () => {
-        _this.$router.push(
-          {
-            name: 'works'
-          }
-        )
-      })
-      let btn = document.getElementById("pick"),
-        book = document.getElementById("book"),
-        unicorn = document.getElementById("unicorn"),
-        title = document.getElementById("title"),
-        diy = document.getElementById("diy"),
-        content = document.getElementById("content"),
-        submit = document.getElementById("submit"),
-        drink = document.getElementById("drink"),
-        popover = document.getElementById("popover"),
-        timer = null,
-        run = 0,
-        index = 0,
-        flag = 0;
-      // 随机挑选礼物
-      btn.addEventListener("click", function () {
-        // 删除多余空格，分割字符串
-        let lollipop = book.value
-          .replace(/ +/g, " ")
-          .replace(/^ | $/g, "")
-          .split(" ");
-        if (!run) {
-          btn.value = "Stop";
-          title.innerText = "";
-          timer = setInterval(function () {
-            // Math.ceil 向上取整
-            // Math.random() 方法可返回介于 0 ~ 1 之间的一个随机数
-            let props = Math.ceil(Math.random() * lollipop.length),
-              propsTop = Math.ceil(
-                Math.random() *
-                (window.document.getElementById("container").offsetHeight -
-                  48) +
-                48
-              ),
-              propsLeft = Math.ceil(
-                Math.random() *
-                (window.document.getElementById("container").offsetWidth - 140)
-              ),
-              propsSize = Math.ceil(Math.random() * (24 - 12) + 12),
-              surge = lollipop[props - 1],
-              telegram = document.createElement("div");
-            telegram.setAttribute("class", "telegram");
-            telegram.innerText = surge;
-            unicorn.innerText = surge;
-            telegram.style.cssText =
-              `top: ${propsTop}px;left: ${propsLeft}px;color: "rgba(0,0,0,." + Math.random() + ")";font-size: ${propsSize}px;position: absolute;`
-            document.getElementById("container").appendChild(telegram);
-            // 动画
-            $(".telegram").fadeIn("slow", function () {
-              $(this).fadeOut("slow", function () {
-                $(this).remove();
-              });
-            });
-            run = 1;
-          }, 50);
-        } else {
-          title.innerText = "喵喵喵！就决定是你啦!";
-          clearInterval(timer);
-          btn.value = "Try 一 Try";
-          run = 0;
+  mounted() {
+    // 返回上一级页面
+    let _this = this
+    document.getElementById('back').addEventListener('click', () => {
+      _this.$router.push(
+        {
+          name: 'works'
         }
-        index++;
-        if (index == 7) {
-          alert("女人！ 我劝你善良！");
-          index = 0;
-        }
-      });
-      // 自定义菜单
-      diy.addEventListener("click", function () {
-        content.classList.remove("hide");
-      });
-      // 提交新菜单
-      submit.addEventListener("click", function () {
-        content.classList.add("hide");
-      });
-      // 请喝饮料
-      drink.addEventListener("click", function () {
-        if (!flag) {
-          popover.classList.remove("hide");
-          flag = 1;
-        } else {
-          popover.classList.add("hide");
-          flag = 0;
-        }
-      });
-    },
+      )
+    })
+    let btn = document.getElementById('pick')
+    let book = document.getElementById('book')
+    let unicorn = document.getElementById('unicorn')
+    let title = document.getElementById('title')
+    let diy = document.getElementById('diy')
+    let content = document.getElementById('content')
+    let submit = document.getElementById('submit')
+    let drink = document.getElementById('drink')
+    let popover = document.getElementById('popover')
+    let timer = null
+    let run = 0
+    let index = 0
+    let flag = 0
+    // 随机挑选礼物
+    btn.addEventListener('click', function () {
+      // 删除多余空格，分割字符串
+      let lollipop = book.value.replace(/ +/g, ' ').replace(/^ | $/g, '').split(' ')
+      if (!run) {
+        btn.value = 'Stop'
+        title.innerText = ''
+        timer = setInterval(function () {
+          // Math.ceil 向上取整
+          // Math.random() 方法可返回介于 0 ~ 1 之间的一个随机数
+          let props = Math.ceil(Math.random() * lollipop.length)
+          let propsTop = Math.ceil(
+              Math.random() * (window.document.getElementById('container').offsetHeight - 48) + 48
+            )
+          let propsLeft = Math.ceil(
+              Math.random() * (window.document.getElementById('container').offsetWidth - 140)
+            )
+          let propsSize = Math.ceil(Math.random() * (24 - 12) + 12)
+          let surge = lollipop[props - 1]
+          let telegram = document.createElement('div')
+          telegram.setAttribute('class', 'telegram')
+          telegram.innerText = surge
+          unicorn.innerText = surge
+          telegram.style.cssText =
+            `top: ${propsTop}px;left: ${propsLeft}px;color: "rgba(0,0,0,." + Math.random() + ")";font-size: ${propsSize}px;position: absolute;`
+          document.getElementById('container').appendChild(telegram)
+          // 动画
+          $('.telegram').fadeIn('slow', function () {
+            $(this).fadeOut('slow', function () {
+              $(this).remove()
+            })
+          })
+          run = 1
+        }, 50)
+      } else {
+        title.innerText = '喵喵喵！就决定是你啦!'
+        clearInterval(timer)
+        btn.value = 'Try 一 Try'
+        run = 0
+      }
+      index++
+      if (index === 7) {
+        alert('女人！ 我劝你善良！')
+        index = 0
+      }
+    })
+    // 自定义菜单
+    diy.addEventListener('click', function () {
+      content.classList.remove('hide')
+    })
+    // 提交新菜单
+    submit.addEventListener('click', function () {
+      content.classList.add('hide')
+    })
+    // 请喝饮料
+    drink.addEventListener('click', function () {
+      if (!flag) {
+        popover.classList.remove('hide')
+        flag = 1
+      } else {
+        popover.classList.add('hide')
+        flag = 0
+      }
+    })
+  },
 
-    methods: {},
+  methods: {},
 
-    watch: {}
-  };
+  watch: {}
+}
 </script>
 
 <style scoped>

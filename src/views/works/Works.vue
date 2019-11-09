@@ -68,33 +68,33 @@
 </template>
 
 <script>
-  export default {
-    name: '',
-    props: [''],
-    data() {
-      return {
+export default {
+  name: '',
+  props: [''],
+  data () {
+    return {
 
-      }
-    },
+    }
+  },
 
-    components: {},
+  components: {},
 
-    computed: {},
+  computed: {},
 
-    beforeMount() {},
+  beforeMount () {},
 
-    mounted() {
-      this.$nextTick(() => {
-        $('#opts a').eq(1).siblings().children('.opt').removeClass('active')
-        $('#opts a').eq(1).children('.opt').addClass('active')
-      })
-    },
+  mounted () {
+    this.$nextTick(() => {
+      $('#opts a').eq(1).siblings().children('.opt').removeClass('active')
+      $('#opts a').eq(1).children('.opt').addClass('active')
+    })
+  },
 
-    methods: {},
+  methods: {},
 
-    watch: {}
+  watch: {}
 
-  }
+}
 </script>
 <style lang='scss' scoped>
   @import './style.scss';

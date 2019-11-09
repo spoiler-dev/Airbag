@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
 import 'highlight.js/styles/atom-one-dark.css'
 export default {
   name: '',
