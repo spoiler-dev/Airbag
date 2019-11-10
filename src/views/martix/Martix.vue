@@ -45,7 +45,7 @@
         <!-- 弹窗 -->
         <el-dialog title="内容编辑" :visible.sync="dialogFormVisible" width="40%" center>
           <el-form :model="formEdit" label-width="90px">
-            <el-form-item label="文章标题：">
+            <el-form-item label="文章ID：">
               <el-input v-model="formEdit.id" :disabled="true"></el-input>
             </el-form-item>
             <el-form-item label="文章标题：">
@@ -165,7 +165,7 @@ export default {
             })
           }
           _this.tableData = arr
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)
@@ -187,12 +187,12 @@ export default {
             markdown: res.data[0].markdown
           }
           _this.dialogFormVisible = true
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)
         })
-      console.log(index, row)
+      // console.log(index, row)
     },
     handleDelete (index, row) {
       let _this = this
@@ -209,12 +209,12 @@ export default {
             center: true
           })
           _this.init()
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)
         })
-      console.log(index, row)
+      // console.log(index, row)
     },
     // 文章新增
     handleSubmit () {
@@ -236,17 +236,17 @@ export default {
           _this.$router.push({
             name: 'home'
           })
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)
         })
     },
     handleRemove (file, fileList) {
-      console.log(file, fileList)
+      // console.log(file, fileList)
     },
     handlePreview (file) {
-      console.log(file)
+      // console.log(file)
     },
     // 上传图片
     handleUpload (param) {
@@ -259,7 +259,7 @@ export default {
       }
       formData.append('file', file)
       this.$axios.post(this.HOST + '/upload', formData, headerConfig).then(res => {
-        console.log(res)
+        // console.log(res)
       })
     },
     success (response, file, fileList) {
@@ -284,7 +284,7 @@ export default {
           })
           _this.dialogFormVisible = false
           _this.init()
-          console.log(res.data)
+          // console.log(res.data)
         })
         .catch(error => {
           console.log(error)

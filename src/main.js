@@ -8,13 +8,13 @@ import qs from 'qs'
 import VueParticles from 'vue-particles'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-// import $ from 'jquery'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/dist/js/bootstrap.min'
+import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min'
 import '../public/font/iconfont.css'
 
 // jquery
-// Vue.prototype.$ = $
+Vue.prototype.$ = $
 // cookies
 // Vue.prototype.Cookies = Cookies
 // axios 请求
@@ -29,7 +29,7 @@ Vue.use(VueParticles)
 // 使用 ElementUI
 Vue.use(ElementUI)
 // 使用 Boostrap
-// require('bootstrap')
+require('bootstrap')
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {

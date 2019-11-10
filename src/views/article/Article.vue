@@ -6,6 +6,7 @@
       <!-- Reward -->
       <p class="reward">
         <a
+          v-show="popoverBtn"
           tabindex="0"
           role="button"
           id="button-reward"
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 // import $ from 'jquery'
 import 'highlight.js/styles/atom-one-dark.css'
 export default {
@@ -45,7 +47,8 @@ export default {
     return {
       markdown: '',
       html: '',
-      baseUrl: process.env.BASE_URL
+      baseUrl: process.env.BASE_URL,
+      popoverBtn: false
     }
   },
 
@@ -57,7 +60,6 @@ export default {
 
   mounted () {
     this.init()
-    $('[data-toggle="popover"]').popover()
     this.$nextTick(() => {
       $('#opts a')
         .eq(0)
@@ -68,6 +70,8 @@ export default {
         .eq(0)
         .children('.opt')
     })
+    this.popoverBtn = true
+    $('[data-toggle="popover"]').popover()
   },
 
   methods: {
@@ -86,7 +90,7 @@ export default {
                 hljs.highlight(lang, str, true).value +
                 '</code></pre>'
               )
-            } catch (__) {}
+            } catch (e) {}
           }
           return (
             '<pre class="hljs"><code>' +

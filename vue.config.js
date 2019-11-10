@@ -24,8 +24,8 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
-        // jQuery: 'jquery',
-        // $: 'jquery'
+        jQuery: 'jquery',
+        $: 'jquery'
       }),
       // 配置compression-webpack-plugin压缩
       new CompressionWebpackPlugin({
