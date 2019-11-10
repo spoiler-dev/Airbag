@@ -109,6 +109,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 // import $ from 'jquery'
 export default {
   name: '',
