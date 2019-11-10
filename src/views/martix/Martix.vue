@@ -221,6 +221,7 @@ export default {
     handleSubmit () {
       let _this = this
       // axios 服务
+      debugger
       this.$axios.post(this.HOST + '/add', {
         params: {
           title: this.form.title,
@@ -269,7 +270,7 @@ export default {
     // 编辑文章
     handleUpdate () {
       let _this = this
-      this.$axios(this.HOST + '/update', {
+      this.$axios.post(this.HOST + '/update', {
         params: {
           id: this.formEdit.id,
           title: this.formEdit.title,
