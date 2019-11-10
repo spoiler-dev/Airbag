@@ -221,7 +221,7 @@ export default {
     handleSubmit () {
       let _this = this
       // axios 服务
-      this.$axios(this.HOST + '/add', {
+      this.$axios.post(this.HOST + '/add', {
         params: {
           title: this.form.title,
           date: this.form.date,
