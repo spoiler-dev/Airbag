@@ -43,7 +43,7 @@
           </el-table>
         </el-tab-pane>
         <!-- 弹窗 -->
-        <el-dialog title="内容编辑" :visible.sync="dialogFormVisible" width="40%" center>
+        <el-dialog title="内容编辑" :visible.sync="dialogFormVisible" width="60%" center>
           <el-form :model="formEdit" label-width="90px">
             <el-form-item label="文章ID：">
               <el-input v-model="formEdit.id" :disabled="true"></el-input>
@@ -318,6 +318,9 @@ export default {
 }
 </script>
 <style scoped>
+  .avatar img, input[type=file] {
+      display: none;
+  }
   .el-upload__input {
     display: none;
   }
