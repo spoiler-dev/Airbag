@@ -44,7 +44,7 @@
         </el-tab-pane>
         <!-- 弹窗 -->
         <el-dialog title="内容编辑" :visible.sync="dialogFormVisible" width="60%" center>
-          <el-form :model="formEdit" label-width="90px">
+          <el-form :model="formEdit" label-width="105px">
             <el-form-item label="文章ID：">
               <el-input v-model="formEdit.id" :disabled="true"></el-input>
             </el-form-item>
@@ -69,7 +69,7 @@
         <!-- 工作台 -->
         <el-tab-pane name="second" :lazy=true>
           <span slot="label"><i class="el-icon-edit"></i> 发布</span>
-          <el-form ref="form" :model="form" label-width="90px">
+          <el-form ref="form" :model="form" label-width="105px">
             <el-form-item label="文章标题：">
               <el-input v-model="form.title"></el-input>
             </el-form-item>
