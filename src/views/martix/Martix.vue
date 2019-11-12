@@ -220,15 +220,17 @@ export default {
     // 文章新增
     handleSubmit () {
       let _this = this
+      let postData = this.$qs.stringify({
+        title: this.form.title,
+        date: this.form.date,
+        markdown: this.form.markdown,
+        path: this.form.path
+      })
       // axios 服务
-      debugger
-      this.$axios.post(this.HOST + '/add', {
-        params: {
-          title: this.form.title,
-          date: this.form.date,
-          markdown: this.form.markdown,
-          path: this.form.path
-        }
+      this.$axios({
+        method: 'post',
+        url: this.HOST + '/add',
+        data: postData
       })
         .then(res => {
           _this.$message({
@@ -270,14 +272,17 @@ export default {
     // 编辑文章
     handleUpdate () {
       let _this = this
-      this.$axios.post(this.HOST + '/update', {
-        params: {
-          id: this.formEdit.id,
-          title: this.formEdit.title,
-          date: this.formEdit.date,
-          markdown: this.formEdit.markdown,
-          path: this.formEdit.path
-        }
+      let postData = this.$qs.stringify({
+        id: this.formEdit.id,
+        title: this.formEdit.title,
+        date: this.formEdit.date,
+        markdown: this.formEdit.markdown,
+        path: this.formEdit.path
+      })
+      this.$axios({
+        method: 'post',
+        url: this.HOST + '/update',
+        data: postData
       })
         .then(res => {
           _this.$message({

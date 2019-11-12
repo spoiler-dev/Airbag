@@ -39,7 +39,7 @@ export default {
       // 每页显示条数
       size: 6,
       // 文章总数
-      length: Number,
+      total: Number,
       prev: false,
       next: true
     }
@@ -62,11 +62,21 @@ export default {
   methods: {
     axios () {
       let _this = this
+      let postData = this.$qs.stringify({
+        size: this.size,
+        index: this.index - 1
+      })
       let arr = []
       // axios 服务
-      this.$axios(this.HOST + '/list')
+      this.$axios({
+        method: 'post',
+        url: this.HOST + '/list',
+        data: postData
+      })
         .then(res => {
-          for (let i = 0, l = res.data.length; i < l; i++) {
+          debugger
+          let l = res.data.length - 1
+          for (let i = 0; i < l ; i++) {
             arr.push({
               id: res.data[i]._id,
               title: res.data[i].title,
@@ -75,6 +85,7 @@ export default {
               show: true
             })
           }
+          _this.total = res.data[l][0].total
           _this.article = arr
           _this.pager()
           // console.log(res.data)
@@ -86,8 +97,9 @@ export default {
     // 上一页
     pagerPrev () {
       this.index--
-      (this.index < 1) && (this.index = 1)
-      this.pager()
+      if (this.index <= 1) {
+        this.pager()
+      }
     },
     // 下一页
     pagerNext () {
@@ -104,25 +116,10 @@ export default {
       } else if (this.index === 1) {
         this.prev = false
       }
-      if (this.index === this.total) {
+      if (this.total <= this.size) {
         this.next = false
-      } else if (this.index < this.total) {
+      } else {
         this.next = true
-      }
-      this.length = this.article.length
-      this.total = Math.ceil(this.length / this.size)
-      // 开始条目
-      let start = (this.index - 1) * this.size
-      // 结束条目
-      let end = this.index * this.size
-      // 最后一页的特殊情况
-      end = (end > this.length) ? this.length : end
-      for (let i = 0, l = this.length; i < l; i++) {
-        if (i >= start && i < end) {
-          this.article[i].show = true
-        } else {
-          this.article[i].show = false
-        }
       }
     }
   },
