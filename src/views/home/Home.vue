@@ -35,7 +35,7 @@ export default {
   data () {
     return {
       article: [],
-      index: 1,
+      index: 0,
       // 每页显示条数
       size: 6,
       // 文章总数
@@ -64,7 +64,7 @@ export default {
       let _this = this
       let postData = this.$qs.stringify({
         size: this.size,
-        index: this.index - 1
+        index: this.index
       })
       let arr = []
       // axios 服务
@@ -85,7 +85,11 @@ export default {
               show: true
             })
           }
-          _this.total = res.data[l][0].total
+          res.data[l].some(item => {
+            if(item._id === 0){
+              _this.total = item.total
+            }
+          })
           _this.article = arr
           _this.pager()
           // console.log(res.data)
@@ -97,26 +101,25 @@ export default {
     // 上一页
     pagerPrev () {
       this.index--
-      if (this.index <= 1) {
-        this.pager()
-      }
+      this.axios()
     },
     // 下一页
     pagerNext () {
       this.index++
-      if (this.index > this.total) {
-        return false
-      }
-      this.pager()
+      this.axios()
     },
     // 分页
     pager () {
-      if (this.index > 1) {
+      let num = this.total - (this.index * this.size)
+      // 上一页
+      if (this.index >= 1) {
         this.prev = true
-      } else if (this.index === 1) {
+      } else {
         this.prev = false
       }
-      if (this.total <= this.size) {
+
+      // 下一页
+      if (num <= this.size) {
         this.next = false
       } else {
         this.next = true
