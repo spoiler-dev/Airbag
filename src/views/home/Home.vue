@@ -70,7 +70,7 @@ export default {
       // axios 服务
       this.$axios({
         method: 'post',
-        url: this.HOST + '/list',
+        url: this.HOST + '/pager',
         data: postData
       })
         .then(res => {

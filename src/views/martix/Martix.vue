@@ -1,7 +1,7 @@
 ﻿<template>
   <div>
     <div class="container post">
-      <el-tabs v-model="activeName" type="border-card">
+      <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
         <el-tab-pane name="first" :lazy=true>
           <span slot="label"><i class="el-icon-menu"></i> 文章中心</span>
           <!-- 文章中心 -->
@@ -79,6 +79,7 @@
             <!-- 上传图片 -->
             <el-form-item label="主题图片：">
               <el-upload
+                v-if="isChildUpdate"
                 :action="action"
                 class="upload-demo"
                 :on-preview="handlePreview"
@@ -89,7 +90,7 @@
                 ref="handleUpload"
                 :on-success="success">
                 <el-button size="small" type="primary">点击上传</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件</div>
               </el-upload>
               </el-form-item>
             <el-form-item label="图片：" id="path">
@@ -118,6 +119,7 @@ export default {
     return {
       activeName: 'first',
       dialogFormVisible: false,
+      isChildUpdate: false,
       form: {
         title: '',
         markdown: '',
@@ -247,7 +249,12 @@ export default {
         })
     },
     handleRemove (file, fileList) {
-      // console.log(file, fileList)
+      this.$axios(this.HOST + '/remove', {
+        params: {
+          fileName: file.name
+        }
+      })
+      this.form.path = ''
     },
     handlePreview (file) {
       // console.log(file)
@@ -296,6 +303,13 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    handleClick (tab) {
+      if(tab.name == "first") {
+        this.isChildUpdate = false
+      } else if(tab.name == "second") {
+        this.isChildUpdate = true
+      }
     }
   },
 
