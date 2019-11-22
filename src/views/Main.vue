@@ -84,7 +84,7 @@
             <p>
               &copy; {{year}} 方正
               <br>
-              <small class="text-muted">京ICP备 18046548号</small>
+              <small class="text-muted">蒙ICP备19005362号</small>
             </p>
           </div>
           <div class="text-75">
