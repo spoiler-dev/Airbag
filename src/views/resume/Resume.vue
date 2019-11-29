@@ -20,7 +20,7 @@
               <div class="col-3 p-t-10 p-b-10 border">● 手机：19913140410</div>
             </div>
             <div class="row">
-              <div class="col-5 p-t-10 p-b-10 border">● Email：founder.ink@outlook.com</div>
+              <div class="col-5 p-t-10 p-b-10 border">● Email：spoiler.ink@outlook.com</div>
               <div class="col-3 p-t-10 p-b-10 border">● 微信：13130010315</div>
             </div>
           </div>
@@ -39,7 +39,7 @@
           </div>
           <div class="box bg-gray-lightest">
             ● 个人网站：
-            <a href="https://founder.ink" target="_blank">https://founder.ink</a>
+            <a href="https://spoiler.ink" target="_blank">https://spoiler.ink</a>
           </div>
           <div class="box bg-gray-lightest">
             ● Github：
@@ -47,7 +47,7 @@
           </div>
           <div class="box bg-gray-lightest">
             ● SegmentFault：
-            <a href="https://segmentfault.com/u/founder_ink" target="_blank">https://segmentfault.com/u/founder_ink</a>
+            <a href="https://segmentfault.com/u/spoiler_dev" target="_blank">https://segmentfault.com/u/spoiler_dev</a>
           </div>
         </div>
       </section>
@@ -101,7 +101,7 @@
         <div class="boxes default m-b-20">
           <div class="box bg-gray-lightest">
             ● Markdown 文章汇总
-            <a href="https://segmentfault.com/u/founder_ink/articles" target="_blank">https://segmentfault.com/u/founder_ink/articles</a>
+            <a href="https://segmentfault.com/u/spoiler_dev/articles" target="_blank">https://segmentfault.com/u/spoiler_dev/articles</a>
           </div>
         </div>
       </section>
@@ -155,7 +155,7 @@
           <div class="box bg-gray-lightest">
             <p class="m-t-0">青岛港管理平台项目：通过振动、应力、消防子系统实现设备状态监控，实时提供设备详情以及报警推送。</p>
             <p> ● 技术关键字：Vue + ElementUI + Three.js + Echarts + jQuery</p>
-            <P> ● 负责 消防安全子系统 的研发，配合 UI 人员使用系统化设计提高开发效率，采用 Three.js 搭建 可视化 3D 电气室 ，并结合到 Vue 框架中。实时刷新反馈报警信息 ，统计报警信息生成相关 Echarts 图表。同时在管理系统中，电气室具备 可动态拖拽编辑 的功能，可 3D 预览 ，即时生成，动态更新。更多信息可访问 https://founder.ink/#/3DElectricalRoom</P>
+            <P> ● 负责 消防安全子系统 的研发，配合 UI 人员使用系统化设计提高开发效率，采用 Three.js 搭建 可视化 3D 电气室 ，并结合到 Vue 框架中。实时刷新反馈报警信息 ，统计报警信息生成相关 Echarts 图表。同时在管理系统中，电气室具备 可动态拖拽编辑 的功能，可 3D 预览 ，即时生成，动态更新。更多信息可访问 https://spoiler.ink/#/3DElectricalRoom</P>
           </div>
           <div class="box bg-gray-lightest">
             <p class="m-t-0">内部新平台建设项目：升级内部生产平台技术栈，动态配置数据库，采取前后端分离开发方式，实现页面模块化。</p>

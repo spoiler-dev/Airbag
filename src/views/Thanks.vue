@@ -4,7 +4,7 @@
       <p>今天，我必须得感谢你们：</p>
       <p class="thanks-inner">感谢我的女朋友 <strong>@小猫咪</strong> <br>一直支持我的工作和想法，让我写出最快乐的代码</p>
       <p class="thanks-inner">感谢我的兄弟 <strong>@冯伟东</strong> <br> 测试我的作品，一直默默倾听我的想法，为我提供最棒的灵感与支持</p>
-      <p class="thanks-inner">感谢UI <strong>@张西红</strong> <br> 赠予我全尺寸版本的 LOGO，为我的网页界面提出最中肯的意见</p>
+      <p class="thanks-inner">感谢 UI  <strong>@张西红</strong> <br> 赠予我全尺寸版本的 LOGO，为我的网页界面提出最中肯的意见</p>
       <p class="thanks-inner">感谢前端 <strong>@雒小磊</strong> <br> 为我提供权限分配的知识，在生活中也是我最信赖的朋友</p>
       <p class="thanks-inner">感谢前端 <strong>@牛彤</strong> <br> 在 Vue Cli3 的配置过程中为我提供她宝贵的框架经验</p>
       <p class="thanks-inner">感谢后台 <strong>@张文宇</strong> <br> 为我耐心讲解图片上传服务器，再返回页面的整个流程</p>

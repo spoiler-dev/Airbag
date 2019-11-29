@@ -30,7 +30,7 @@
               <a class="nav-link" href="https://github.com/spoiler-dev">GitHub</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://segmentfault.com/u/founder_ink">SegmentFault</a>
+              <a class="nav-link" href="https://segmentfault.com/u/spoiler_dev">SegmentFault</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -4,18 +4,39 @@
     <p class="project-line"></p>
     <P class="project-cn">作品展览</P>
     <div id="works" class="container post">
+
+      <div class="work-card">
+        <router-link to="/ATM8600R">
+          <div class="card-top">
+            <div class="banner img-up" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project20.png')">
+              <div class="banner-label">
+                <label>Three.js</label>
+                <label>Vue</label>
+                <label>Blender 建模</label>
+              </div>
+            </div>
+            <div class="banner img-mid" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project20.png')"></div>
+            <div class="banner img-down" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project20.png')"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-name">自助设备 SOP 监控管理系统</h3>
+            <p class="card-desc">实现对 ATM、CRS 自助设备模块的实时监控管理</p>
+          </div>
+        </router-link>
+      </div>
+
       <div class="work-card">
         <router-link to="/3DElectricalRoom">
           <div class="card-top">
-            <div class="banner img-up" style="backgroundImage: url('/img/works/Machine.jpg')">
+            <div class="banner img-up" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project29.jpg')">
               <div class="banner-label">
                 <label>Three.js</label>
                 <label>Vue</label>
                 <label>定时刷新</label>
               </div>
             </div>
-            <div class="banner img-mid" style="backgroundImage: url('img/works/Machine.jpg')"></div>
-            <div class="banner img-down" style="backgroundImage: url('img/works/Machine.jpg')"></div>
+            <div class="banner img-mid" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project29.jpg')"></div>
+            <div class="banner img-down" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project29.jpg')"></div>
           </div>
           <div class="card-content">
             <h3 class="card-name">3D 电气室实时监控系统</h3>
@@ -27,15 +48,15 @@
       <div class="work-card">
         <router-link to="/3DElectricalRoomLayout">
           <div class="card-top">
-            <div class="banner img-up" style="backgroundImage: url('/img/works/Data.jpg')">
+            <div class="banner img-up" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project25.jpg')">
               <div class="banner-label">
                 <label>Three.js</label>
                 <label>Vue</label>
                 <label>拖拽</label>
               </div>
             </div>
-            <div class="banner img-mid" style="backgroundImage: url('img/works/Data.jpg')"></div>
-            <div class="banner img-down" style="backgroundImage: url('img/works/Data.jpg')"></div>
+            <div class="banner img-mid" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project25.jpg')"></div>
+            <div class="banner img-down" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project25.jpg')"></div>
           </div>
           <div class="card-content">
             <h3 class="card-name">3D 电气室自定义规划系统</h3>
@@ -47,14 +68,14 @@
       <div class="work-card">
         <router-link to="/AnswersBook">
           <div class="card-top">
-            <div class="banner img-up" style="backgroundImage: url('/img/works/Two.jpg')">
+            <div class="banner img-up" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project32.jpg')">
               <div class="banner-label">
                 <label>Javascript</label>
                 <label>CSS</label>
               </div>
             </div>
-            <div class="banner img-mid" style="backgroundImage: url('img/works/Two.jpg')"></div>
-            <div class="banner img-down" style="backgroundImage: url('img/works/Two.jpg')"></div>
+            <div class="banner img-mid" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project32.jpg')"></div>
+            <div class="banner img-down" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project32.jpg')"></div>
           </div>
           <div class="card-content">
             <h3 class="card-name">答案之书</h3>

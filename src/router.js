@@ -65,6 +65,11 @@ export default new Router({
     },
     // 个人项目
     {
+      path: 'ATM8600R',
+      name: 'ATM8600R',
+      component: () => import('@/views/project/ATM8600R/ATM8600R')
+    },
+    {
       path: '3DElectricalRoom',
       name: '3DElectricalRoom',
       component: () => import('@/views/project/3DElectricalRoom/3DElectricalRoom')
