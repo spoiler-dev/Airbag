@@ -33,15 +33,28 @@
 
 <body>
   <div id="app"></div>
+
   <!-- built files will be auto injected -->
   <!-- <script type="text/javascript" src="<%= BASE_URL %>three/js/three.min.js"></script> -->
   <!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+
+  <!-- Three.js -->
   <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/three.min.js"></script>
-  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/ThreeBSP.js"></script>
-  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/dat.gui.min.js"></script>
-  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/Detector.js"></script>
+  <!-- 模型压缩 -->
+  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/DRACOLoader.js"></script>
+  <!-- GLTF 模型导入工具 -->
+  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/GLTFLoader.js"></script>
+  <!-- 轨道控制器 -->
   <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/OrbitControls.js"></script>
+  <!-- WebGL兼容性检查 -->
+  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/WebGL.js"></script>
+  <!-- 可视化控制器 -->
+  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/dat.gui.min.js"></script>
+  <!-- 性能监视器 -->
   <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/stats.min.js"></script>
+  <!-- 模型布尔运算 -->
+  <script type="text/javascript" src="https://airbag-1257360572.cos.ap-beijing.myqcloud.com/js/ThreeBSP.js"></script>
+
   <script>
     console.log(
       '%c澈澈',
@@ -56,7 +69,6 @@
       'color: #404040; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Avenir Next", "Avenir", "Segoe UI", "Helvetica Neue", "Helvetica", "HanHei SC", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif; font-size: .875rem;'
     )
   </script>
-
 </body>
 
 </html>

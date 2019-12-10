@@ -65,9 +65,9 @@ export default new Router({
     },
     // 个人项目
     {
-      path: 'ATM8600R',
-      name: 'ATM8600R',
-      component: () => import('@/views/project/ATM8600R/ATM8600R')
+      path: 'Eastcom-8600r',
+      name: 'Eastcom-8600r',
+      component: () => import('@/views/project/Eastcom-8600r/Eastcom-8600r')
     },
     {
       path: '3DElectricalRoom',

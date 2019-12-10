@@ -19,7 +19,7 @@
             <div class="banner img-down" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project20.png')"></div>
           </div>
           <div class="card-content">
-            <h3 class="card-name">自助设备 SOP 监控管理系统</h3>
+            <h3 class="card-name">自助设备监控管理系统</h3>
             <p class="card-desc">实现对 ATM、CRS 自助设备模块的实时监控管理</p>
           </div>
         </router-link>

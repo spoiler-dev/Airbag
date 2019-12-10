@@ -20,7 +20,10 @@ module.exports = {
   // compiler: false,
   // webpack配置
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: () => {},
+  chainWebpack: config => {
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+  },
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
