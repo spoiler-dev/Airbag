@@ -17,7 +17,9 @@ export default {
   name: 'Eastcom-8600r',
   props: [''],
   data () {
-    return {};
+    return {
+      three: null,
+    };
   },
 
   components: {},
@@ -258,43 +260,78 @@ loader.setDRACOLoader( dracoLoader );
     checkSupport () {
       if (WEBGL.isWebGLAvailable()) {
         // Initiate function or other initializations here
-        this.animate()
+        this.init()
       } else {
         var warning = WEBGL.getWebGLErrorMessage()
         document.getElementById('container').appendChild(warning)
       }
     },
-    // 调试插件
-    initGui () {
+    // 初始化
+    init () {
 
     },
-    // 渲染器
+    // 初始化 dat.GUI 简化试验流程
+    initGui () {
+      // 声明一个保存需求修改的相关数据的对象
+      this.three.gui = {
+        x: 0,
+        y: 0,
+        z: 120
+      }
+      three.datGui = new dat.GUI()
+      three.datGui.domElement.setAttribute('id', 'datGui')
+      // 将设置属性添加到gui当中，gui.add(对象，属性，最小值，最大值）
+      three.datGui.add(three.gui, 'x', -500, 500)
+      three.datGui.add(three.gui, 'y', -500, 500)
+      three.datGui.add(three.gui, 'z', -500, 500)
+
+    },
+    // 初始化渲染器
     initRender () {
 
     },
+    // 初始化场景
     initScene () {
 
     },
+    // 初始化摄像机
     initCamera () {
 
     },
+    // 初始化光线
     initLight () {
 
     },
+    // 初始化模型
     initModel () {
 
     },
+    // 初始化控制器
     initControls () {
 
     },
+    // 初始化性能插件
     initStats () {
 
     },
+    render() {
+      var time = clock.getDelta();
+      if (mixer) {
+          mixer.update(time);
+      }
 
+      controls.update();
+    },
     animate () {
 
     },
-
+    // 窗口变动触发的函数
+    onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight
+      camera.updateProjectionMatrix()
+      render()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+    }
   },
 
   watch: {}
