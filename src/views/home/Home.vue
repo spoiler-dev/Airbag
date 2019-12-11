@@ -74,7 +74,6 @@ export default {
         data: postData
       })
         .then(res => {
-          debugger
           let l = res.data.length - 1
           for (let i = 0; i < l ; i++) {
             arr.push({

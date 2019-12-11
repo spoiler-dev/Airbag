@@ -6,7 +6,7 @@
     <div id="works" class="container post">
 
       <div class="work-card">
-        <router-link to="/ATM8600R">
+        <router-link to="/Eastcom-8600r">
           <div class="card-top">
             <div class="banner img-up" style="backgroundImage: url('https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/project/Project20.png')">
               <div class="banner-label">

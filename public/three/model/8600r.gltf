@@ -55,7 +55,7 @@
                 0.25655290484428406
             ],
             "translation" : [
-                -0.002829205244779587,
+                0.0009173508733510971,
                 0.6081228852272034,
                 -0.6094274520874023
             ]
@@ -231,9 +231,9 @@
                 1.9999959468841553
             ],
             "translation" : [
-                0.01151750423014164,
-                -0.294624000787735,
-                -0.6182841062545776
+                0.010121287778019905,
+                -0.2978687286376953,
+                -0.6150507926940918
             ]
         },
         {
@@ -448,8 +448,17 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material.015",
-            "pbrMetallicRoughness" : {}
+            "name" : "Material.001",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.5878504514694214,
+                    0.6182432770729065,
+                    0.6920710802078247,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
         },
         {
             "doubleSided" : true,
@@ -995,20 +1004,6 @@
         },
         {
             "doubleSided" : true,
-            "name" : "Material.001",
-            "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.800000011920929,
-                    0.800000011920929,
-                    0.800000011920929,
-                    1
-                ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
-            }
-        },
-        {
-            "doubleSided" : true,
             "name" : "Material.003",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
@@ -1160,11 +1155,6 @@
         {
             "doubleSided" : true,
             "name" : "3d print",
-            "pbrMetallicRoughness" : {}
-        },
-        {
-            "doubleSided" : true,
-            "name" : "Material.016",
             "pbrMetallicRoughness" : {}
         },
         {
@@ -2377,7 +2367,7 @@
                         }
                     },
                     "indices" : 185,
-                    "material" : 41,
+                    "material" : 0,
                     "mode" : 4
                 },
                 {
@@ -2399,7 +2389,7 @@
                         }
                     },
                     "indices" : 190,
-                    "material" : 42,
+                    "material" : 41,
                     "mode" : 4
                 },
                 {
@@ -2421,7 +2411,7 @@
                         }
                     },
                     "indices" : 195,
-                    "material" : 43,
+                    "material" : 42,
                     "mode" : 4
                 },
                 {
@@ -2443,7 +2433,7 @@
                         }
                     },
                     "indices" : 200,
-                    "material" : 44,
+                    "material" : 43,
                     "mode" : 4
                 },
                 {
@@ -2465,7 +2455,7 @@
                         }
                     },
                     "indices" : 4,
-                    "material" : 45,
+                    "material" : 44,
                     "mode" : 4
                 },
                 {
@@ -2487,7 +2477,7 @@
                         }
                     },
                     "indices" : 209,
-                    "material" : 46,
+                    "material" : 45,
                     "mode" : 4
                 },
                 {
@@ -2509,7 +2499,7 @@
                         }
                     },
                     "indices" : 214,
-                    "material" : 47,
+                    "material" : 46,
                     "mode" : 4
                 },
                 {
@@ -2531,7 +2521,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 48,
+                    "material" : 47,
                     "mode" : 4
                 },
                 {
@@ -2553,7 +2543,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 49,
+                    "material" : 48,
                     "mode" : 4
                 },
                 {
@@ -2575,7 +2565,7 @@
                         }
                     },
                     "indices" : 227,
-                    "material" : 50,
+                    "material" : 49,
                     "mode" : 4
                 },
                 {
@@ -2597,7 +2587,7 @@
                         }
                     },
                     "indices" : 232,
-                    "material" : 50,
+                    "material" : 49,
                     "mode" : 4
                 },
                 {
@@ -2619,7 +2609,7 @@
                         }
                     },
                     "indices" : 237,
-                    "material" : 50,
+                    "material" : 49,
                     "mode" : 4
                 },
                 {
@@ -2641,7 +2631,7 @@
                         }
                     },
                     "indices" : 242,
-                    "material" : 51,
+                    "material" : 50,
                     "mode" : 4
                 },
                 {
@@ -2663,7 +2653,7 @@
                         }
                     },
                     "indices" : 247,
-                    "material" : 52,
+                    "material" : 51,
                     "mode" : 4
                 },
                 {
@@ -2707,7 +2697,7 @@
                         }
                     },
                     "indices" : 257,
-                    "material" : 53,
+                    "material" : 52,
                     "mode" : 4
                 },
                 {
@@ -2729,7 +2719,7 @@
                         }
                     },
                     "indices" : 4,
-                    "material" : 54,
+                    "material" : 53,
                     "mode" : 4
                 }
             ]
@@ -2778,7 +2768,7 @@
                         }
                     },
                     "indices" : 270,
-                    "material" : 55,
+                    "material" : 0,
                     "mode" : 4
                 },
                 {
@@ -2800,7 +2790,7 @@
                         }
                     },
                     "indices" : 39,
-                    "material" : 56,
+                    "material" : 54,
                     "mode" : 4
                 },
                 {
@@ -2822,7 +2812,7 @@
                         }
                     },
                     "indices" : 279,
-                    "material" : 57,
+                    "material" : 55,
                     "mode" : 4
                 },
                 {
@@ -2844,7 +2834,7 @@
                         }
                     },
                     "indices" : 284,
-                    "material" : 58,
+                    "material" : 56,
                     "mode" : 4
                 }
             ]
@@ -2871,7 +2861,7 @@
                         }
                     },
                     "indices" : 289,
-                    "material" : 59,
+                    "material" : 57,
                     "mode" : 4
                 },
                 {
@@ -2893,7 +2883,7 @@
                         }
                     },
                     "indices" : 4,
-                    "material" : 60,
+                    "material" : 58,
                     "mode" : 4
                 },
                 {
@@ -2915,7 +2905,7 @@
                         }
                     },
                     "indices" : 4,
-                    "material" : 53,
+                    "material" : 52,
                     "mode" : 4
                 },
                 {
@@ -2959,7 +2949,7 @@
                         }
                     },
                     "indices" : 306,
-                    "material" : 54,
+                    "material" : 53,
                     "mode" : 4
                 },
                 {
@@ -3008,7 +2998,7 @@
                         }
                     },
                     "indices" : 316,
-                    "material" : 61,
+                    "material" : 59,
                     "mode" : 4
                 },
                 {
@@ -3074,7 +3064,7 @@
                         }
                     },
                     "indices" : 331,
-                    "material" : 62,
+                    "material" : 60,
                     "mode" : 4
                 }
             ]
@@ -3167,7 +3157,7 @@
                         }
                     },
                     "indices" : 349,
-                    "material" : 63,
+                    "material" : 61,
                     "mode" : 4
                 }
             ]
@@ -3238,7 +3228,7 @@
                         }
                     },
                     "indices" : 364,
-                    "material" : 64,
+                    "material" : 62,
                     "mode" : 4
                 },
                 {
@@ -3287,7 +3277,7 @@
                         }
                     },
                     "indices" : 373,
-                    "material" : 65,
+                    "material" : 63,
                     "mode" : 4
                 }
             ]
@@ -3314,7 +3304,7 @@
                         }
                     },
                     "indices" : 378,
-                    "material" : 66,
+                    "material" : 64,
                     "mode" : 4
                 }
             ]
@@ -3341,7 +3331,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 67,
+                    "material" : 65,
                     "mode" : 4
                 }
             ]
@@ -3368,7 +3358,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 68,
+                    "material" : 66,
                     "mode" : 4
                 }
             ]
@@ -3395,7 +3385,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 69,
+                    "material" : 67,
                     "mode" : 4
                 }
             ]
@@ -3422,7 +3412,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 70,
+                    "material" : 68,
                     "mode" : 4
                 }
             ]
@@ -3449,7 +3439,7 @@
                         }
                     },
                     "indices" : 113,
-                    "material" : 71,
+                    "material" : 69,
                     "mode" : 4
                 }
             ]
