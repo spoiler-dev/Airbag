@@ -137,23 +137,37 @@ export default {
     // 初始化光线
     initLight () {
       // 环境光
-      this.light = new THREE.AmbientLight(0xffffff, 0.2)
+      this.light = new THREE.AmbientLight(0xFFFFFF, 1)
       this.scene.add(this.light)
       // 平行光
-      let directionalLight1= new THREE.DirectionalLight(0xffffff, 0.6)
+      let directionalLight1= new THREE.DirectionalLight(0xFFFFFF, 1)
       //开启灯光投射阴影
-      directionalLight1.position.set(0, 3, 5)
+      directionalLight1.position.set(0, 2, 5)
       directionalLight1.target.position.set(0, 0, 0)
       directionalLight1.castShadow = true
 
       this.scene.add(directionalLight1)
-      // let directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.7)
-      // directionalLight2.position.set(-3, 0, 0)
-      // this.scene.add(directionalLight2)
-      // // 聚光灯
+      let directionalLight2 = new THREE.DirectionalLight(0xffffff, 1)
+      directionalLight2.position.set(0, 2, -5)
+      directionalLight2.target.position.set(0, 0, 0)
+      directionalLight2.castShadow = true
+      this.scene.add(directionalLight2)
+
+      let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.5)
+      directionalLight3.position.set(10, 0, 0)
+      directionalLight3.target.position.set(0, 0, 0)
+      directionalLight3.castShadow = true
+      this.scene.add(directionalLight3)
+
+      // let directionalLight4 = new THREE.DirectionalLight(0xffffff, 0.5)
+      // directionalLight4.position.set(-10, 0, 0)
+      // directionalLight4.target.position.set(0, 0, 0)
+      // directionalLight4.castShadow = true
+      // this.scene.add(directionalLight4)
+      // 聚光灯
       // let pointLight1 = new THREE.PointLight(0xffffff, 1)
-      // pointLight1.position.set(2, 2, -5)
-      // //开启灯光投射阴影
+      // pointLight1.position.set(0, 2, 2)
+      // // 开启灯光投射阴影
       // pointLight1.castShadow = true
       // this.scene.add(pointLight1)
       // let pointLight2 = new THREE.PointLight(0xffffff, 0.9)
@@ -181,10 +195,10 @@ export default {
       this.loader.load('three/model/8600r.gltf', function (obj) {
         obj.scene.traverse(function (child) {
           if (child.isMesh) {
-            child.material.emissive = child.material.color
-            child.material.emissiveMap = child.material.map
+            // child.material.emissive = child.material.color
+            // child.material.emissiveMap = child.material.map
             // 允许投射阴影
-            child.castShadow = true
+            // child.castShadow = true
             // 允许接收阴影
             child.receiveShadow = true
           }
@@ -200,21 +214,21 @@ export default {
       function (error) {
         console.log('load error!'+error.getWebGLErrorMessage())
       })
-      let cubeGeometry = new THREE.CubeGeometry(1, 1, 1)
-      let cubeMaterial = new THREE.MeshLambertMaterial(
-        {
-          color: 0x00ffff
-        }
-      )
-      let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      let cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      let cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      cube.position.set(0, 1, 5)
-      cube1.position.set(0, 1, -5)
-      cube2.position.set(-5, 1, -5)
-      this.scene.add(cube)
-      this.scene.add(cube1)
-      this.scene.add(cube2)
+      // let cubeGeometry = new THREE.CubeGeometry(1, 1, 1)
+      // let cubeMaterial = new THREE.MeshLambertMaterial(
+      //   {
+      //     color: 0x00ffff
+      //   }
+      // )
+      // let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
+      // let cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial)
+      // let cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial)
+      // cube.position.set(2, 0, 0)
+      // cube1.position.set(0, 1, -5)
+      // cube2.position.set(-5, 1, -5)
+      // this.scene.add(cube)
+      // this.scene.add(cube1)
+      // this.scene.add(cube2)
     },
     // 初始化控制器
     initControls () {
