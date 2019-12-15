@@ -9,6 +9,7 @@
         <div id="draw"></div>
         <p id="loading">加载中...</p>
       </div>
+
     </div>
   </div>
 </template>
@@ -89,10 +90,19 @@ export default {
     },
     // 初始化 dat.GUI 简化试验流程
     initGui () {
+      let _this = this
       // 声明一个保存需求修改的相关数据的对象
-      this.gui = {}
+      this.gui = {
+        rotate: true,
+        openDoor: function () {
+          _this.openDoor()
+        }
+      }
       this.datGui = new dat.GUI()
       this.datGui.domElement.setAttribute('id', 'datGui')
+      this.datGui.add(this.gui, "openDoor")
+      // datGui.add(gui, "clearScene")
+      // datGui.add(gui, "importScene")
       // 将设置属性添加到gui当中，gui.add(对象，属性，最小值，最大值）
     },
     // 初始化渲染器
@@ -159,17 +169,24 @@ export default {
       directionalLight3.castShadow = true
       this.scene.add(directionalLight3)
 
-      // let directionalLight4 = new THREE.DirectionalLight(0xffffff, 0.5)
-      // directionalLight4.position.set(-10, 0, 0)
-      // directionalLight4.target.position.set(0, 0, 0)
-      // directionalLight4.castShadow = true
-      // this.scene.add(directionalLight4)
+      let directionalLight4 = new THREE.DirectionalLight(0xffffff, 0.5)
+      directionalLight4.position.set(-10, 0, 0)
+      directionalLight4.target.position.set(0, 0, 0)
+      directionalLight4.castShadow = true
+      this.scene.add(directionalLight4)
+
+      // let directionalLight5= new THREE.DirectionalLight(0xffffff, 1)
+      // directionalLight5.position.set(0, 0.85, 0.5)
+      // directionalLight5.target.position.set(0, 0, 0)
+      // directionalLight5.castShadow = true
+      // this.scene.add(directionalLight5)
+
       // 聚光灯
-      // let pointLight1 = new THREE.PointLight(0xffffff, 1)
-      // pointLight1.position.set(0, 2, 2)
-      // // 开启灯光投射阴影
-      // pointLight1.castShadow = true
-      // this.scene.add(pointLight1)
+      let spotLight1 = new THREE.SpotLight(0xFFB6C1, 0.8)
+      spotLight1.position.set(0, 0.8, 0.65)
+      // 开启灯光投射阴影
+      spotLight1.castShadow = true
+      this.scene.add(spotLight1)
       // let pointLight2 = new THREE.PointLight(0xffffff, 0.9)
       // pointLight2.position.set(-2, 2, -5)
       // this.scene.add(pointLight2)
@@ -205,6 +222,7 @@ export default {
         })
         console.log(obj)
         obj.scene.position.y = -0.3
+        obj.scene.name = "loaderSence"
         _this.scene.add(obj.scene)
         document.getElementById('loading').style.display = 'none'
       },
@@ -214,19 +232,19 @@ export default {
       function (error) {
         console.log('load error!'+error.getWebGLErrorMessage())
       })
-      // let cubeGeometry = new THREE.CubeGeometry(1, 1, 1)
-      // let cubeMaterial = new THREE.MeshLambertMaterial(
-      //   {
-      //     color: 0x00ffff
-      //   }
-      // )
-      // let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
+      let cubeGeometry = new THREE.CubeGeometry(0.5, 0.5, 0.5)
+      let cubeMaterial = new THREE.MeshLambertMaterial(
+        {
+          color: 0x00ffff
+        }
+      )
+      let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
       // let cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial)
       // let cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      // cube.position.set(2, 0, 0)
+      cube.position.set(-1, 1, -1)
       // cube1.position.set(0, 1, -5)
       // cube2.position.set(-5, 1, -5)
-      // this.scene.add(cube)
+      this.scene.add(cube)
       // this.scene.add(cube1)
       // this.scene.add(cube2)
     },
@@ -236,7 +254,7 @@ export default {
       // 使动画循环使用时阻尼或自转 意思是否有惯性
       this.controls.enableDamping = true
       // 动态阻尼系数 就是鼠标拖拽旋转灵敏度
-      this.controls.dampingFactor = 0.25
+      this.controls.dampingFactor = 0.2
       // 是否可以缩放
       this.controls.enableZoom = true
       // 是否自动旋转
@@ -279,6 +297,21 @@ export default {
       this.camera.updateProjectionMatrix()
       this.render()
       this.renderer.setSize(this.width, this.height)
+    },
+    /** ================ 动画 ================ **/
+    // 打开上位置门
+    openDoor () {
+      debugger
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'door')
+      // 向量axis
+      var axis = new THREE.Vector3(1, 1, -1)
+      // 绕 axis 轴旋转
+      this.scene.children[index1].children[index2].rotateOnAxis(axis, Math.PI/2)
+    },
+    /** ================ Utils ================ **/
+    finder (array, thisValue) {
+      return array.findIndex(arr => arr.name === thisValue)
     }
   },
 
