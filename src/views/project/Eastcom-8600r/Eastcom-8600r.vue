@@ -30,7 +30,8 @@ export default {
       loader: null,
       controls: null,
       width: null,
-      height: null
+      height: null,
+      cashBoxNum: 5
     }
   },
 
@@ -93,14 +94,19 @@ export default {
       let _this = this
       // 声明一个保存需求修改的相关数据的对象
       this.gui = {
-        rotate: true,
-        openDoor: function () {
+        自动旋转: true,
+        打开柜门: function () {
           _this.openDoor()
-        }
+        },
+        打开安全门: function () {
+          _this.openSafeDoor()
+        },
       }
       this.datGui = new dat.GUI()
       this.datGui.domElement.setAttribute('id', 'datGui')
-      this.datGui.add(this.gui, "openDoor")
+      this.datGui.add(this.gui, '自动旋转')
+      this.datGui.add(this.gui, "打开柜门")
+      this.datGui.add(this.gui, "打开安全门")
       // datGui.add(gui, "clearScene")
       // datGui.add(gui, "importScene")
       // 将设置属性添加到gui当中，gui.add(对象，属性，最小值，最大值）
@@ -155,21 +161,21 @@ export default {
       directionalLight1.position.set(0, 2, 5)
       directionalLight1.target.position.set(0, 0, 0)
       directionalLight1.castShadow = true
-
       this.scene.add(directionalLight1)
-      let directionalLight2 = new THREE.DirectionalLight(0xffffff, 1)
-      directionalLight2.position.set(0, 2, -5)
+
+      let directionalLight2 = new THREE.DirectionalLight(0xF0FFFF, 1)
+      directionalLight2.position.set(0, 0.6, -5)
       directionalLight2.target.position.set(0, 0, 0)
       directionalLight2.castShadow = true
       this.scene.add(directionalLight2)
 
-      let directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.5)
+      let directionalLight3 = new THREE.DirectionalLight(0xF0FFFF, 0.55)
       directionalLight3.position.set(10, 0, 0)
       directionalLight3.target.position.set(0, 0, 0)
       directionalLight3.castShadow = true
       this.scene.add(directionalLight3)
 
-      let directionalLight4 = new THREE.DirectionalLight(0xffffff, 0.5)
+      let directionalLight4 = new THREE.DirectionalLight(0xFFFFFF, 0.55)
       directionalLight4.position.set(-10, 0, 0)
       directionalLight4.target.position.set(0, 0, 0)
       directionalLight4.castShadow = true
@@ -183,10 +189,16 @@ export default {
 
       // 聚光灯
       let spotLight1 = new THREE.SpotLight(0xFFB6C1, 0.8)
-      spotLight1.position.set(0, 0.8, 0.65)
+      spotLight1.position.set(0, 0.76, 0.7)
       // 开启灯光投射阴影
       spotLight1.castShadow = true
       this.scene.add(spotLight1)
+
+      // let spotLight2 = new THREE.SpotLight(0xFFB6C1, 1)
+      // spotLight2.position.set(0, 0.76, -1)
+      // // 开启灯光投射阴影
+      // spotLight2.castShadow = true
+      // this.scene.add(spotLight2)
       // let pointLight2 = new THREE.PointLight(0xffffff, 0.9)
       // pointLight2.position.set(-2, 2, -5)
       // this.scene.add(pointLight2)
@@ -232,7 +244,7 @@ export default {
       function (error) {
         console.log('load error!'+error.getWebGLErrorMessage())
       })
-      let cubeGeometry = new THREE.CubeGeometry(0.5, 0.5, 0.5)
+      let cubeGeometry = new THREE.CubeGeometry(0.05, 0.05, 0.05)
       let cubeMaterial = new THREE.MeshLambertMaterial(
         {
           color: 0x00ffff
@@ -241,7 +253,7 @@ export default {
       let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
       // let cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial)
       // let cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      cube.position.set(-1, 1, -1)
+      cube.position.set(-0.25, 0.5, -0.6)
       // cube1.position.set(0, 1, -5)
       // cube2.position.set(-5, 1, -5)
       this.scene.add(cube)
@@ -275,6 +287,11 @@ export default {
       document.getElementById('draw').appendChild(this.stats.dom)
     },
     render () {
+      if (!this.gui.自动旋转) {
+        this.controls.autoRotate = false
+      } else {
+        this.controls.autoRotate = true
+      }
       this.renderer.render(this.scene, this.camera)
     },
     animate () {
@@ -301,15 +318,61 @@ export default {
     /** ================ 动画 ================ **/
     // 打开上位置门
     openDoor () {
-      debugger
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'door')
-      // 向量axis
-      var axis = new THREE.Vector3(1, 1, -1)
-      // 绕 axis 轴旋转
-      this.scene.children[index1].children[index2].rotateOnAxis(axis, Math.PI/2)
+      this.scene.children[index1].children[index2].position.set(-0.51, 0.61, -0.6)
+      this.scene.children[index1].children[index2].rotation.set(0, Math.PI / 2, 0)
+      this.pullOutPack()
+      this.pullOutIdcB()
+      this.pullOutPrrB()
+    },
+    // 拉出上面板
+    pullOutPack () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'pack')
+      this.scene.children[index1].children[index2].translateZ(-0.6)
+    },
+    // 凭条打印机
+    pullOutPrrB () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'prrB')
+      this.scene.children[index1].children[index2].translateZ(-0.6)
+    },
+    // 读卡器
+    pullOutIdcB () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'idcB')
+      this.scene.children[index1].children[index2].translateZ(-0.6)
+    },
+    // 打开安全门
+    openSafeDoor () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'safeDoor')
+      this.scene.children[index1].children[index2].position.set(-0.51, -0.305, -0.58)
+      this.scene.children[index1].children[index2].rotation.set(-Math.PI / 2, Math.PI, 0)
+      this.pullOutBv()
+      this.pullOutCashBox()
+    },
+    // 拉出验钞模块
+    pullOutBv () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'bv')
+      this.scene.children[index1].children[index2].translateZ(-0.7)
+    },
+    // 拉出钞箱
+    pullOutCashBox () {
+      let _this = this
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'cashBox')
+      this.scene.children[index1].children[index2].translateZ(-0.7)
+      let l = this.cashBoxNum
+      for (let i = 0; i < l ; i ++) {
+        index2 = this.finder(this.scene.children[index1].children, `cashBox0${ i + 1 }`)
+        _this.scene.children[index1].children[index2].translateZ(-0.7)
+      }
     },
     /** ================ Utils ================ **/
+    // 访达
     finder (array, thisValue) {
       return array.findIndex(arr => arr.name === thisValue)
     }
