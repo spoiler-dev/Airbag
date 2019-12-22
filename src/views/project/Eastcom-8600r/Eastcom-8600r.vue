@@ -476,8 +476,8 @@ export default {
       //设置统计模式
       this.stats.setMode(0); // 0: fps, 1: ms
       //统计信息显示在左上角
-      this.stats.dom.style.left = '450px'
-      this.stats.dom.style.top = '130px'
+      // this.stats.dom.style.left = '450px'
+      // this.stats.dom.style.top = '130px'
       this.stats.dom.setAttribute('id', 'stats')
       document.getElementById('draw').appendChild(this.stats.dom)
     },
@@ -1075,9 +1075,10 @@ export default {
 <style lang="scss">
   .dg.ac {
     z-index: 1000;
-    margin: 0 auto;
-    right: 450px;
-    top: 130px;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%);
+    right: unset;
   }
 
 </style>
