@@ -423,7 +423,7 @@ export default {
           }
         })
         console.log(obj)
-        obj.scene.position.y = -0.1
+        obj.scene.position.y = -0.3
         obj.scene.name = "loaderSence"
         _this.scene.add(obj.scene)
         document.getElementById('loading').style.display = 'none'
@@ -543,6 +543,7 @@ export default {
       this.renderer.render(this.scene, this.camera)
     },
     animate () {
+      requestAnimationFrame(this.animate)
       // 更新控制器
       this.render()
       // 更新性能插件
@@ -554,7 +555,6 @@ export default {
       // cube.position.x = gui.cubeX
       // cube.position.z = gui.cubeZ
       this.controls.update()
-      requestAnimationFrame(this.animate)
     },
     // 窗口变动触发的函数
     onWindowResize () {
@@ -562,7 +562,6 @@ export default {
       this.height = document.getElementById('view').offsetHeight
       this.camera.aspect = this.width / this.height
       this.camera.updateProjectionMatrix()
-      this.render()
       this.renderer.setSize(this.width, this.height)
     },
     /** ================ 动画 ================ **/
@@ -757,7 +756,7 @@ export default {
     #quit {
       position: fixed;
       top: 33px;
-      right: 2%;
+      right: 10px;
       width:120px;
       height:40px;
       background:rgba(0,30,36,0.3);
@@ -877,8 +876,6 @@ export default {
           font-family:Microsoft YaHei;
           font-weight:400;
           color:rgba(0,255,255,1);
-          height: 46px;
-          line-height: 46px;
         }
       }
     }
@@ -889,20 +886,20 @@ export default {
     right: 30px;
     z-index: 999;
     width:400px;
-    height: 140px;
+    height: 80px;
     background:rgba(0,30,36,0.3);
     display: flex;
     justify-content: space-around;
-    padding-top: 20px;
+    padding-top: 10px;
     .cashBox-box {
       width:150px;
-      height:100px;
+      height:60px;
       background:rgba(11,117,149,0);
       border:1px solid rgba(0,255,255,1);
       .cashBox-title {
         padding-left: 10px;
-        height:39px;
-        line-height: 39px;
+        height:20px;
+        line-height: 20px;
         font-size:16px;
         font-family:Microsoft YaHei;
         font-weight:400;
@@ -910,7 +907,7 @@ export default {
       }
       .cashBox-text {
         width:148px;
-        height:60px;
+        height:40px;
         background:rgba(0,255,255,0.3);
         display: flex;
         .cashBox-text-left {
@@ -921,24 +918,24 @@ export default {
           font-weight:400;
           color:rgba(0,255,255,1);
           text-align: center;
-          line-height: 60px;
+          line-height: 40px;
         }
         .cashBox-text-right {
           width:50%;
-          height:100;
+          height:100%;
           font-size:16px;
           font-family:Microsoft YaHei;
           font-weight:400;
           color:rgba(255,255,255,1);
           text-align: center;
-          line-height: 60px;
+          line-height: 40px;
         }
       }
     }
   }
   #terminal-model {
     position: fixed;
-    top: 290px;
+    top: 215px;
     right: 30px;
     z-index: 999;
     width:400px;
@@ -951,11 +948,11 @@ export default {
       margin: 30px 0 10px;
       .terminal-model-box {
         width:120px;
-        height:140px;
+        height:125px;
         background:rgba(11,117,149,0);
         border:1px solid;
         border-image:linear-gradient(0deg, rgba(0,255,255,1), rgba(0,255,255,1), rgba(0,255,255,1)) 10 10;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         .terminal-model-box-text {
           height:34px;
           line-height: 34px;
@@ -973,7 +970,7 @@ export default {
           background:rgba(1,22,35,1);
           border:1px solid rgba(0,96,116,1);
           border-radius:3px;
-          margin: 10px auto 0 auto;
+          margin: 5px auto 0 auto;
         }
         .idc {
           background: url('../../../../public/three/system/idc.png') no-repeat center;
@@ -1026,10 +1023,10 @@ export default {
   }
   #base {
     position: fixed;
-    bottom: 30px;
+    bottom: 0px;
     left: 50%;
-    width: 600px;
-    height: 200px;
+    width: 300px;
+    height: 120px;
     z-index: 999;
     margin: auto;
     background: url('../../../../public/three/system/base.png') no-repeat center;
