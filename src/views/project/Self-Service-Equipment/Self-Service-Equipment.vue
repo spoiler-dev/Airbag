@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <div id="banner">
-      <i class="el-icon-d-arrow-left" id="back">返回</i>
-      <span>Eastcom-8600r 模型管理控制系统</span>
-    </div>
+  <div>>
     <div id="header">
       <div id="header-left">
         <img src="../../../../public/three/system/leftHeader.png" alt="">
@@ -18,12 +14,12 @@
         <img src="../../../../public/three/system/leftLine.png" alt="">
       </div>
       <div id="enTitle">
-        Self service equipment monitoring management system
+        Self Service Equipment Monitoring Management System
       </div>
       <div id="line-right">
         <img src="../../../../public/three/system/rightLine.png" alt="">
       </div>
-      <div id="quit">
+      <div id="quit" @click="handleClcik">
         <img src="../../../../public/three/system/quit.png" alt="">&nbsp;退出
       </div>
     </div>
@@ -196,7 +192,7 @@
 
 <script>
 export default {
-  name: 'Eastcom-8600r',
+  name: 'Self-Service-Equipment',
   props: [''],
   data () {
     return {
@@ -440,15 +436,9 @@ export default {
           color: 0x00ffff
         }
       )
-      let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      // let cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      // let cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial)
-      cube.position.set(-0.25, 0.5, -0.6)
-      // cube1.position.set(0, 1, -5)
-      // cube2.position.set(-5, 1, -5)
-      this.scene.add(cube)
-      // this.scene.add(cube1)
-      // this.scene.add(cube2)
+      // let cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
+      // cube.position.set(-0.25, 0.5, -0.6)
+      // this.scene.add(cube)
     },
     // 初始化控制器
     initControls () {
@@ -476,8 +466,8 @@ export default {
       //设置统计模式
       this.stats.setMode(0); // 0: fps, 1: ms
       //统计信息显示在左上角
-      // this.stats.dom.style.left = '450px'
-      // this.stats.dom.style.top = '130px'
+      this.stats.dom.style.left = '450px'
+      this.stats.dom.style.top = '130px'
       this.stats.dom.setAttribute('id', 'stats')
       document.getElementById('draw').appendChild(this.stats.dom)
     },
@@ -538,8 +528,6 @@ export default {
           this.closeSafeDoor()
         }
       }
-
-
       this.renderer.render(this.scene, this.camera)
     },
     animate () {
@@ -637,7 +625,7 @@ export default {
     // 拉出机芯
     pullOutMovement () {
       let index1 = this.finder(this.scene.children, 'loaderSence')
-      let index2 = this.finder(this.scene.children[index1].children, 'bv')
+      let index2 = this.finder(this.scene.children[index1].children, 'movement')
       this.scene.children[index1].children[index2].translateZ(-0.7)
       this.pullOutMovementFlag = true
       this.pushIntoMovementFlag = false
@@ -660,7 +648,6 @@ export default {
     closeSafeDoor () {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'safeDoor')
-      debugger
       this.scene.children[index1].children[index2].position.set(0.010121287778019905, -0.2978687286376953, -0.6150507926940918)
       this.scene.children[index1].children[index2].rotation.set(Math.PI / 2, 0, 0)
       this.openSafeDoorFlag = false
@@ -669,7 +656,7 @@ export default {
     // 推入机芯
     pushIntoMovement () {
       let index1 = this.finder(this.scene.children, 'loaderSence')
-      let index2 = this.finder(this.scene.children[index1].children, 'bv')
+      let index2 = this.finder(this.scene.children[index1].children, 'movement')
       this.scene.children[index1].children[index2].translateZ(0.7)
       this.pullOutMovementFlag = false
       this.pushIntoMovementFlag = true
@@ -692,6 +679,11 @@ export default {
     // 访达
     finder (array, thisValue) {
       return array.findIndex(arr => arr.name === thisValue)
+    },
+    handleClcik () {
+      this.$router.push({
+        name: 'works'
+      })
     }
   },
 
@@ -708,7 +700,7 @@ export default {
     width: 90%;
     margin: 0 auto;
     position: fixed;
-    top: 33px;
+    top: 20px;
     left: 5%;
     z-index: 999;
     #header-left {
@@ -755,7 +747,7 @@ export default {
     }
     #quit {
       position: fixed;
-      top: 33px;
+      top: 23px;
       right: 10px;
       width:120px;
       height:40px;
@@ -772,7 +764,7 @@ export default {
   }
   #terminal-info {
     position: fixed;
-    top: 120px;
+    top: 110px;
     left: 30px;
     z-index: 999;
     width:400px;
@@ -800,7 +792,7 @@ export default {
   }
   #terminal-state {
     position: fixed;
-    top: 240px;
+    top: 230px;
     left: 30px;
     z-index: 999;
     width:400px;
@@ -853,7 +845,7 @@ export default {
   }
   #cashBox-info {
     position: fixed;
-    top: 440px;
+    top: 430px;
     left: 30px;
     z-index: 999;
     width:400px;
@@ -882,7 +874,7 @@ export default {
   }
   #cashBox-state {
     position: fixed;
-    top: 120px;
+    top: 110px;
     right: 30px;
     z-index: 999;
     width:400px;
@@ -935,7 +927,7 @@ export default {
   }
   #terminal-model {
     position: fixed;
-    top: 215px;
+    top: 205px;
     right: 30px;
     z-index: 999;
     width:400px;
