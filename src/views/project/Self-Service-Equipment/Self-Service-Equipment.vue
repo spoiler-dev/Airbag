@@ -8,25 +8,22 @@
       <div id="enTitle">{{enTitle}}</div>
       <div id="line-right"></div>
       <div id="quit" @click="handleClickQuit">
-        <img src="../../../../public/three/system/quit.png" alt="">&nbsp;退出
+        <img src="../../../../public/three/system/quit.png" alt />&nbsp;退出
       </div>
     </div>
     <!-- 设备信息 -->
     <div id="terminal-info">
-      <div class="textLine">
-      </div>
+      <div class="textLine"></div>
       <div class="terminal-text">
         <span class="terminal-text-left">设备号：</span>
         <span class="terminal-text-right">{{terminalId}}</span>
       </div>
-      <div class="textLine">
-      </div>
+      <div class="textLine"></div>
       <div class="terminal-text">
         <span class="terminal-text-left">平台版本号：</span>
         <span class="terminal-text-right">{{abwoa}}</span>
       </div>
-      <div class="textLine">
-      </div>
+      <div class="textLine"></div>
     </div>
     <!-- 设备状态 -->
     <div id="terminal-state">
@@ -57,8 +54,7 @@
     </div>
     <!-- 钞箱信息 -->
     <div id="cashBox-info">
-      <div class="textLine">
-      </div>
+      <div class="textLine"></div>
       <table>
         <tr>
           <th v-for="(th, i) in thList" :key="i">{{th}}</th>
@@ -67,8 +63,7 @@
           <td v-for="(td, j) in trList[i]" :key="j">{{td}}</td>
         </tr>
       </table>
-      <div class="textLine">
-      </div>
+      <div class="textLine"></div>
     </div>
     <!-- 钞箱状态 -->
     <div id="cashBox-state">
@@ -94,9 +89,17 @@
         <div class="panel-enTitle">Model status</div>
       </div>
       <div class="terminal-model-all">
-        <div v-for="model in modelList" :key="model.name" :class="model.status ? 'terminal-model-box box-normal' : 'terminal-model-box box-error'" >
-          <div :class="model.status ? 'terminal-model-box-text text-normal' : 'terminal-model-box-text text-error'">{{model.name}}</div>
-          <div :class="model.status ? `terminal-model-box-icon icon-normal ${model.model}` : `terminal-model-box-icon icon-error ${model.model}Error`"></div>
+        <div
+          v-for="model in modelList"
+          :key="model.name"
+          :class="model.status ? 'terminal-model-box box-normal' : 'terminal-model-box box-error'"
+        >
+          <div
+            :class="model.status ? 'terminal-model-box-text text-normal' : 'terminal-model-box-text text-error'"
+          >{{model.name}}</div>
+          <div
+            :class="model.status ? `terminal-model-box-icon icon-normal ${model.model}` : `terminal-model-box-icon icon-error ${model.model}Error`"
+          ></div>
         </div>
       </div>
     </div>
@@ -112,10 +115,10 @@
         <div id="draw"></div>
         <div id="loading">模型加载中...</div>
       </div>
-    <!-- 底座 -->
-    <div id="base"></div>
-    <div id="rightBtn" @click="rightBtn"></div>
-    <div id="leftBtn" @click="leftBtn"></div>
+      <!-- 底座 -->
+      <div id="base"></div>
+      <div id="rightBtn" @click="rightBtn"></div>
+      <div id="leftBtn" @click="leftBtn"></div>
     </div>
   </div>
 </template>
@@ -124,7 +127,7 @@
 export default {
   name: 'Self-Service-Equipment',
   props: [''],
-  data () {
+  data() {
     return {
       chTitle: '自助设备监控管理系统',
       enTitle: 'Self-Service Equipment Monitoring Management System',
@@ -153,15 +156,15 @@ export default {
       closeGateFlag: false,
       openGateFlag: false,
       checkList: ['自动旋转'],
-      options: ['自动旋转', '打开柜门', '检查出入钞闸门', '打开安全门', '检查机芯','检查钞箱'],
+      options: ['自动旋转', '打开柜门', '检查出入钞闸门', '打开安全门', '检查机芯', '检查钞箱'],
       modelList: [
-        {name: '读卡器', status: true, model: 'idc'},
-        {name: '密码键盘', status: true, model: 'pin'},
-        {name: '凭条打印机', status: false, model: 'prr'},
-        {name: '非接读卡器', status: true, model: 'icc'},
-        {name: '取款模块', status: true, model: 'movement'},
-        {name: '存款模块', status: true, model: 'movement'},
-        {name: '摄像头', status: true, model: 'cam'},
+        { name: '读卡器', status: true, model: 'idc' },
+        { name: '密码键盘', status: true, model: 'pin' },
+        { name: '凭条打印机', status: false, model: 'prr' },
+        { name: '非接读卡器', status: true, model: 'icc' },
+        { name: '取款模块', status: true, model: 'movement' },
+        { name: '存款模块', status: true, model: 'movement' },
+        { name: '摄像头', status: true, model: 'cam' },
       ],
       thList: ['序号', '钞箱类型', '面额', '状态', '初始数', '剩余数'],
       trList: [['0', '回收/拒绝', '-', '正常', '0', '0'], ['1', '循环', '100', '正常', '100', '90'], ['2', '循环', '100', '正常', '100', '100'], ['3', '循环', '100', '正常', '100', '100'], ['4', '循环', '100', '正常', '100', '100']],
@@ -172,7 +175,7 @@ export default {
 
   computed: {},
 
-  beforeMount () {
+  beforeMount() {
     console.log(
       [
         '    __     __',
@@ -187,7 +190,7 @@ export default {
     )
   },
 
-  mounted () {
+  mounted() {
     this.width = document.getElementById('view').offsetWidth
     this.height = document.getElementById('view').offsetHeight
     this.checkSupport()
@@ -200,7 +203,7 @@ export default {
   },
 
   methods: {
-    handleCheckedChange (val) {
+    handleCheckedChange(val) {
       this.gui = {
         自动旋转: false,
         打开柜门: false,
@@ -215,7 +218,7 @@ export default {
       }
     },
     // WebGL兼容性检查
-    checkSupport () {
+    checkSupport() {
       if (THREE.WEBGL.isWebGLAvailable()) {
         // Initiate function or other initializations here
         this.init()
@@ -225,7 +228,7 @@ export default {
       }
     },
     // 初始化
-    init () {
+    init() {
       this.initGui()
       this.initRender()
       this.initScene()
@@ -238,7 +241,7 @@ export default {
       this.onWindowResize()
     },
     // 初始化 dat.GUI 简化试验流程
-    initGui () {
+    initGui() {
       let _this = this
       // 声明一个保存需求修改的相关数据的对象
       this.gui = {
@@ -260,7 +263,7 @@ export default {
       // this.datGui.close()
     },
     // 初始化渲染器
-    initRender () {
+    initRender() {
       // 新建一个渲染器, 渲染器用来输出最终结果
       this.renderer = new THREE.WebGLRenderer(
         {
@@ -288,25 +291,25 @@ export default {
       document.getElementById('draw').appendChild(this.renderer.domElement)
     },
     // 初始化场景
-    initScene () {
+    initScene() {
       // 建造场景
       this.scene = new THREE.Scene()
       // this.scene.position.z = 120
     },
     // 初始化摄像机
-    initCamera () {
+    initCamera() {
       // 可视角度，显示口的宽高比，近裁剪面，远裁剪面
       this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 0.1, 3000)
       this.camera.position.set(0, -0.4, 4.8)
       this.camera.lookAt(new THREE.Vector3(0, 0, 0))
     },
     // 初始化光线
-    initLight () {
+    initLight() {
       // 环境光
       this.light = new THREE.AmbientLight(0xFFFFFF, 1)
       this.scene.add(this.light)
       // 平行光
-      let directionalLight1= new THREE.DirectionalLight(0xFFFFFF, 1)
+      let directionalLight1 = new THREE.DirectionalLight(0xFFFFFF, 1)
       //开启灯光投射阴影
       directionalLight1.position.set(0, 0.7, 5)
       directionalLight1.target.position.set(0, 0, 0)
@@ -361,7 +364,7 @@ export default {
       // this.scene.add(pointLight3)
     },
     // 初始化模型
-    initModel () {
+    initModel() {
       // 辅助工具
       // this.axesHelper = new THREE.AxesHelper(5)
       // this.scene.add(this.axesHelper)
@@ -392,12 +395,12 @@ export default {
         _this.scene.add(obj.scene)
         document.getElementById('loading').style.display = 'none'
       },
-      function (xhr) {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded')
-      },
-      function (error) {
-        console.log('load error!'+error.getWebGLErrorMessage())
-      })
+        function (xhr) {
+          console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+        },
+        function (error) {
+          console.log('load error!' + error.getWebGLErrorMessage())
+        })
       let cubeGeometry = new THREE.CubeGeometry(0.05, 0.05, 0.05)
       let cubeMaterial = new THREE.MeshLambertMaterial(
         {
@@ -409,7 +412,7 @@ export default {
       // this.scene.add(cube)
     },
     // 初始化控制器
-    initControls () {
+    initControls() {
       this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement)
       // 使动画循环使用时阻尼或自转 意思是否有惯性
       this.controls.enableDamping = true
@@ -429,7 +432,7 @@ export default {
       this.controls.enablePan = false
     },
     // 初始化性能插件
-    initStats () {
+    initStats() {
       this.stats = new Stats()
       //设置统计模式
       this.stats.setMode(1); // 0: fps, 1: ms
@@ -439,7 +442,7 @@ export default {
       this.stats.dom.setAttribute('id', 'stats')
       document.getElementById('draw').appendChild(this.stats.dom)
     },
-    render () {
+    render() {
       // 自动旋转
       if (!this.gui.自动旋转) {
         this.controls.autoRotate = false
@@ -510,7 +513,7 @@ export default {
       }
       this.renderer.render(this.scene, this.camera)
     },
-    animate () {
+    animate() {
       requestAnimationFrame(this.animate)
       // 更新控制器
       this.render()
@@ -519,7 +522,7 @@ export default {
       this.controls.update()
     },
     // 窗口变动触发的函数
-    onWindowResize () {
+    onWindowResize() {
       this.width = document.getElementById('view').offsetWidth
       this.height = document.getElementById('view').offsetHeight
       this.camera.aspect = this.width / this.height
@@ -528,7 +531,7 @@ export default {
     },
     /** ================ 动画 ================ **/
     // 打开上位置门
-    openDoor () {
+    openDoor() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'door')
       this.scene.children[index1].children[index2].position.set(-0.51, 0.61, -0.6)
@@ -540,20 +543,20 @@ export default {
       this.closeDoorFlag = false
     },
     // 拉出上面板
-    pullOutPack () {
+    pullOutPack() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'pack')
       this.scene.children[index1].children[index2].translateZ(-0.6)
     },
     // 凭条打印机
-    pullOutPrrB () {
+    pullOutPrrB() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'prrB')
       this.scene.children[index1].children[index2].translateZ(-0.6)
       this.prrError()
     },
     // 凭条打印机故障
-    prrError () {
+    prrError() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'prrB')
       let index3 = this.finder(this.scene.children[index1].children, 'prrF')
@@ -561,13 +564,13 @@ export default {
       this.scene.children[index1].children[index3].material.color.set(0xff0000)
     },
     // 读卡器
-    pullOutIdcB () {
+    pullOutIdcB() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'idcB')
       this.scene.children[index1].children[index2].translateZ(-0.6)
     },
     // 关闭上位置门
-    closeDoor () {
+    closeDoor() {
       this.pushIntoPack()
       this.pushIntoPrrB()
       this.pushIntoIdcB()
@@ -579,25 +582,25 @@ export default {
       this.closeDoorFlag = true
     },
     // 推入上面板
-    pushIntoPack () {
+    pushIntoPack() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'pack')
       this.scene.children[index1].children[index2].translateZ(0.6)
     },
     // 凭条打印机
-    pushIntoPrrB () {
+    pushIntoPrrB() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'prrB')
       this.scene.children[index1].children[index2].translateZ(0.6)
     },
     // 读卡器
-    pushIntoIdcB () {
+    pushIntoIdcB() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'idcB')
       this.scene.children[index1].children[index2].translateZ(0.6)
     },
     // 打开安全门
-    openSafeDoor () {
+    openSafeDoor() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'safeDoor')
       this.scene.children[index1].children[index2].position.set(-0.5, -0.305, -0.58)
@@ -606,7 +609,7 @@ export default {
       this.closeSafeDoorFlag = false
     },
     // 拉出机芯
-    pullOutMovement () {
+    pullOutMovement() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'movement')
       this.scene.children[index1].children[index2].translateZ(-0.7)
@@ -614,21 +617,21 @@ export default {
       this.pushIntoMovementFlag = false
     },
     // 拉出钞箱
-    pullOutCashBox () {
+    pullOutCashBox() {
       let _this = this
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'cashBox')
       this.scene.children[index1].children[index2].translateZ(-0.7)
       let l = this.cashBoxNum
-      for (let i = 0; i < l ; i ++) {
-        index2 = _this.finder(_this.scene.children[index1].children, `cashBox0${ i + 1 }`)
+      for (let i = 0; i < l; i++) {
+        index2 = _this.finder(_this.scene.children[index1].children, `cashBox0${i + 1}`)
         _this.scene.children[index1].children[index2].translateZ(-0.7)
       }
       this.pullOutCashBoxFlag = true
       this.pushIntoCashBoxFlag = false
     },
     // 关闭安全门
-    closeSafeDoor () {
+    closeSafeDoor() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'safeDoor')
       this.scene.children[index1].children[index2].position.set(0.010121287778019905, -0.2978687286376953, -0.6150507926940918)
@@ -637,7 +640,7 @@ export default {
       this.closeSafeDoorFlag = true
     },
     // 推入机芯
-    pushIntoMovement () {
+    pushIntoMovement() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'movement')
       this.scene.children[index1].children[index2].translateZ(0.7)
@@ -645,21 +648,21 @@ export default {
       this.pushIntoMovementFlag = true
     },
     // 推入钞箱
-    pushIntoCashBox () {
+    pushIntoCashBox() {
       let _this = this
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'cashBox')
       this.scene.children[index1].children[index2].translateZ(0.7)
       let l = this.cashBoxNum
-      for (let i = 0; i < l ; i ++) {
-        index2 = _this.finder(_this.scene.children[index1].children, `cashBox0${ i + 1 }`)
+      for (let i = 0; i < l; i++) {
+        index2 = _this.finder(_this.scene.children[index1].children, `cashBox0${i + 1}`)
         _this.scene.children[index1].children[index2].translateZ(0.7)
       }
       this.pullOutCashBoxFlag = false
       this.pushIntoCashBoxFlag = true
     },
     // 打开出入钞闸门
-    openGate () {
+    openGate() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'gate')
       this.scene.children[index1].children[index2].translateZ(-0.2)
@@ -667,7 +670,7 @@ export default {
       this.closeGateFlag = false
     },
     // 关闭出入钞闸门
-    closeGate () {
+    closeGate() {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'gate')
       this.scene.children[index1].children[index2].translateZ(0.2)
@@ -676,54 +679,54 @@ export default {
     },
     /** ================ Utils ================ **/
     // 访达
-    finder (array, thisValue) {
+    finder(array, thisValue) {
       return array.findIndex(arr => arr.name === thisValue)
     },
-    setColor (array, c) {
-      array[0].material = new THREE.MeshBasicMaterial({color: c})
-      array[2].material = new THREE.MeshBasicMaterial({color: c})
-      array[1].material = new THREE.MeshBasicMaterial({color: c})
+    setColor(array, c) {
+      array[0].material = new THREE.MeshBasicMaterial({ color: c })
+      array[2].material = new THREE.MeshBasicMaterial({ color: c })
+      array[1].material = new THREE.MeshBasicMaterial({ color: c })
 
       // array.forEach((v, i)=>{
       //   v.material = new THREE.MeshBasicMaterial({color: c})
       // })
     },
-    leftBtn () {
+    leftBtn() {
       let flag1 = window.getComputedStyle(document.getElementById('terminal-model'), null)
-      if ( flag1.display == 'none') {
+      if (flag1.display == 'none') {
         document.getElementById('terminal-model').style.display = 'block'
       } else {
         document.getElementById('terminal-model').style.display = 'none'
       }
       let flag2 = window.getComputedStyle(document.getElementById('cashBox-state'), null)
-      if ( flag2.display == 'none') {
+      if (flag2.display == 'none') {
         document.getElementById('cashBox-state').style.display = 'flex'
       } else {
         document.getElementById('cashBox-state').style.display = 'none'
       }
     },
-    rightBtn () {
+    rightBtn() {
       let flag1 = window.getComputedStyle(document.getElementById('terminal-info'), null)
-      if ( flag1.display == 'none') {
+      if (flag1.display == 'none') {
         document.getElementById('terminal-info').style.display = 'block'
       } else {
         document.getElementById('terminal-info').style.display = 'none'
       }
       let flag2 = window.getComputedStyle(document.getElementById('terminal-state'), null)
-      if ( flag2.display == 'none') {
+      if (flag2.display == 'none') {
         document.getElementById('terminal-state').style.display = 'block'
       } else {
         document.getElementById('terminal-state').style.display = 'none'
       }
       let flag3 = window.getComputedStyle(document.getElementById('cashBox-info'), null)
-      if ( flag3.display == 'none') {
+      if (flag3.display == 'none') {
         document.getElementById('cashBox-info').style.display = 'block'
       } else {
         document.getElementById('cashBox-info').style.display = 'none'
       }
     },
     // 退出
-    handleClickQuit () {
+    handleClickQuit() {
       this.$router.push({
         name: 'works'
       })
@@ -732,524 +735,553 @@ export default {
 
   watch: {},
 
-  destroyed () {
+  destroyed() {
     window.onresize = null
   }
 }
 </script>
 
 <style lang='scss' scoped>
-  #header {
-    width: 98%;
-    margin: 0 auto;
+#header {
+  width: 98%;
+  margin: 0 auto;
+  position: fixed;
+  top: 10px;
+  left: 1%;
+  z-index: 999;
+  #header-left {
+    width: 30%;
+    float: left;
+    text-align: right;
+    background: url("../../../../public/three/system/leftHeader.png") no-repeat
+      right;
+    height: 60px;
+  }
+  #header-right {
+    width: 30%;
+    float: right;
+    text-align: left;
+    background: url("../../../../public/three/system/rightHeader.png") no-repeat
+      left;
+    height: 60px;
+  }
+  #chTitle {
+    float: left;
+    width: 40%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgba(28, 239, 233, 1);
+    letter-spacing: 1px;
+  }
+  #line-left {
+    margin-top: 8px;
+    width: 33%;
+    float: left;
+    clear: both;
+    background: url("../../../../public/three/system/leftLine.png") no-repeat
+      right;
+    height: 20px;
+  }
+  #enTitle {
+    width: 34%;
+    text-align: center;
+    font-size: 16px;
+    font-family: Franklin Gothic Demi;
+    font-weight: 400;
+    color: rgba(0, 255, 255, 1);
+    float: left;
+  }
+  #line-right {
+    margin-top: 8px;
+    width: 33%;
+    float: right;
+    background: url("../../../../public/three/system/rightLine.png") no-repeat
+      left;
+    height: 20px;
+  }
+  #quit {
     position: fixed;
-    top: 10px;
-    left: 1%;
-    z-index: 999;
+    top: 23px;
+    right: 10px;
+    width: 120px;
+    height: 40px;
+    background: rgba(0, 30, 36, 0.3);
+    border: 1px solid rgba(0, 255, 255, 1);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 255, 255, 1);
+    line-height: 40px;
+  }
+}
+#terminal-info {
+  position: fixed;
+  top: 110px;
+  left: 1%;
+  z-index: 999;
+  width: 400px;
+  background: rgba(0, 30, 36, 0.3);
+  .terminal-text {
+    text-align: center;
+    .terminal-text-left {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(0, 255, 255, 1);
+    }
+    .terminal-text-right {
+      font-size: 20px;
+      font-family: Agency FB;
+      font-weight: bold;
+      color: rgba(0, 255, 255, 1);
+    }
+  }
+}
+#terminal-state {
+  position: fixed;
+  top: 230px;
+  left: 1%;
+  z-index: 999;
+  width: 400px;
+  background: rgba(0, 30, 36, 0.3);
+  .terminal-state-all {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px 0 10px;
+    .terminal-state-box {
+      width: 100px;
+      height: 100px;
+      background: url("../../../../public/three/system/frame1.png") no-repeat
+        center;
+      opacity: 0.4;
+      .terminal-state-box-border {
+        margin: 10px;
+        width: 80%;
+        height: 80px;
+        background: rgba(3, 9, 30, 1);
+        border: 1px solid rgba(0, 255, 255, 1);
+        .terminal-state-box-icon {
+          width: 100%;
+          height: 22px;
+          margin: 16px 0 8px 0;
+        }
+        .icon1 {
+          background: url("../../../../public/three/system/transaction.png")
+            no-repeat center;
+        }
+        .icon2 {
+          background: url("../../../../public/three/system/freetime.png")
+            no-repeat center;
+        }
+        .icon3 {
+          background: url("../../../../public/three/system/suspend.png")
+            no-repeat center;
+        }
+        .terminal-state-box-text {
+          text-align: center;
+          width: 100%;
+          height: 14px;
+          font-size: 14px;
+          font-weight: bold;
+          color: rgba(0, 255, 255, 1);
+        }
+      }
+    }
+    .active {
+      opacity: 1 !important;
+    }
+  }
+}
+#cashBox-info {
+  position: fixed;
+  top: 430px;
+  left: 1%;
+  z-index: 999;
+  width: 400px;
+  height: 220px;
+  background: rgba(0, 30, 36, 0.3);
+  table {
+    width: 100%;
+    text-align: center;
+    tr {
+      th {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        height: 46px;
+        line-height: 46px;
+      }
+      td {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(0, 255, 255, 1);
+      }
+    }
+  }
+}
+#cashBox-state {
+  position: fixed;
+  top: 110px;
+  right: 1%;
+  z-index: 999;
+  width: 400px;
+  height: 80px;
+  background: rgba(0, 30, 36, 0.3);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  .cashBox-box {
+    width: 150px;
+    height: 60px;
+    background: rgba(11, 117, 149, 0);
+    border: 1px solid rgba(0, 255, 255, 1);
+    .cashBox-title {
+      padding-left: 10px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(0, 255, 255, 1);
+    }
+    .cashBox-text {
+      width: 148px;
+      height: 40px;
+      background: rgba(0, 255, 255, 0.3);
+      display: flex;
+      .cashBox-text-left {
+        width: 50%;
+        height: 100%;
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(0, 255, 255, 1);
+        text-align: center;
+        line-height: 40px;
+      }
+      .cashBox-text-right {
+        width: 50%;
+        height: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        text-align: center;
+        line-height: 40px;
+      }
+    }
+  }
+}
+#terminal-model {
+  position: fixed;
+  top: 205px;
+  right: 1%;
+  z-index: 999;
+  width: 400px;
+  background: rgba(0, 30, 36, 0.3);
+  .terminal-model-all {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px 0 10px;
+    .terminal-model-box {
+      width: 110px;
+      height: 125px;
+      background: rgba(11, 117, 149, 0);
+      border: 1px solid;
+      margin-bottom: 10px;
+      .terminal-model-box-text {
+        height: 34px;
+        line-height: 34px;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        border-bottom: 1px solid;
+      }
+      .text-normal {
+        color: rgba(0, 255, 255, 1);
+        border-color: rgba(0, 255, 255, 1);
+      }
+      .text-error {
+        color: rgba(255, 0, 37, 1);
+        border-color: rgba(255, 48, 78, 1);
+      }
+      .terminal-model-box-icon {
+        width: 94px;
+        height: 80px;
+
+        border-radius: 3px;
+        margin: 5px auto 0 auto;
+      }
+      .icon-normal {
+        background: rgba(1, 22, 35, 1);
+        border: 1px solid rgba(0, 96, 116, 1);
+      }
+      .icon-error {
+        background: rgba(55, 0, 8, 1);
+        border: 1px solid rgba(132, 0, 19, 1);
+      }
+      .idc {
+        background: url("../../../../public/three/system/idc.png") no-repeat
+          center;
+      }
+      .icc {
+        background: url("../../../../public/three/system/icc.png") no-repeat
+          center;
+      }
+      .prr {
+        background: url("../../../../public/three/system/prr.png") no-repeat
+          center;
+      }
+      .prrError {
+        background: url("../../../../public/three/system/prrError.png")
+          no-repeat center;
+      }
+      .cam {
+        background: url("../../../../public/three/system/cam.png") no-repeat
+          center;
+      }
+      .movement {
+        background: url("../../../../public/three/system/movement.png")
+          no-repeat center;
+      }
+      .pin {
+        background: url("../../../../public/three/system/pin.png") no-repeat
+          center;
+      }
+    }
+    .box-normal {
+      border-image: linear-gradient(
+          0deg,
+          rgba(0, 255, 255, 1),
+          rgba(0, 255, 255, 1),
+          rgba(0, 255, 255, 1)
+        )
+        10 10;
+    }
+    .box-error {
+      border-image: linear-gradient(
+          0deg,
+          rgba(255, 48, 78, 1),
+          rgba(255, 48, 78, 1),
+          rgba(255, 48, 78, 1)
+        )
+        10 10;
+    }
+  }
+}
+.textLine {
+  width: 100%;
+  height: 5px;
+  line-height: 5px;
+  background: url("../../../../public/three/system/textLine.png") no-repeat
+    center;
+}
+.panel-title {
+  width: 100%;
+  height: 20px;
+  .panel-chTitle {
+    width: 26%;
+    height: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    float: left;
+    text-align: center;
+  }
+  .panel-enTitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 255, 255, 1);
+    opacity: 0.5;
+    float: right;
+    width: 74%;
+    border-bottom: 2px solid rgba(0, 255, 255, 1);
+  }
+}
+#base {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  width: 350px;
+  height: 120px;
+  z-index: 999;
+  margin: auto;
+  background: url("../../../../public/three/system/base.png") no-repeat center;
+  background-size: contain;
+  transform: translate(-50%);
+}
+#options {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 105px;
+  width: 312px;
+  transform: translate(-50%);
+  background: rgba(0, 30, 36, 0.3);
+  height: 48px;
+}
+#view {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../../../../public/three/system/bg.png") no-repeat center;
+  background-size: cover;
+  #container {
+    #draw {
+      width: 800px;
+      height: 600px;
+      canvas {
+        display: block;
+      }
+    }
+    #loading {
+      position: fixed;
+      z-index: 999;
+      top: 440px;
+      height: 34px;
+      line-height: 34px;
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(0, 255, 255, 1);
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+#leftBtn {
+  display: none;
+  background: url("../../../../public/three/system/leftBtn.png") no-repeat
+    center;
+  width: 60px;
+  height: 42px;
+  position: fixed;
+  top: 50%;
+  left: 0;
+}
+#rightBtn {
+  display: none;
+  background: url("../../../../public/three/system/rightBtn.png") no-repeat
+    center;
+  width: 60px;
+  height: 42px;
+  position: fixed;
+  top: 50%;
+  right: 0;
+}
+@media screen and (max-width: 1000px) {
+  #header {
+    top: 0;
     #header-left {
-      width: 30%;
-      float: left;
-      text-align: right;
-      background: url('../../../../public/three/system/leftHeader.png') no-repeat right;
-      height: 60px;
+      width: 20%;
     }
     #header-right {
-      width: 30%;
-      float: right;
-      text-align: left;
-      background: url('../../../../public/three/system/rightHeader.png') no-repeat left;
-      height: 60px;
+      width: 20%;
     }
     #chTitle {
-      float: left;
-      width: 40%;
-      text-align: center;
-      font-size:30px;
-      font-weight:400;
-      color:rgba(28,239,233,1);
-      letter-spacing: 1px;
+      width: 60%;
+      font-size: 18px;
+      line-height: 60px;
     }
     #line-left {
-      margin-top: 8px;
-      width: 33%;
-      float: left;
-      clear: both;
-      background: url('../../../../public/three/system/leftLine.png') no-repeat right;
-      height: 20px;
-    }
-    #enTitle {
-      width: 34%;
-      text-align: center;
-      font-size:16px;
-      font-family:Franklin Gothic Demi;
-      font-weight:400;
-      color:rgba(0,255,255,1);
-      float: left;
+      width: 25%;
     }
     #line-right {
-      margin-top: 8px;
-      width: 33%;
-      float: right;
-      background: url('../../../../public/three/system/rightLine.png') no-repeat left;
-      height: 20px;
+      width: 25%;
+    }
+    #enTitle {
+      width: 50%;
+      font-size: 12px;
+      margin-top: -10px;
     }
     #quit {
       position: fixed;
-      top: 23px;
-      right: 10px;
-      width:120px;
-      height:40px;
-      background:rgba(0,30,36,0.3);
-      border:1px solid rgba(0,255,255,1);
-      border-radius:20px;
-      text-align: center;
-      font-size:16px;
-      font-weight:400;
-      color:rgba(0,255,255,1);
-      line-height: 40px;
+      bottom: 1px;
+      top: unset;
+      right: 0;
+      width: 80px;
+      height: 48px;
+      background: rgb(0, 30, 36);
+      border-radius: 0px;
+      line-height: 48px;
+      font-size: 14px;
     }
-  }
-  #terminal-info {
-    position: fixed;
-    top: 110px;
-    left: 1%;
-    z-index: 999;
-    width:400px;
-    background:rgba(0,30,36,0.3);
-    .terminal-text {
-      text-align: center;
-      .terminal-text-left {
-        font-size:16px;
-        font-weight:400;
-        color:rgba(0,255,255,1);
-      }
-      .terminal-text-right {
-        font-size:20px;
-        font-family:Agency FB;
-        font-weight:bold;
-        color:rgba(0,255,255,1);
-      }
-    }
-  }
-  #terminal-state {
-    position: fixed;
-    top: 230px;
-    left: 1%;
-    z-index: 999;
-    width:400px;
-    background:rgba(0,30,36,0.3);
-    .terminal-state-all {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin: 30px 0 10px;
-      .terminal-state-box {
-        width: 100px;
-        height: 100px;
-        background: url('../../../../public/three/system/frame1.png') no-repeat center;
-        opacity:0.4;
-        .terminal-state-box-border {
-          margin: 10px;
-          width: 80%;
-          height:80px;
-          background:rgba(3,9,30,1);
-          border:1px solid rgba(0,255,255,1);
-          .terminal-state-box-icon {
-            width: 100%;
-            height: 22px;
-            margin: 16px 0 8px 0;
-          }
-          .icon1 {
-            background: url('../../../../public/three/system/transaction.png') no-repeat center;
-          }
-          .icon2 {
-            background: url('../../../../public/three/system/freetime.png') no-repeat center;
-          }
-          .icon3 {
-            background: url('../../../../public/three/system/suspend.png') no-repeat center;
-          }
-          .terminal-state-box-text {
-            text-align: center;
-            width: 100%;
-            height:14px;
-            font-size:14px;
-            font-weight:bold;
-            color:rgba(0,255,255,1);
-          }
-        }
-      }
-      .active {
-        opacity:1 !important;
-      }
-    }
-  }
-  #cashBox-info {
-    position: fixed;
-    top: 430px;
-    left: 1%;
-    z-index: 999;
-    width:400px;
-    height: 220px;
-    background:rgba(0,30,36,0.3);
-    table {
-      width: 100%;
-      text-align: center;
-      tr {
-        th {
-          font-size:16px;
-          font-weight:400;
-          color:rgba(255,255,255,1);
-          height: 46px;
-          line-height: 46px;
-        }
-        td {
-          font-size:14px;
-          font-weight:400;
-          color:rgba(0,255,255,1);
-        }
-      }
-    }
-  }
-  #cashBox-state {
-    position: fixed;
-    top: 110px;
-    right: 1%;
-    z-index: 999;
-    width:400px;
-    height: 80px;
-    background:rgba(0,30,36,0.3);
-    display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
-    .cashBox-box {
-      width:150px;
-      height:60px;
-      background:rgba(11,117,149,0);
-      border:1px solid rgba(0,255,255,1);
-      .cashBox-title {
-        padding-left: 10px;
-        height:20px;
-        line-height: 20px;
-        font-size:16px;
-        font-weight:400;
-        color:rgba(0,255,255,1);
-      }
-      .cashBox-text {
-        width:148px;
-        height:40px;
-        background:rgba(0,255,255,0.3);
-        display: flex;
-        .cashBox-text-left {
-          width:50%;
-          height:100%;
-          font-size:20px;
-          font-weight:400;
-          color:rgba(0,255,255,1);
-          text-align: center;
-          line-height: 40px;
-        }
-        .cashBox-text-right {
-          width:50%;
-          height:100%;
-          font-size:16px;
-          font-weight:400;
-          color:rgba(255,255,255,1);
-          text-align: center;
-          line-height: 40px;
-        }
-      }
-    }
-  }
-  #terminal-model {
-    position: fixed;
-    top: 205px;
-    right: 1%;
-    z-index: 999;
-    width:400px;
-    background:rgba(0,30,36,0.3);
-    .terminal-model-all {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 100%;
-      margin: 30px 0 10px;
-      .terminal-model-box {
-        width:110px;
-        height:125px;
-        background:rgba(11,117,149,0);
-        border:1px solid;
-        margin-bottom: 10px;
-        .terminal-model-box-text {
-          height:34px;
-          line-height: 34px;
-          font-size:14px;
-          font-weight:400;
-          text-align: center;
-          border-bottom:1px solid;
-        }
-        .text-normal {
-          color:rgba(0,255,255,1);
-          border-color: rgba(0,255,255,1);
-        }
-        .text-error {
-          color:rgba(255,0,37,1);
-          border-color:rgba(255,48,78,1);
-        }
-        .terminal-model-box-icon {
-          width:94px;
-          height:80px;
-
-          border-radius:3px;
-          margin: 5px auto 0 auto;
-        }
-        .icon-normal {
-          background:rgba(1,22,35,1);
-          border:1px solid rgba(0,96,116,1);
-        }
-        .icon-error {
-          background:rgba(55,0,8,1);
-          border:1px solid rgba(132,0,19,1);
-        }
-        .idc {
-          background: url('../../../../public/three/system/idc.png') no-repeat center;
-        }
-        .icc {
-          background: url('../../../../public/three/system/icc.png') no-repeat center;
-        }
-        .prr {
-          background: url('../../../../public/three/system/prr.png') no-repeat center;
-        }
-        .prrError {
-          background: url('../../../../public/three/system/prrError.png') no-repeat center;
-        }
-        .cam {
-          background: url('../../../../public/three/system/cam.png') no-repeat center;
-        }
-        .movement {
-          background: url('../../../../public/three/system/movement.png') no-repeat center;
-        }
-        .pin {
-          background: url('../../../../public/three/system/pin.png') no-repeat center;
-        }
-      }
-      .box-normal {
-        border-image:linear-gradient(0deg, rgba(0,255,255,1), rgba(0,255,255,1), rgba(0,255,255,1)) 10 10;
-      }
-      .box-error {
-        border-image:linear-gradient(0deg, rgba(255,48,78,1), rgba(255,48,78,1), rgba(255,48,78,1)) 10 10;
-      }
-    }
-  }
-  .textLine {
-    width:100%;
-    height:5px;
-    line-height: 5px;
-    background: url('../../../../public/three/system/textLine.png') no-repeat center;
-  }
-  .panel-title {
-    width: 100%;
-    height: 20px;
-    .panel-chTitle {
-      width:26%;
-      height:20px;
-      font-size:20px;
-      font-weight:400;
-      color:rgba(255,255,255,1);
-      float: left;
-      text-align: center;
-    }
-    .panel-enTitle {
-      font-size:14px;
-      font-weight:400;
-      color:rgba(0,255,255,1);
-      opacity:0.5;
-      float: right;
-      width: 74%;
-      border-bottom:2px solid rgba(0,255,255,1);
-    }
-  }
-  #base {
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    width: 350px;
-    height: 120px;
-    z-index: 999;
-    margin: auto;
-    background: url('../../../../public/three/system/base.png') no-repeat center;
-    background-size: contain;
-    transform: translate(-50%);
   }
   #options {
-    position: fixed;
-    z-index: 1000;
-    left:50%;
-    top: 105px;
-    width: 312px;
-    transform: translate(-50%);
-    background:rgba(0,30,36,0.3);
-    height: 48px;
+    top: 108px;
   }
-  #view {
-    padding: 0;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('../../../../public/three/system/bg.png') no-repeat center;
-    background-size: cover;
-    #container {
-      #draw {
-        width: 800px;
-        height: 600px;
-        canvas {
-          display: block;
-        }
-      }
-      #loading {
-        position: fixed;
-        z-index: 999;
-        top: 440px;
-        height:34px;
-        line-height: 34px;
-        font-size:16px;
-        font-weight:400;
-        color:rgba(0,255,255,1);
-        text-align: center;
-        width: 100%;
-      }
-    }
+  #terminal-info {
+    display: none;
+    width: 340px;
+    background: rgb(0, 30, 36);
+    z-index: 1100;
+  }
+  #terminal-state {
+    display: none;
+    width: 340px;
+    background: rgb(0, 30, 36);
+    z-index: 1100;
+  }
+  #cashBox-info {
+    display: none;
+    width: 340px;
+    background: rgb(0, 30, 36);
+    z-index: 1100;
+  }
+  #cashBox-state {
+    display: none;
+    width: 360px;
+    background: rgb(0, 30, 36);
+    z-index: 1100;
+  }
+  #terminal-model {
+    display: none;
+    width: 340px;
+    background: rgb(0, 30, 36);
   }
   #leftBtn {
-    display:none;
-    background: url('../../../../public/three/system/leftBtn.png') no-repeat center;
-    width: 60px;
-    height:42px;
-    position: fixed;
-    top:50%;
-    left: 0;
+    display: block;
   }
   #rightBtn {
-    display:none;
-    background: url('../../../../public/three/system/rightBtn.png') no-repeat center;
-    width: 60px;
-    height:42px;
-    position: fixed;
-    top:50%;
-    right: 0;
+    display: block;
   }
-  @media screen and (max-width: 1000px) {
-    #header {
-      top: 0;
-      #header-left {
-        width: 20%;
-      }
-      #header-right {
-        width: 20%;
-      }
-      #chTitle {
-        width: 60%;
-        font-size: 18px;
-        line-height: 60px;
-      }
-      #line-left {
-        width: 25%;
-      }
-      #line-right {
-        width: 25%;
-      }
-      #enTitle {
-        width: 50%;
-        font-size: 12px;
-        margin-top: -10px;
-      }
-      #quit {
-        position: fixed;
-        bottom: 1px;
-        top: unset;
-        right: 0;
-        width: 80px;
-        height: 48px;
-        background:rgb(0, 30, 36);
-        border-radius: 0px;
-        line-height: 48px;
-        font-size: 14px;
-      }
-    }
-    #options {
-      top: 108px;
-    }
-    #terminal-info {
-      display: none;
-      width: 340px;
-      background:rgb(0,30,36);
-      z-index: 1100;
-    }
-    #terminal-state {
-      display: none;
-      width: 340px;
-      background:rgb(0,30,36);
-      z-index: 1100;
-    }
-    #cashBox-info {
-      display: none;
-      width: 340px;
-      background:rgb(0,30,36);
-      z-index: 1100;
-    }
-    #cashBox-state {
-      display: none;
-      width: 360px;
-      background:rgb(0,30,36);
-      z-index: 1100;
-    }
-    #terminal-model {
-      display: none;
-      width: 340px;
-      background:rgb(0,30,36);
-    }
-    #leftBtn {
-      display:block;
-    }
-    #rightBtn {
-      display:block;
-    }
-  }
-
+}
 </style>
 
 <style scoped>
-  #options >>> .el-checkbox {
-    color:rgba(28,239,233,0.4);
-    margin-right: 10px;
-    line-height: normal;
-  }
-  #options >>> .el-checkbox__inner {
-    background-color: rgba(0,96,116,1);
-    border:1px solid rgba(0,255,255,1);
-  }
-  #options >>> .el-checkbox__input.is-checked + .el-checkbox__label {
-    color: rgba(28,239,233,1);
-  }
+#options >>> .el-checkbox {
+  color: rgba(28, 239, 233, 0.4);
+  margin-right: 10px;
+  line-height: normal;
+}
+#options >>> .el-checkbox__inner {
+  background-color: rgba(0, 96, 116, 1);
+  border: 1px solid rgba(0, 255, 255, 1);
+}
+#options >>> .el-checkbox__input.is-checked + .el-checkbox__label {
+  color: rgba(28, 239, 233, 1);
+}
 </style>
 
 <style lang="scss">
-  .dg.ac {
-    z-index: 1000;
-    left: 50%;
-    top: 0px;
-    transform: translate(-50%);
-    right: unset;
-    width: 245px;
-  }
+.dg.ac {
+  z-index: 1000;
+  left: 50%;
+  top: 0px;
+  transform: translate(-50%);
+  right: unset;
+  width: 245px;
+}
 </style>
 
 <style>
-  @media screen and (max-width: 500px) {
-    #stats {
-      left: 0 !important;
-    }
+@media screen and (max-width: 500px) {
+  #stats {
+    left: 0 !important;
   }
+}
 </style>
