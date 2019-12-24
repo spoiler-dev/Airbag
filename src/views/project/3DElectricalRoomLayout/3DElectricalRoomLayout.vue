@@ -1833,7 +1833,7 @@ export default {
 
       function draw() {
         // 兼容性判断
-        if (!Detector.webgl) Detector.addGetWebGLMessage()
+        // if (!Detector.webgl) Detector.addGetWebGLMessage()
         initScene()
         initGui()
         initCamera()
