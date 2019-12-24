@@ -1107,7 +1107,7 @@ export default {
   height: 120px;
   z-index: 999;
   margin: auto;
-  background: url("../../../../public/three/system/base.png") no-repeat center;
+  background: url("https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/eastcom/base.png") no-repeat center;
   background-size: contain;
   transform: translate(-50%);
 }
@@ -1129,7 +1129,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../../../../public/three/system/bg.png") no-repeat center;
+  background: url("https://airbag-1257360572.cos.ap-beijing.myqcloud.com/img/eastcom/bg.png") no-repeat center;
   background-size: cover;
   #container {
     #draw {
