@@ -23,7 +23,7 @@
       </div>
       <div class="terminal-text">
         <span class="terminal-text-left">平台版本号：</span>
-        <span class="terminal-text-right">ABWOA_V3.2.0.3</span>
+        <span class="terminal-text-right">{{abwoa}}</span>
       </div>
       <div class="textLine">
       </div>
@@ -132,7 +132,12 @@
         <div class="panel-enTitle">Model status</div>
       </div>
       <div class="terminal-model-all">
-        <div class="terminal-model-box">
+        <div v-for="model in modelList" :key="model.model" :class="model.status ? 'terminal-model-box box-normal' : 'terminal-model-box box-error'" >
+          <div :class="model.status ? 'terminal-model-box-text text-normal' : 'terminal-model-box-text text-error'">{{model.name}}</div>
+          <div :class="model.status ? `terminal-model-box-icon icon-normal ${model.model}` : `terminal-model-box-icon icon-error ${model.model}Error`"></div>
+        </div>
+
+        <!-- <div class="terminal-model-box">
           <div class="terminal-model-box-text">读卡器</div>
           <div class="terminal-model-box-icon idc"></div>
         </div>
@@ -142,7 +147,7 @@
         </div>
         <div class="terminal-model-box">
           <div class="terminal-model-box-text">凭条打印机</div>
-          <div class="terminal-model-box-icon prr"></div>
+          <div class="terminal-model-box-icon prrError"></div>
         </div>
         <div class="terminal-model-box">
           <div class="terminal-model-box-text">非接读卡器</div>
@@ -159,18 +164,18 @@
         <div class="terminal-model-box">
           <div class="terminal-model-box-text">摄像头</div>
           <div class="terminal-model-box-icon cam"></div>
-        </div>
+        </div> -->
       </div>
     </div>
-
+    <!-- 底座 -->
     <div id="base"></div>
-
+    <!-- 操作面板 -->
     <div id="options">
       <el-checkbox-group v-model="checkList" @change="handleCheckedChange">
         <el-checkbox v-for="option in options" :label="option" :key="option">{{option}}</el-checkbox>
       </el-checkbox-group>
     </div>
-
+    <!-- 模型 -->
     <div id="view">
       <div id="container">
         <div id="draw"></div>
@@ -189,6 +194,7 @@ export default {
     return {
       chTitle: '自助设备监控管理系统',
       enTitle: 'Self-Service Equipment Monitoring Management System',
+      abwoa: 'ABWOA_V3.2.0.3',
       three: null,
       renderer: null,
       scene: null,
@@ -211,7 +217,15 @@ export default {
       pullOutCashBoxFlag: false,
       checkList: ['自动旋转'],
       options: ['自动旋转', '检查出入钞闸门', '打开柜门', '打开安全门', '检查机芯','检查钞箱'],
-
+      modelList: [
+        {name: '读卡器', status: true, model: 'idc'},
+        {name: '密码键盘', status: true, model: 'pin'},
+        {name: '凭条打印机', status: false, model: 'prr'},
+        {name: '非接读卡器', status: true, model: 'icc'},
+        {name: '取款模块', status: true, model: 'movement'},
+        {name: '存款模块', status: true, model: 'movement'},
+        {name: '摄像头', status: true, model: 'cam'},
+      ]
     }
   },
 
@@ -947,7 +961,6 @@ export default {
         height:125px;
         background:rgba(11,117,149,0);
         border:1px solid;
-        border-image:linear-gradient(0deg, rgba(0,255,255,1), rgba(0,255,255,1), rgba(0,255,255,1)) 10 10;
         margin-bottom: 10px;
         .terminal-model-box-text {
           height:34px;
@@ -955,18 +968,31 @@ export default {
           font-size:14px;
           font-family:Microsoft YaHei;
           font-weight:400;
-          color:rgba(0,255,255,1);
           text-align: center;
           border-bottom:1px solid;
-          border-image:linear-gradient(0deg, rgba(0,255,255,1), rgba(0,255,255,1), rgba(0,255,255,1)) 10 10;
+        }
+        .text-normal {
+          color:rgba(0,255,255,1);
+          border-color: rgba(0,255,255,1);
+        }
+        .text-error {
+          color:rgba(255,0,37,1);
+          border-color:rgba(255,48,78,1);
         }
         .terminal-model-box-icon {
           width:94px;
           height:80px;
-          background:rgba(1,22,35,1);
-          border:1px solid rgba(0,96,116,1);
+
           border-radius:3px;
           margin: 5px auto 0 auto;
+        }
+        .icon-normal {
+          background:rgba(1,22,35,1);
+          border:1px solid rgba(0,96,116,1);
+        }
+        .icon-error {
+          background:rgba(55,0,8,1);
+          border:1px solid rgba(132,0,19,1);
         }
         .idc {
           background: url('../../../../public/three/system/idc.png') no-repeat center;
@@ -977,6 +1003,9 @@ export default {
         .prr {
           background: url('../../../../public/three/system/prr.png') no-repeat center;
         }
+        .prrError {
+          background: url('../../../../public/three/system/prrError.png') no-repeat center;
+        }
         .cam {
           background: url('../../../../public/three/system/cam.png') no-repeat center;
         }
@@ -986,6 +1015,12 @@ export default {
         .pin {
           background: url('../../../../public/three/system/pin.png') no-repeat center;
         }
+      }
+      .box-normal {
+        border-image:linear-gradient(0deg, rgba(0,255,255,1), rgba(0,255,255,1), rgba(0,255,255,1)) 10 10;
+      }
+      .box-error {
+        border-image:linear-gradient(0deg, rgba(255,48,78,1), rgba(255,48,78,1), rgba(255,48,78,1)) 10 10;
       }
     }
   }
