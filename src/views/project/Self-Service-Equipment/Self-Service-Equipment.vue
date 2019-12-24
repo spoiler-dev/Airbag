@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="font-family:Microsoft YaHei;">
     <div id="header">
       <div id="header-left"></div>
       <div id="chTitle">{{chTitle}}</div>
@@ -11,13 +11,13 @@
         <img src="../../../../public/three/system/quit.png" alt="">&nbsp;退出
       </div>
     </div>
-
+    <!-- 设备信息 -->
     <div id="terminal-info">
       <div class="textLine">
       </div>
       <div class="terminal-text">
         <span class="terminal-text-left">设备号：</span>
-        <span class="terminal-text-right">02031001</span>
+        <span class="terminal-text-right">{{terminalId}}</span>
       </div>
       <div class="textLine">
       </div>
@@ -28,6 +28,7 @@
       <div class="textLine">
       </div>
     </div>
+    <!-- 设备状态 -->
     <div id="terminal-state">
       <div class="panel-title">
         <div class="panel-chTitle">设备状态</div>
@@ -54,62 +55,22 @@
         </div>
       </div>
     </div>
+    <!-- 钞箱信息 -->
     <div id="cashBox-info">
       <div class="textLine">
       </div>
       <table>
         <tr>
-          <th>序号</th>
-          <th>钞箱类型</th>
-          <th>面额</th>
-          <th>状态</th>
-          <th>初始数</th>
-          <th>剩余数</th>
+          <th v-for="(th, i) in thList" :key="i">{{th}}</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>回收/拒绝</td>
-          <td>100</td>
-          <td>正常</td>
-          <td>100</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>回收/拒绝</td>
-          <td>100</td>
-          <td>正常</td>
-          <td>100</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>回收/拒绝</td>
-          <td>100</td>
-          <td>正常</td>
-          <td>100</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>回收/拒绝</td>
-          <td>100</td>
-          <td>正常</td>
-          <td>100</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>回收/拒绝</td>
-          <td>100</td>
-          <td>正常</td>
-          <td>100</td>
-          <td>100</td>
+        <tr v-for="(tr, i) in trList" :key="i">
+          <td v-for="(td, j) in trList[i]" :key="j">{{td}}</td>
         </tr>
       </table>
       <div class="textLine">
       </div>
     </div>
+    <!-- 钞箱状态 -->
     <div id="cashBox-state">
       <div class="cashBox-box">
         <div class="cashBox-title">取款功能：</div>
@@ -126,6 +87,7 @@
         </div>
       </div>
     </div>
+    <!-- 设备模块 -->
     <div id="terminal-model">
       <div class="panel-title">
         <div class="panel-chTitle">模块状态</div>
@@ -136,39 +98,8 @@
           <div :class="model.status ? 'terminal-model-box-text text-normal' : 'terminal-model-box-text text-error'">{{model.name}}</div>
           <div :class="model.status ? `terminal-model-box-icon icon-normal ${model.model}` : `terminal-model-box-icon icon-error ${model.model}Error`"></div>
         </div>
-
-        <!-- <div class="terminal-model-box">
-          <div class="terminal-model-box-text">读卡器</div>
-          <div class="terminal-model-box-icon idc"></div>
-        </div>
-        <div class="terminal-model-box">
-          <div class="terminal-model-box-text">密码键盘</div>
-          <div class="terminal-model-box-icon pin"></div>
-        </div>
-        <div class="terminal-model-box">
-          <div class="terminal-model-box-text">凭条打印机</div>
-          <div class="terminal-model-box-icon prrError"></div>
-        </div>
-        <div class="terminal-model-box">
-          <div class="terminal-model-box-text">非接读卡器</div>
-          <div class="terminal-model-box-icon icc"></div>
-        </div>
-        <div class="terminal-model-box">
-          <div class="terminal-model-box-text">取款模块</div>
-          <div class="terminal-model-box-icon movement"></div>
-        </div>
-        <div class="terminal-model-box">
-          <div class="terminal-model-box-text">存款模块</div>
-          <div class="terminal-model-box-icon movement"></div>
-        </div>
-        <div class="terminal-model-box">
-          <div class="terminal-model-box-text">摄像头</div>
-          <div class="terminal-model-box-icon cam"></div>
-        </div> -->
       </div>
     </div>
-    <!-- 底座 -->
-    <div id="base"></div>
     <!-- 操作面板 -->
     <div id="options">
       <el-checkbox-group v-model="checkList" @change="handleCheckedChange">
@@ -181,7 +112,10 @@
         <div id="draw"></div>
         <div id="loading">模型加载中...</div>
       </div>
-
+    <!-- 底座 -->
+    <div id="base"></div>
+    <div id="rightBtn" @click="rightBtn"></div>
+    <div id="leftBtn" @click="leftBtn"></div>
     </div>
   </div>
 </template>
@@ -195,6 +129,7 @@ export default {
       chTitle: '自助设备监控管理系统',
       enTitle: 'Self-Service Equipment Monitoring Management System',
       abwoa: 'ABWOA_V3.2.0.3',
+      terminalId: '02005001',
       three: null,
       renderer: null,
       scene: null,
@@ -218,7 +153,7 @@ export default {
       closeGateFlag: false,
       openGateFlag: false,
       checkList: ['自动旋转'],
-      options: ['自动旋转', '检查出入钞闸门', '打开柜门', '打开安全门', '检查机芯','检查钞箱'],
+      options: ['自动旋转', '打开柜门', '检查出入钞闸门', '打开安全门', '检查机芯','检查钞箱'],
       modelList: [
         {name: '读卡器', status: true, model: 'idc'},
         {name: '密码键盘', status: true, model: 'pin'},
@@ -227,7 +162,9 @@ export default {
         {name: '取款模块', status: true, model: 'movement'},
         {name: '存款模块', status: true, model: 'movement'},
         {name: '摄像头', status: true, model: 'cam'},
-      ]
+      ],
+      thList: ['序号', '钞箱类型', '面额', '状态', '初始数', '剩余数'],
+      trList: [['0', '回收/拒绝', '-', '正常', '0', '0'], ['1', '循环', '100', '正常', '100', '90'], ['2', '循环', '100', '正常', '100', '100'], ['3', '循环', '100', '正常', '100', '100'], ['4', '循环', '100', '正常', '100', '100']],
     }
   },
 
@@ -259,6 +196,7 @@ export default {
       // 调用methods中的事件
       _this.onWindowResize()
     }
+
   },
 
   methods: {
@@ -508,10 +446,10 @@ export default {
       } else {
         this.controls.autoRotate = true
       }
-      this.controls.enablePan = false
       // 控制出入钞闸门
       if (this.gui.检查出入钞闸门) {
         if (!this.openGateFlag) {
+          this.camera.position.set(0, 1.6, 4)
           this.openGate()
         }
       } else {
@@ -522,6 +460,7 @@ export default {
       // 控制上位置柜门
       if (this.gui.打开柜门) {
         if (!this.openDoorFlag) {
+          this.camera.position.set(1, 1.6, -5)
           this.openDoor()
         }
       } else {
@@ -532,6 +471,7 @@ export default {
       // 控制安全门
       if (this.gui.打开安全门) {
         if (!this.openSafeDoorFlag) {
+          this.camera.position.set(-1.5, 1.6, -5)
           this.openSafeDoor()
         } else {
           // 控制机芯
@@ -748,6 +688,40 @@ export default {
       //   v.material = new THREE.MeshBasicMaterial({color: c})
       // })
     },
+    leftBtn () {
+      let flag1 = window.getComputedStyle(document.getElementById('terminal-model'), null)
+      if ( flag1.display == 'none') {
+        document.getElementById('terminal-model').style.display = 'block'
+      } else {
+        document.getElementById('terminal-model').style.display = 'none'
+      }
+      let flag2 = window.getComputedStyle(document.getElementById('cashBox-state'), null)
+      if ( flag2.display == 'none') {
+        document.getElementById('cashBox-state').style.display = 'flex'
+      } else {
+        document.getElementById('cashBox-state').style.display = 'none'
+      }
+    },
+    rightBtn () {
+      let flag1 = window.getComputedStyle(document.getElementById('terminal-info'), null)
+      if ( flag1.display == 'none') {
+        document.getElementById('terminal-info').style.display = 'block'
+      } else {
+        document.getElementById('terminal-info').style.display = 'none'
+      }
+      let flag2 = window.getComputedStyle(document.getElementById('terminal-state'), null)
+      if ( flag2.display == 'none') {
+        document.getElementById('terminal-state').style.display = 'block'
+      } else {
+        document.getElementById('terminal-state').style.display = 'none'
+      }
+      let flag3 = window.getComputedStyle(document.getElementById('cashBox-info'), null)
+      if ( flag3.display == 'none') {
+        document.getElementById('cashBox-info').style.display = 'block'
+      } else {
+        document.getElementById('cashBox-info').style.display = 'none'
+      }
+    },
     // 退出
     handleClickQuit () {
       this.$router.push({
@@ -830,7 +804,6 @@ export default {
       border-radius:20px;
       text-align: center;
       font-size:16px;
-      font-family:Microsoft YaHei;
       font-weight:400;
       color:rgba(0,255,255,1);
       line-height: 40px;
@@ -847,7 +820,6 @@ export default {
       text-align: center;
       .terminal-text-left {
         font-size:16px;
-        font-family:Microsoft YaHei;
         font-weight:400;
         color:rgba(0,255,255,1);
       }
@@ -901,7 +873,6 @@ export default {
             width: 100%;
             height:14px;
             font-size:14px;
-            font-family:Microsoft YaHei;
             font-weight:bold;
             color:rgba(0,255,255,1);
           }
@@ -926,7 +897,6 @@ export default {
       tr {
         th {
           font-size:16px;
-          font-family:Microsoft YaHei;
           font-weight:400;
           color:rgba(255,255,255,1);
           height: 46px;
@@ -934,7 +904,6 @@ export default {
         }
         td {
           font-size:14px;
-          font-family:Microsoft YaHei;
           font-weight:400;
           color:rgba(0,255,255,1);
         }
@@ -962,7 +931,6 @@ export default {
         height:20px;
         line-height: 20px;
         font-size:16px;
-        font-family:Microsoft YaHei;
         font-weight:400;
         color:rgba(0,255,255,1);
       }
@@ -975,7 +943,6 @@ export default {
           width:50%;
           height:100%;
           font-size:20px;
-          font-family:Microsoft YaHei;
           font-weight:400;
           color:rgba(0,255,255,1);
           text-align: center;
@@ -985,7 +952,6 @@ export default {
           width:50%;
           height:100%;
           font-size:16px;
-          font-family:Microsoft YaHei;
           font-weight:400;
           color:rgba(255,255,255,1);
           text-align: center;
@@ -1017,7 +983,6 @@ export default {
           height:34px;
           line-height: 34px;
           font-size:14px;
-          font-family:Microsoft YaHei;
           font-weight:400;
           text-align: center;
           border-bottom:1px solid;
@@ -1088,7 +1053,6 @@ export default {
       width:26%;
       height:20px;
       font-size:20px;
-      font-family:Microsoft YaHei;
       font-weight:400;
       color:rgba(255,255,255,1);
       float: left;
@@ -1096,7 +1060,6 @@ export default {
     }
     .panel-enTitle {
       font-size:14px;
-      font-family:Microsoft YaHei;
       font-weight:400;
       color:rgba(0,255,255,1);
       opacity:0.5;
@@ -1152,12 +1115,106 @@ export default {
         height:34px;
         line-height: 34px;
         font-size:16px;
-        font-family:Microsoft YaHei;
         font-weight:400;
         color:rgba(0,255,255,1);
         text-align: center;
         width: 100%;
       }
+    }
+  }
+  #leftBtn {
+    display:none;
+    background: url('../../../../public/three/system/leftBtn.png') no-repeat center;
+    width: 60px;
+    height:42px;
+    position: fixed;
+    top:50%;
+    left: 0;
+  }
+  #rightBtn {
+    display:none;
+    background: url('../../../../public/three/system/rightBtn.png') no-repeat center;
+    width: 60px;
+    height:42px;
+    position: fixed;
+    top:50%;
+    right: 0;
+  }
+  @media screen and (max-width: 1000px) {
+    #header {
+      top: 0;
+      #header-left {
+        width: 20%;
+      }
+      #header-right {
+        width: 20%;
+      }
+      #chTitle {
+        width: 60%;
+        font-size: 18px;
+        line-height: 60px;
+      }
+      #line-left {
+        width: 25%;
+      }
+      #line-right {
+        width: 25%;
+      }
+      #enTitle {
+        width: 50%;
+        font-size: 12px;
+        margin-top: -10px;
+      }
+      #quit {
+        position: fixed;
+        bottom: 1px;
+        top: unset;
+        right: 0;
+        width: 80px;
+        height: 48px;
+        background:rgb(0, 30, 36);
+        border-radius: 0px;
+        line-height: 48px;
+        font-size: 14px;
+      }
+    }
+    #options {
+      top: 108px;
+    }
+    #terminal-info {
+      display: none;
+      width: 340px;
+      background:rgb(0,30,36);
+      z-index: 1100;
+    }
+    #terminal-state {
+      display: none;
+      width: 340px;
+      background:rgb(0,30,36);
+      z-index: 1100;
+    }
+    #cashBox-info {
+      display: none;
+      width: 340px;
+      background:rgb(0,30,36);
+      z-index: 1100;
+    }
+    #cashBox-state {
+      display: none;
+      width: 360px;
+      background:rgb(0,30,36);
+      z-index: 1100;
+    }
+    #terminal-model {
+      display: none;
+      width: 340px;
+      background:rgb(0,30,36);
+    }
+    #leftBtn {
+      display:block;
+    }
+    #rightBtn {
+      display:block;
     }
   }
 
@@ -1175,7 +1232,7 @@ export default {
   }
   #options >>> .el-checkbox__input.is-checked + .el-checkbox__label {
     color: rgba(28,239,233,1);
-}
+  }
 </style>
 
 <style lang="scss">
@@ -1187,5 +1244,12 @@ export default {
     right: unset;
     width: 245px;
   }
+</style>
 
+<style>
+  @media screen and (max-width: 500px) {
+    #stats {
+      left: 0 !important;
+    }
+  }
 </style>
