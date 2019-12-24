@@ -132,7 +132,7 @@
         <div class="panel-enTitle">Model status</div>
       </div>
       <div class="terminal-model-all">
-        <div v-for="model in modelList" :key="model.model" :class="model.status ? 'terminal-model-box box-normal' : 'terminal-model-box box-error'" >
+        <div v-for="model in modelList" :key="model.name" :class="model.status ? 'terminal-model-box box-normal' : 'terminal-model-box box-error'" >
           <div :class="model.status ? 'terminal-model-box-text text-normal' : 'terminal-model-box-text text-error'">{{model.name}}</div>
           <div :class="model.status ? `terminal-model-box-icon icon-normal ${model.model}` : `terminal-model-box-icon icon-error ${model.model}Error`"></div>
         </div>
@@ -215,6 +215,8 @@ export default {
       pullOutMovementFlag: false,
       pushIntoCashBoxFlag: false,
       pullOutCashBoxFlag: false,
+      closeGateFlag: false,
+      openGateFlag: false,
       checkList: ['自动旋转'],
       options: ['自动旋转', '检查出入钞闸门', '打开柜门', '打开安全门', '检查机芯','检查钞箱'],
       modelList: [
@@ -368,13 +370,13 @@ export default {
       // 平行光
       let directionalLight1= new THREE.DirectionalLight(0xFFFFFF, 1)
       //开启灯光投射阴影
-      directionalLight1.position.set(0, 2, 5)
+      directionalLight1.position.set(0, 0.7, 5)
       directionalLight1.target.position.set(0, 0, 0)
       directionalLight1.castShadow = true
       this.scene.add(directionalLight1)
 
       let directionalLight2 = new THREE.DirectionalLight(0xF0FFFF, 1)
-      directionalLight2.position.set(0, 0.6, -5)
+      directionalLight2.position.set(0, 0, -5)
       directionalLight2.target.position.set(0, 0, 0)
       directionalLight2.castShadow = true
       this.scene.add(directionalLight2)
@@ -391,6 +393,11 @@ export default {
       directionalLight4.castShadow = true
       this.scene.add(directionalLight4)
 
+      let directionalLight5 = new THREE.DirectionalLight(0xFFFFFF, 0.55)
+      directionalLight5.position.set(0, 1, -0.8)
+      directionalLight5.target.position.set(0, 0, 0)
+      directionalLight5.castShadow = true
+      this.scene.add(directionalLight5)
       // let directionalLight5= new THREE.DirectionalLight(0xffffff, 1)
       // directionalLight5.position.set(0, 0.85, 0.5)
       // directionalLight5.target.position.set(0, 0, 0)
@@ -403,7 +410,6 @@ export default {
       // 开启灯光投射阴影
       spotLight1.castShadow = true
       this.scene.add(spotLight1)
-
       // let spotLight2 = new THREE.SpotLight(0xFFB6C1, 1)
       // spotLight2.position.set(0, 0.76, -1)
       // // 开启灯光投射阴影
@@ -503,6 +509,16 @@ export default {
         this.controls.autoRotate = true
       }
       this.controls.enablePan = false
+      // 控制出入钞闸门
+      if (this.gui.检查出入钞闸门) {
+        if (!this.openGateFlag) {
+          this.openGate()
+        }
+      } else {
+        if (!this.closeGateFlag && this.openGateFlag) {
+          this.closeGate()
+        }
+      }
       // 控制上位置柜门
       if (this.gui.打开柜门) {
         if (!this.openDoorFlag) {
@@ -594,6 +610,15 @@ export default {
       let index1 = this.finder(this.scene.children, 'loaderSence')
       let index2 = this.finder(this.scene.children[index1].children, 'prrB')
       this.scene.children[index1].children[index2].translateZ(-0.6)
+      this.prrError()
+    },
+    // 凭条打印机故障
+    prrError () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'prrB')
+      let index3 = this.finder(this.scene.children[index1].children, 'prrF')
+      this.setColor(this.scene.children[index1].children[index2].children, 0xff0000)
+      this.scene.children[index1].children[index3].material.color.set(0xff0000)
     },
     // 读卡器
     pullOutIdcB () {
@@ -693,11 +718,37 @@ export default {
       this.pullOutCashBoxFlag = false
       this.pushIntoCashBoxFlag = true
     },
+    // 打开出入钞闸门
+    openGate () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'gate')
+      this.scene.children[index1].children[index2].translateZ(-0.2)
+      this.openGateFlag = true
+      this.closeGateFlag = false
+    },
+    // 关闭出入钞闸门
+    closeGate () {
+      let index1 = this.finder(this.scene.children, 'loaderSence')
+      let index2 = this.finder(this.scene.children[index1].children, 'gate')
+      this.scene.children[index1].children[index2].translateZ(0.2)
+      this.openGateFlag = false
+      this.closeGateFlag = true
+    },
     /** ================ Utils ================ **/
     // 访达
     finder (array, thisValue) {
       return array.findIndex(arr => arr.name === thisValue)
     },
+    setColor (array, c) {
+      array[0].material = new THREE.MeshBasicMaterial({color: c})
+      array[2].material = new THREE.MeshBasicMaterial({color: c})
+      array[1].material = new THREE.MeshBasicMaterial({color: c})
+
+      // array.forEach((v, i)=>{
+      //   v.material = new THREE.MeshBasicMaterial({color: c})
+      // })
+    },
+    // 退出
     handleClickQuit () {
       this.$router.push({
         name: 'works'
