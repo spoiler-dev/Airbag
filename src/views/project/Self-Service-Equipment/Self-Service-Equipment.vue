@@ -1,45 +1,31 @@
 <template>
-  <div>>
+  <div>
     <div id="header">
-      <div id="header-left">
-        <img src="../../../../public/three/system/leftHeader.png" alt="">
-      </div>
-      <div id="chTitle">
-        <img src="../../../../public/three/system/chTitle.png" alt="">
-      </div>
-      <div id="header-right">
-        <img src="../../../../public/three/system/rightHeader.png" alt="">
-      </div>
-      <div id="line-left">
-        <img src="../../../../public/three/system/leftLine.png" alt="">
-      </div>
-      <div id="enTitle">
-        Self Service Equipment Monitoring Management System
-      </div>
-      <div id="line-right">
-        <img src="../../../../public/three/system/rightLine.png" alt="">
-      </div>
-      <div id="quit" @click="handleClcik">
+      <div id="header-left"></div>
+      <div id="chTitle">{{chTitle}}</div>
+      <div id="header-right"></div>
+      <div id="line-left"></div>
+      <div id="enTitle">{{enTitle}}</div>
+      <div id="line-right"></div>
+      <div id="quit" @click="handleClickQuit">
         <img src="../../../../public/three/system/quit.png" alt="">&nbsp;退出
       </div>
     </div>
+
     <div id="terminal-info">
       <div class="textLine">
-        <img src="../../../../public/three/system/textLine.png" alt="">
       </div>
       <div class="terminal-text">
         <span class="terminal-text-left">设备号：</span>
         <span class="terminal-text-right">02031001</span>
       </div>
       <div class="textLine">
-        <img src="../../../../public/three/system/textLine.png" alt="">
       </div>
       <div class="terminal-text">
         <span class="terminal-text-left">平台版本号：</span>
         <span class="terminal-text-right">ABWOA_V3.2.0.3</span>
       </div>
       <div class="textLine">
-        <img src="../../../../public/three/system/textLine.png" alt="">
       </div>
     </div>
     <div id="terminal-state">
@@ -70,7 +56,6 @@
     </div>
     <div id="cashBox-info">
       <div class="textLine">
-        <img src="../../../../public/three/system/textLine.png" alt="">
       </div>
       <table>
         <tr>
@@ -123,7 +108,6 @@
         </tr>
       </table>
       <div class="textLine">
-        <img src="../../../../public/three/system/textLine.png" alt="">
       </div>
     </div>
     <div id="cashBox-state">
@@ -178,8 +162,15 @@
         </div>
       </div>
     </div>
-    <div id="base">
+
+    <div id="base"></div>
+
+    <div id="options">
+      <el-checkbox-group v-model="checkList" @change="handleCheckedChange">
+        <el-checkbox v-for="option in options" :label="option" :key="option">{{option}}</el-checkbox>
+      </el-checkbox-group>
     </div>
+
     <div id="view">
       <div id="container">
         <div id="draw"></div>
@@ -196,6 +187,8 @@ export default {
   props: [''],
   data () {
     return {
+      chTitle: '自助设备监控管理系统',
+      enTitle: 'Self-Service Equipment Monitoring Management System',
       three: null,
       renderer: null,
       scene: null,
@@ -215,7 +208,10 @@ export default {
       pushIntoMovementFlag: false,
       pullOutMovementFlag: false,
       pushIntoCashBoxFlag: false,
-      pullOutCashBoxFlag: false
+      pullOutCashBoxFlag: false,
+      checkList: ['自动旋转'],
+      options: ['自动旋转', '检查出入钞闸门', '打开柜门', '打开安全门', '检查机芯','检查钞箱'],
+
     }
   },
 
@@ -250,6 +246,20 @@ export default {
   },
 
   methods: {
+    handleCheckedChange (val) {
+      this.gui = {
+        自动旋转: false,
+        打开柜门: false,
+        打开安全门: false,
+        检查机芯: false,
+        检查钞箱: false,
+        检查出入钞闸门: false
+      }
+      let l = val.length
+      for (let i = 0; i < l; i++) {
+        this.gui[val[i]] = true
+      }
+    },
     // WebGL兼容性检查
     checkSupport () {
       if (THREE.WEBGL.isWebGLAvailable()) {
@@ -285,15 +295,15 @@ export default {
         检查钞箱: false,
         检查出入钞闸门: false
       }
-      this.datGui = new dat.GUI()
-      this.datGui.domElement.setAttribute('id', 'datGui')
-      this.datGui.add(this.gui, '自动旋转')
-      this.datGui.add(this.gui, "检查出入钞闸门")
-      this.datGui.add(this.gui, "打开柜门")
-      this.datGui.add(this.gui, "打开安全门")
-      this.datGui.add(this.gui, "检查机芯")
-      this.datGui.add(this.gui, "检查钞箱")
-      this.datGui.close()
+      // this.datGui = new dat.GUI()
+      // this.datGui.domElement.setAttribute('id', 'datGui')
+      // this.datGui.add(this.gui, '自动旋转')
+      // this.datGui.add(this.gui, "检查出入钞闸门")
+      // this.datGui.add(this.gui, "打开柜门")
+      // this.datGui.add(this.gui, "打开安全门")
+      // this.datGui.add(this.gui, "检查机芯")
+      // this.datGui.add(this.gui, "检查钞箱")
+      // this.datGui.close()
     },
     // 初始化渲染器
     initRender () {
@@ -375,7 +385,7 @@ export default {
 
       // 聚光灯
       let spotLight1 = new THREE.SpotLight(0xFFB6C1, 0.8)
-      spotLight1.position.set(0, 0.76, 0.7)
+      spotLight1.position.set(0, 0.66, 0.7)
       // 开启灯光投射阴影
       spotLight1.castShadow = true
       this.scene.add(spotLight1)
@@ -419,7 +429,7 @@ export default {
           }
         })
         console.log(obj)
-        obj.scene.position.y = -0.3
+        obj.scene.position.y = -0.4
         obj.scene.name = "loaderSence"
         _this.scene.add(obj.scene)
         document.getElementById('loading').style.display = 'none'
@@ -452,7 +462,7 @@ export default {
       // 是否自动旋转
       this.controls.autoRotate = true
       // 旋转速度
-      this.controls.autoRotateSpeed = 0.6
+      this.controls.autoRotateSpeed = 0.3
       // 设置相机距离原点的最远距离
       this.controls.minDistance = 1
       // 设置相机距离原点的最远距离
@@ -464,10 +474,10 @@ export default {
     initStats () {
       this.stats = new Stats()
       //设置统计模式
-      this.stats.setMode(0); // 0: fps, 1: ms
+      this.stats.setMode(1); // 0: fps, 1: ms
       //统计信息显示在左上角
-      this.stats.dom.style.left = '450px'
-      this.stats.dom.style.top = '130px'
+      this.stats.dom.style.left = '1%'
+      this.stats.dom.style.top = '15px'
       this.stats.dom.setAttribute('id', 'stats')
       document.getElementById('draw').appendChild(this.stats.dom)
     },
@@ -536,12 +546,6 @@ export default {
       this.render()
       // 更新性能插件
       this.stats.update()
-      // 更新相关位置
-      // light.position.y = gui.lightY
-      // sphere.position.x = gui.sphereX
-      // sphere.position.z = gui.sphereZ
-      // cube.position.x = gui.cubeX
-      // cube.position.z = gui.cubeZ
       this.controls.update()
     },
     // 窗口变动触发的函数
@@ -680,7 +684,7 @@ export default {
     finder (array, thisValue) {
       return array.findIndex(arr => arr.name === thisValue)
     },
-    handleClcik () {
+    handleClickQuit () {
       this.$router.push({
         name: 'works'
       })
@@ -697,53 +701,58 @@ export default {
 
 <style lang='scss' scoped>
   #header {
-    width: 90%;
+    width: 98%;
     margin: 0 auto;
     position: fixed;
-    top: 20px;
-    left: 5%;
+    top: 10px;
+    left: 1%;
     z-index: 999;
     #header-left {
-      width: 25%;
-      float: left;
-      text-align: right;
-    }
-    #header-right {
-      width: 25%;
-      float: right;
-      text-align: left;
-    }
-    #chTitle {
-      width: 50%;
-      float: left;
-      text-align: center;
-    }
-    #line-left {
-      margin-top: 10px;
       width: 30%;
       float: left;
-      clear: both;
-      img {
-        width: 100%;
-      }
+      text-align: right;
+      background: url('../../../../public/three/system/leftHeader.png') no-repeat right;
+      height: 60px;
     }
-    #enTitle {
-      margin-top: 10px;
+    #header-right {
+      width: 30%;
+      float: right;
+      text-align: left;
+      background: url('../../../../public/three/system/rightHeader.png') no-repeat left;
+      height: 60px;
+    }
+    #chTitle {
+      float: left;
       width: 40%;
       text-align: center;
-      font-size:18px;
+      font-size:30px;
+      font-weight:400;
+      color:rgba(28,239,233,1);
+      letter-spacing: 1px;
+    }
+    #line-left {
+      margin-top: 8px;
+      width: 33%;
+      float: left;
+      clear: both;
+      background: url('../../../../public/three/system/leftLine.png') no-repeat right;
+      height: 20px;
+    }
+    #enTitle {
+      width: 34%;
+      text-align: center;
+      font-size:16px;
       font-family:Franklin Gothic Demi;
       font-weight:400;
       color:rgba(0,255,255,1);
       float: left;
     }
     #line-right {
-      margin-top: 10px;
-      width: 30%;
+      margin-top: 8px;
+      width: 33%;
       float: right;
-      img {
-        width: 100%;
-      }
+      background: url('../../../../public/three/system/rightLine.png') no-repeat left;
+      height: 20px;
     }
     #quit {
       position: fixed;
@@ -765,7 +774,7 @@ export default {
   #terminal-info {
     position: fixed;
     top: 110px;
-    left: 30px;
+    left: 1%;
     z-index: 999;
     width:400px;
     background:rgba(0,30,36,0.3);
@@ -784,16 +793,11 @@ export default {
         color:rgba(0,255,255,1);
       }
     }
-    .textLine {
-      width:100%;
-      height:5px;
-      line-height: 5px;
-    }
   }
   #terminal-state {
     position: fixed;
     top: 230px;
-    left: 30px;
+    left: 1%;
     z-index: 999;
     width:400px;
     background:rgba(0,30,36,0.3);
@@ -809,7 +813,7 @@ export default {
         opacity:0.4;
         .terminal-state-box-border {
           margin: 10px;
-          width:80px;
+          width: 80%;
           height:80px;
           background:rgba(3,9,30,1);
           border:1px solid rgba(0,255,255,1);
@@ -846,10 +850,10 @@ export default {
   #cashBox-info {
     position: fixed;
     top: 430px;
-    left: 30px;
+    left: 1%;
     z-index: 999;
     width:400px;
-    height: 300px;
+    height: 220px;
     background:rgba(0,30,36,0.3);
     table {
       width: 100%;
@@ -875,7 +879,7 @@ export default {
   #cashBox-state {
     position: fixed;
     top: 110px;
-    right: 30px;
+    right: 1%;
     z-index: 999;
     width:400px;
     height: 80px;
@@ -928,7 +932,7 @@ export default {
   #terminal-model {
     position: fixed;
     top: 205px;
-    right: 30px;
+    right: 1%;
     z-index: 999;
     width:400px;
     background:rgba(0,30,36,0.3);
@@ -939,12 +943,12 @@ export default {
       width: 100%;
       margin: 30px 0 10px;
       .terminal-model-box {
-        width:120px;
+        width:110px;
         height:125px;
         background:rgba(11,117,149,0);
         border:1px solid;
         border-image:linear-gradient(0deg, rgba(0,255,255,1), rgba(0,255,255,1), rgba(0,255,255,1)) 10 10;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         .terminal-model-box-text {
           height:34px;
           line-height: 34px;
@@ -989,18 +993,20 @@ export default {
     width:100%;
     height:5px;
     line-height: 5px;
+    background: url('../../../../public/three/system/textLine.png') no-repeat center;
   }
   .panel-title {
     width: 100%;
     height: 20px;
     .panel-chTitle {
-      width:80px;
+      width:26%;
       height:20px;
       font-size:20px;
       font-family:Microsoft YaHei;
       font-weight:400;
       color:rgba(255,255,255,1);
       float: left;
+      text-align: center;
     }
     .panel-enTitle {
       font-size:14px;
@@ -1009,7 +1015,7 @@ export default {
       color:rgba(0,255,255,1);
       opacity:0.5;
       float: right;
-      width:311px;
+      width: 74%;
       border-bottom:2px solid rgba(0,255,255,1);
     }
   }
@@ -1017,13 +1023,23 @@ export default {
     position: fixed;
     bottom: 0px;
     left: 50%;
-    width: 300px;
+    width: 350px;
     height: 120px;
     z-index: 999;
     margin: auto;
     background: url('../../../../public/three/system/base.png') no-repeat center;
     background-size: contain;
     transform: translate(-50%);
+  }
+  #options {
+    position: fixed;
+    z-index: 1000;
+    left:50%;
+    top: 105px;
+    width: 312px;
+    transform: translate(-50%);
+    background:rgba(0,30,36,0.3);
+    height: 48px;
   }
   #view {
     padding: 0;
@@ -1061,13 +1077,29 @@ export default {
 
 </style>
 
+<style scoped>
+  #options >>> .el-checkbox {
+    color:rgba(28,239,233,0.4);
+    margin-right: 10px;
+    line-height: normal;
+  }
+  #options >>> .el-checkbox__inner {
+    background-color: rgba(0,96,116,1);
+    border:1px solid rgba(0,255,255,1);
+  }
+  #options >>> .el-checkbox__input.is-checked + .el-checkbox__label {
+    color: rgba(28,239,233,1);
+}
+</style>
+
 <style lang="scss">
   .dg.ac {
     z-index: 1000;
     left: 50%;
-    top: 120px;
+    top: 0px;
     transform: translate(-50%);
     right: unset;
+    width: 245px;
   }
 
 </style>
